@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2ioou35gy6qr"]
+
+[ext_resource type="Texture2D" uid="uid://brkjgflxxbyo4" path="res://sprites/vine proto 2.png" id="1_akvmh"]
+
+[node name="Vine" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("1_akvmh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(5, -16, -6, -16, -4.5, -12.5, -5, -6.25, -2, 0.75, -5.25, 2, -2.5, 7.25, -0.75, 12, 1.25, 13.75, 2.5, 13.75, 2.75, 6.25, 4.75, 3.5)

@@ -22,7 +22,7 @@ collision_mask = 3
 
 [node name="ceiling" parent="." instance=ExtResource("3_r477m")]
 z_index = 1
-position = Vector2(129, -1237)
+position = Vector2(127, -1275)
 scale = Vector2(2, 2)
 
 [node name="Echo" parent="." instance=ExtResource("4_n4rl8")]
