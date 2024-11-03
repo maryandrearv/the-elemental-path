@@ -3,6 +3,7 @@ extends Node2D
 
 # preload obstacle scenes
 var rock_scene = preload("res://scenes/rock.tscn")
+var vine_scene = preload("res://scenes/vine.tscn")
 #var obstacle_types := [rock_scene,rock_scene,rock_scene]
 #var obstacles : Array = []
 # Obstacle Variables
@@ -15,6 +16,7 @@ const ECHO_START_POS := Vector2(150, 485)
 const CAM_START_POS := Vector2(576, 324)
 var screen_size : Vector2
 var ground_height : int
+var ceiling_height : int
 var game_running : bool
 
 #obstacle detection vars
@@ -37,6 +39,7 @@ var push_distance: float = 800.0
 func _ready() -> void:
 	screen_size = get_window().size
 	ground_height = $Ground.get_node("Sprite2D").texture.get_height()
+	ceiling_height = $ceiling.get_node("Sprite2D").texture.get_height()
 	$GameOver.get_node("Button").pressed.connect(new_game)
 	new_game()
 	
@@ -129,22 +132,37 @@ func game_over():
 func generate_obs():
 	# Ensure to generate rocks at appropriate intervals
 	if last_obs == null or last_obs.position.x < score + randi_range(300, 500):
-		var obs = rock_scene.instantiate()
-		var obs_height = obs.get_node("Sprite2D").texture.get_height()
-		var obs_scale = obs.get_node("Sprite2D").scale
+		var obstacle_type = randi_range(0, 1)
+		
+		var obs
+		var obs_x : int = $Camera2D.position.x + screen_size.x + randi_range(200, 400)
+		
+		if obstacle_type == 0: #Rock
+			obs = rock_scene.instantiate()
+			var obs_height = obs.get_node("Sprite2D").texture.get_height()
+			var obs_scale = obs.get_node("Sprite2D").scale
+			var obs_y : int = screen_size.y - ground_height - obs_height
+			
+			#Set up rock obstacle
+			add_obs(obs, obs_x, obs_y)
+			
+			#Add top rock to array if it has one
+			var top_rock = obs.get_node("TopRock")  # Assuming your top rock is named "TopRock"
+			if top_rock:
+				top_rocks.append(top_rock)
+		
+		elif obstacle_type == 1:
+			obs = vine_scene.instantiate()
+			var obs_height = obs.get_node("Sprite2D").texture.get_height()
+			var obs_y : int = ceiling_height #position near ceiling
+			
+			add_obs(obs, obs_x, obs_y)
 		
 		# Set the position of the rock
-		var obs_x : int = $Camera2D.position.x + screen_size.x + randi_range(200, 400)
-		var obs_y : int = screen_size.y - ground_height - obs_height
-		
-		add_obs(obs, obs_x, obs_y)
-		
-		#top rock into array
-		var top_rock = obs.get_node("TopRock")  # Assuming your top rock is named "TopRock"
-		top_rocks.append(top_rock)
 		
 		# Update last_obs to track the last generated rock
 		last_obs = obs
+		
 
 func add_obs(obs, x, y):
 		obs.position = Vector2(x, y)
