@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqvallgj5qt6d"]
+
+[ext_resource type="Texture2D" uid="uid://b4lobrldxa3ru" path="res://sprites/fire_blast.png" id="1_nmg40"]
+
+[node name="Fireball" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("1_nmg40")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(3, -4, -3.75, -4, -6.75, -3, -9, -2, -13, 2, -13, 4, -12, 6, -11, 6.75, -3.25, 6, -2.75, 7, 4, 7, 6, 4.75, 6, -0.75)

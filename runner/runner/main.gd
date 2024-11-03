@@ -4,6 +4,7 @@ extends Node2D
 # preload obstacle scenes
 var rock_scene = preload("res://scenes/rock.tscn")
 var vine_scene = preload("res://scenes/vine.tscn")
+var fireball_scene = preload("res://scenes/fireball.tscn")
 #var obstacle_types := [rock_scene,rock_scene,rock_scene]
 #var obstacles : Array = []
 # Obstacle Variables
@@ -108,6 +109,10 @@ func _process(delta):
 		knock_over_rock()
 		# Debug: Print positions of the player and the boulder
 		print("Player Position:", player_position.global_position)
+	
+	#Fireball shoot
+	if Input.is_action_just_pressed("fire"):
+		shoot_fireball()
 	game_over()
 
 # game over function that pauses game, shows scores, and allows you to restart
@@ -151,7 +156,7 @@ func generate_obs():
 			if top_rock:
 				top_rocks.append(top_rock)
 		
-		elif obstacle_type == 1:
+		elif obstacle_type == 1: #Vine
 			obs = vine_scene.instantiate()
 			var obs_height = obs.get_node("Sprite2D").texture.get_height()
 			var obs_y : int = ceiling_height #position near ceiling
@@ -214,3 +219,8 @@ func knock_over_rock():
 	else:
 		print("No nearby rock to knock over.")
 		
+
+func shoot_fireball():
+	var fire_blast = fireball_scene.instantiate()
+	fire_blast.position = position + Vector2(50, 0)
+	get_tree().current_scene.add_child(fire_blast)
