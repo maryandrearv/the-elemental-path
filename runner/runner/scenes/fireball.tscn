@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqvallgj5qt6d"]
+[gd_scene load_steps=3 format=3 uid="uid://bqvallgj5qt6d"]
 
+[ext_resource type="Script" path="res://scenes/fireball.gd" id="1_263ug"]
 [ext_resource type="Texture2D" uid="uid://b4lobrldxa3ru" path="res://sprites/fire_blast.png" id="1_nmg40"]
 
 [node name="Fireball" type="Area2D"]
+script = ExtResource("1_263ug")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

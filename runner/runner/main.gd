@@ -20,6 +20,11 @@ var ground_height : int
 var ceiling_height : int
 var game_running : bool
 
+#fireball components
+const FIREBALL_SPEED = 1000
+@onready var fireball : Node2D = $FireballHolderNode
+@onready var vine : Node2D = $VineHolderNode
+
 #obstacle detection vars
 @onready var player_position: Node2D = $Echo
 @onready var top_rock : RigidBody2D
@@ -220,7 +225,27 @@ func knock_over_rock():
 		print("No nearby rock to knock over.")
 		
 
-func shoot_fireball():
+func shoot_fireball() -> void:
+	print("Firing fireball")
 	var fire_blast = fireball_scene.instantiate()
-	fire_blast.position = position + Vector2(50, 0)
-	get_tree().current_scene.add_child(fire_blast)
+	
+	#Add fireball as child
+	add_child(fire_blast)
+	
+	#Fireball ahead of player/Echo
+	fire_blast.position = $Echo.position + Vector2(50, 0)
+	
+	#Set fireball to move forward
+	fire_blast.velocity = Vector2(FIREBALL_SPEED, 0)
+	
+	#Connect the collision signal and bind fireball to remove
+	fire_blast.connect("body_entered", Callable(self, "fireball_hit").bind(fire_blast))
+	
+func fireball_hit(hit_node: Node, fireball: Node) -> void:
+	print("fireball collided with:", hit_node.name)
+	
+	if hit_node is StaticBody2D and hit_node.name == "vine":
+		print("fireball hit vine")
+		
+		hit_node.call("on_hit")
+		fireball.queue_free()

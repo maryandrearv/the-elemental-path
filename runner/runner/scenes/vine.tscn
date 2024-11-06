@@ -1,16 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2ioou35gy6qr"]
+[gd_scene load_steps=3 format=3 uid="uid://c2ioou35gy6qr"]
 
 [ext_resource type="Texture2D" uid="uid://brkjgflxxbyo4" path="res://sprites/vine proto 2.png" id="1_akvmh"]
+[ext_resource type="Script" path="res://scenes/vine.gd" id="1_occcl"]
 
 [node name="Vine" type="StaticBody2D"]
+script = ExtResource("1_occcl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-6.08, 197.322)
-scale = Vector2(12.37, 12.37)
+position = Vector2(-6.08, 272.701)
+scale = Vector2(12.37, 17.0812)
 texture = ExtResource("1_akvmh")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(-6.08, 197.322)
-scale = Vector2(12.37, 12.37)
+position = Vector2(-8, 282.703)
+scale = Vector2(12.37, 17.4773)
 polygon = PackedVector2Array(5, -16, -6, -16, -4.5, -12.5, -5, -6.25, -2, 0.75, -5.25, 2, -2.5, 7.25, -0.75, 12, 1.25, 13.75, 2.5, 13.75, 2.75, 6.25, 4.75, 3.5)
