@@ -4,7 +4,6 @@ extends CharacterBody2D
 @onready var echo_sprite: AnimatedSprite2D = $Echo
 @onready var earth_animation: AnimatedSprite2D = $Earth
 @onready var fire_animation: AnimatedSprite2D = $Fire
-@onready var main_game_script = get_node("/root/MainScene")
 const ANIMATION_DURATION: float = 1.0 
 
 const GRAVITY : int = 4200

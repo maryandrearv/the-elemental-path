@@ -1,4 +1,4 @@
-extends Area2D
+extends StaticBody2D
 
 var is_destroyed : bool = false
 signal vine_collided
@@ -12,16 +12,9 @@ func _ready():
 func _process(delta: float) -> void:
 	pass
 
-
 func destroy_vine():
 	if not is_destroyed:
 		is_destroyed = true
 		#Remove Vine from scene
 		queue_free()
 		print("Vine Destroyed!")
-
-
-func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Echo":
-		emit_signal("vine_collided")
-		print("Vine collided with player")

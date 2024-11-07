@@ -1,10 +1,9 @@
 extends Area2D
 
-var slash_duration : float = 0.2
-var damage : int = 1
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	self.add_to_group("Slash")
+	connect("area_entered", Callable(self, "on_area_entered"))
 	
 	set_process(true)
 	visible = true
@@ -14,10 +13,8 @@ func _process(delta: float) -> void:
 	pass
 	
 # Detection with vine
-func _on_area_entered(area: Area2D):
+func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("vine"):
-		_vine_hit(area)
-
-func _vine_hit(vine: Area2D):
-	print("Vine hit by fire slash!")
-	vine.queue_free()
+		print("Slash hit vine")
+		area.destroy_vine()
+		queue_free()

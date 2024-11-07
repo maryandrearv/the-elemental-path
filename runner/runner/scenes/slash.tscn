@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scenes/slash.gd" id="1_d8rpe"]
 [ext_resource type="Texture2D" uid="uid://ca5f82egowum2" path="res://sprites/fire slash still.png" id="1_dlh63"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdvim"]
-size = Vector2(27.1914, 47.8533)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rujnb"]
+size = Vector2(155, 276)
 
 [node name="Slash" type="Area2D"]
 script = ExtResource("1_d8rpe")
@@ -15,7 +15,8 @@ position = Vector2(70, 65.78)
 scale = Vector2(7.445, 9.591)
 texture = ExtResource("1_dlh63")
 
-[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
-position = Vector2(62, 56.25)
-scale = Vector2(5.59, 5.59)
-shape = SubResource("RectangleShape2D_hdvim")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(65.5, 55)
+shape = SubResource("RectangleShape2D_rujnb")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

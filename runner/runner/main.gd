@@ -1,12 +1,12 @@
 extends Node2D
 
 @onready var fire_animation: AnimatedSprite2D = $Fire
-@onready var vine_area: Area2D = $Vine
+@onready var vine_area: StaticBody2D = $Vine
 
 # preload obstacle scenes
 var rock_scene = preload("res://scenes/rock.tscn")
-var vine_scene = preload("res://scenes/vine.tscn")
-var slash_scene = preload("res://scenes/slash.tscn")
+@onready var vine_scene = preload("res://scenes/vine.tscn")
+@onready var slash_scene = preload("res://scenes/slash.tscn")
 #var obstacle_types := [rock_scene,rock_scene,rock_scene]
 #var obstacles : Array = []
 # Obstacle Variables
@@ -41,7 +41,7 @@ const MAX_SPEED : int = 15
 const SPEED_MODIFIER : int = 12000
 var push_distance: float = 800.0 
 
-
+var is_stopped : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -94,7 +94,8 @@ func _process(delta):
 		# Calculates the camera and player position to match the speed
 		$Echo.position.x += speed
 		$Camera2D.position.x += speed
-		
+
+			
 		# update score
 		score += speed
 		show_score()
@@ -167,6 +168,8 @@ func generate_obs():
 		
 		elif obstacle_type == 1: #Vine
 			obs = vine_scene.instantiate()
+			obs.add_to_group("vine")
+			add_child(obs)
 			var obs_height = obs.get_node("Sprite2D").texture.get_height()
 			var obs_y : int = ceiling_height #position near ceiling
 			
@@ -180,7 +183,6 @@ func generate_obs():
 
 func add_obs(obs, x, y):
 		obs.position = Vector2(x, y)
-		obs.body_entered.connect(hit_obs)
 		add_child(obs)
 		obstacles.append(obs)
 		
@@ -266,6 +268,8 @@ func _on_slash_hit(area: Area2D) -> void:
 		obstacles.erase(area)
 
 func _on_vine_collided():
-	game_over()
-	print("Game over: Collided with vine")
+	$Echo.velocity = Vector2.ZERO
+	if $Echo.position.x <= 0:
+		game_over()
+		print("Game over: Collided with vine")
 	
