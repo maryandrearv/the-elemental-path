@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8axjr"]
 size = Vector2(13.5812, 30.8401)
 
-[node name="Vine" type="Area2D"]
+[node name="Vine" type="Area2D" groups=["vine"]]
 script = ExtResource("1_occcl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -19,3 +19,5 @@ texture = ExtResource("1_akvmh")
 position = Vector2(-2, 260.5)
 scale = Vector2(12.37, 17.4773)
 shape = SubResource("RectangleShape2D_8axjr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var fire_animation: AnimatedSprite2D = $Fire
+@onready var vine_area: Area2D = $Vine
 
 # preload obstacle scenes
 var rock_scene = preload("res://scenes/rock.tscn")
@@ -108,18 +109,19 @@ func _process(delta):
 		if Input.is_action_just_pressed("ui_accept"):
 			game_running = true
 			$HUD.get_node("StartLabel").hide()
-	
-	
+
+		
 	#knock over situation
 	if Input.is_action_just_pressed("earth"):
 		knock_over_rock()
 		# Debug: Print positions of the player and the boulder
 		print("Player Position:", player_position.global_position)
 	
-	#Fireball shoot
+	#Fire slash
 	if Input.is_action_just_pressed("fire"):
 		fire_slash()
 		
+	
 	game_over()
 
 # game over function that pauses game, shows scores, and allows you to restart
@@ -178,8 +180,18 @@ func generate_obs():
 
 func add_obs(obs, x, y):
 		obs.position = Vector2(x, y)
+		obs.body_entered.connect(hit_obs)
 		add_child(obs)
 		obstacles.append(obs)
+		
+
+func hit_obs(body):
+	if body.name == "Echo":
+		_on_vine_collided()
+		print("Collided")
+		#body.connect("vine_collided", Callable(self, "_on_vine_collided"))
+	else:
+		game_over()
 
 func is_near_rock(rock: RigidBody2D) -> bool:
 	var distance_to_rock = player_position.global_position.distance_to(rock.global_position)
@@ -245,10 +257,15 @@ func fire_slash():
 	
 	#Connect the collision signal and bind fireball to remove
 	slash_area.queue_free()
-	
+
+#Vine should dissapear when hit by fire slash
 func _on_slash_hit(area: Area2D) -> void:
 	if area.is_in_group("vine"):
 		print("Vine hit by fire slash")
 		area.queue_free()
 		obstacles.erase(area)
-		
+
+func _on_vine_collided():
+	game_over()
+	print("Game over: Collided with vine")
+	

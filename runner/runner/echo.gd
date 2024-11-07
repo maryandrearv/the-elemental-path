@@ -54,7 +54,7 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("RigidBody"):
 		body.collision_layer = 1
 		body.collision_mask = 1
-
+		
 func _on_area_2d_body_exited(body):
 		body.collision_layer = 1
 		body.collision_mask = 1
