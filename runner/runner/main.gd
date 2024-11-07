@@ -1,10 +1,11 @@
 extends Node2D
 
+@onready var fire_animation: AnimatedSprite2D = $Fire
 
 # preload obstacle scenes
 var rock_scene = preload("res://scenes/rock.tscn")
 var vine_scene = preload("res://scenes/vine.tscn")
-var fireball_scene = preload("res://scenes/fireball.tscn")
+var slash_scene = preload("res://scenes/slash.tscn")
 #var obstacle_types := [rock_scene,rock_scene,rock_scene]
 #var obstacles : Array = []
 # Obstacle Variables
@@ -20,10 +21,8 @@ var ground_height : int
 var ceiling_height : int
 var game_running : bool
 
-#fireball components
-const FIREBALL_SPEED = 1000
-@onready var fireball : Node2D = $FireballHolderNode
-@onready var vine : Node2D = $VineHolderNode
+#Fire Slash components
+const FIRESLASH_OFFSET = Vector2(100,0)
 
 #obstacle detection vars
 @onready var player_position: Node2D = $Echo
@@ -40,6 +39,8 @@ const START_SPEED : float = 8.0
 const MAX_SPEED : int = 15
 const SPEED_MODIFIER : int = 12000
 var push_distance: float = 800.0 
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -117,7 +118,8 @@ func _process(delta):
 	
 	#Fireball shoot
 	if Input.is_action_just_pressed("fire"):
-		shoot_fireball()
+		fire_slash()
+		
 	game_over()
 
 # game over function that pauses game, shows scores, and allows you to restart
@@ -141,7 +143,7 @@ func game_over():
 	
 func generate_obs():
 	# Ensure to generate rocks at appropriate intervals
-	if last_obs == null or last_obs.position.x < score + randi_range(300, 500):
+	if last_obs == null or (is_instance_valid(last_obs) and last_obs.position.x < score + randi_range(300, 500)):
 		var obstacle_type = randi_range(0, 1)
 		
 		var obs
@@ -223,29 +225,30 @@ func knock_over_rock():
 			collision_shape.position += offset  # Move the collision shape along with the top rock
 	else:
 		print("No nearby rock to knock over.")
-		
+	
 
-func shoot_fireball() -> void:
-	print("Firing fireball")
-	var fire_blast = fireball_scene.instantiate()
+func fire_slash():
+	print("Fire slash activated")
+	var slash_area = slash_scene.instantiate()
+	slash_area.position = $Echo.position + FIRESLASH_OFFSET
 	
-	#Add fireball as child
-	add_child(fire_blast)
+	add_child(slash_area)
 	
-	#Fireball ahead of player/Echo
-	fire_blast.position = $Echo.position + Vector2(50, 0)
+	#Short period visibilty for slash
+	slash_area.visible = true
+	
+	#Connect collision signal
+	slash_area.connect("area_entered", Callable(self, "_on_slash_hit"))
 	
 	#Set fireball to move forward
-	fire_blast.velocity = Vector2(FIREBALL_SPEED, 0)
+	await get_tree().create_timer(0.1).timeout
 	
 	#Connect the collision signal and bind fireball to remove
-	fire_blast.connect("body_entered", Callable(self, "fireball_hit").bind(fire_blast))
+	slash_area.queue_free()
 	
-func fireball_hit(hit_node: Node, fireball: Node) -> void:
-	print("fireball collided with:", hit_node.name)
-	
-	if hit_node is StaticBody2D and hit_node.name == "vine":
-		print("fireball hit vine")
+func _on_slash_hit(area: Area2D) -> void:
+	if area.is_in_group("vine"):
+		print("Vine hit by fire slash")
+		area.queue_free()
+		obstacles.erase(area)
 		
-		hit_node.call("on_hit")
-		fireball.queue_free()

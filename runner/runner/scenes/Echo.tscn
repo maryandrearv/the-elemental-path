@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://l5lkp5yy3b20"]
+[gd_scene load_steps=25 format=3 uid="uid://l5lkp5yy3b20"]
 
 [ext_resource type="Script" path="res://echo.gd" id="1_yj31d"]
 [ext_resource type="Texture2D" uid="uid://bnkn33uq2rc2r" path="res://sprites/EchoSpritesheet.png" id="2_qb8ms"]
+[ext_resource type="Texture2D" uid="uid://cdr430oh8005q" path="res://sprites/Fire slash sprite.png" id="3_x35eh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8o44w"]
 atlas = ExtResource("2_qb8ms")
@@ -128,6 +129,42 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1o48"]
+atlas = ExtResource("3_x35eh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfkuo"]
+atlas = ExtResource("3_x35eh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5swwm"]
+atlas = ExtResource("3_x35eh")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iykai"]
+atlas = ExtResource("3_x35eh")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f6y3w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1o48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfkuo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5swwm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iykai")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 5.0
+}]
+
 [node name="Echo" type="CharacterBody2D"]
 script = ExtResource("1_yj31d")
 
@@ -150,4 +187,14 @@ position = Vector2(81, 20)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_a8h5c")
 animation = &"earth"
-frame_progress = 0.547345
+frame = 1
+frame_progress = 0.0526812
+
+[node name="Fire" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(78, 40)
+scale = Vector2(5.25, 5.59375)
+sprite_frames = SubResource("SpriteFrames_f6y3w")
+animation = &"fire"
+speed_scale = 2.0

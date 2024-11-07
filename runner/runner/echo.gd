@@ -3,6 +3,8 @@ extends CharacterBody2D
 # sprite variables
 @onready var echo_sprite: AnimatedSprite2D = $Echo
 @onready var earth_animation: AnimatedSprite2D = $Earth
+@onready var fire_animation: AnimatedSprite2D = $Fire
+@onready var main_game_script = get_node("/root/MainScene")
 const ANIMATION_DURATION: float = 1.0 
 
 const GRAVITY : int = 4200
@@ -10,6 +12,7 @@ const JUMP_SPEED : int = -2000
 
 func _on_ready():
 	earth_animation.visible = false
+	fire_animation.visible = false
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("earth"):
@@ -17,9 +20,16 @@ func _physics_process(delta: float) -> void:
 		echo_sprite.play("cast")
 		earth_animation.play("earth")
 		knock_over_rocks()
-
+		
 		# Start a coroutine to hide the earth animation after a delay
 		_hide_earth_animation()
+	
+	elif Input.is_action_just_pressed("fire"):
+		fire_animation.visible = false
+		echo_sprite.play("cast")
+		fire_animation.play("fire")
+		
+		_hide_fire_animation()
 
 		
 	# Add the gravity.
@@ -44,9 +54,11 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("RigidBody"):
 		body.collision_layer = 1
 		body.collision_mask = 1
+
 func _on_area_2d_body_exited(body):
 		body.collision_layer = 1
 		body.collision_mask = 1
+		
 func knock_over_rocks():
 	var obstacles = Global.obstacles
 
@@ -56,7 +68,13 @@ func knock_over_rocks():
 			# Apply a force to each rock to knock it over
 			var force = Vector2(randf_range(-300, 300), -500) # Random direction with upward push
 			rock.apply_impulse(Vector2.ZERO, force)
+
 func _hide_earth_animation() -> void:
 	# Wait for the duration of the animation
 	await get_tree().create_timer(ANIMATION_DURATION).timeout
 	earth_animation.visible = false
+	
+func _hide_fire_animation() -> void:
+	# Wait for the duration of the animation
+	await get_tree().create_timer(ANIMATION_DURATION).timeout
+	fire_animation.visible = false
