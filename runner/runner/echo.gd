@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 		_hide_earth_animation()
 	
 	elif Input.is_action_just_pressed("fire"):
-		fire_animation.visible = false
+		fire_animation.visible = true
 		echo_sprite.play("cast")
 		fire_animation.play("fire")
 		

@@ -1,10 +1,11 @@
 extends Node2D
 
 @onready var fire_animation: AnimatedSprite2D = $Fire
-@onready var vine_area: StaticBody2D = $Vine
+@onready var vine_area: Area2D = $Vine
 
 # preload obstacle scenes
 var rock_scene = preload("res://scenes/rock.tscn")
+var platform_scene = preload("res://scenes/platform.tscn")
 @onready var vine_scene = preload("res://scenes/vine.tscn")
 @onready var slash_scene = preload("res://scenes/slash.tscn")
 #var obstacle_types := [rock_scene,rock_scene,rock_scene]
@@ -41,7 +42,6 @@ const MAX_SPEED : int = 15
 const SPEED_MODIFIER : int = 12000
 var push_distance: float = 800.0 
 
-var is_stopped : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -147,7 +147,7 @@ func game_over():
 func generate_obs():
 	# Ensure to generate rocks at appropriate intervals
 	if last_obs == null or (is_instance_valid(last_obs) and last_obs.position.x < score + randi_range(300, 500)):
-		var obstacle_type = randi_range(0, 1)
+		var obstacle_type = randi_range(0, 2)
 		
 		var obs
 		var obs_x : int = $Camera2D.position.x + screen_size.x + randi_range(200, 400)
@@ -172,6 +172,14 @@ func generate_obs():
 			add_child(obs)
 			var obs_height = obs.get_node("Sprite2D").texture.get_height()
 			var obs_y : int = ceiling_height #position near ceiling
+			
+			add_obs(obs, obs_x, obs_y)
+			
+		elif obstacle_type == 2: #Platform
+			obs = platform_scene.instantiate()
+			var obs_height = obs.get_node("Sprite2D").texture.get_height()
+			var obs_scale = obs.get_node("Sprite2D").scale
+			var obs_y : int = (screen_size.y - ground_height - ceiling_height) / 1.90 - obs_height / 3
 			
 			add_obs(obs, obs_x, obs_y)
 		
@@ -249,7 +257,7 @@ func fire_slash():
 	add_child(slash_area)
 	
 	#Short period visibilty for slash
-	slash_area.visible = true
+	slash_area.visible = false
 	
 	#Connect collision signal
 	slash_area.connect("area_entered", Callable(self, "_on_slash_hit"))
@@ -257,8 +265,10 @@ func fire_slash():
 	#Set fireball to move forward
 	await get_tree().create_timer(0.1).timeout
 	
-	#Connect the collision signal and bind fireball to remove
-	slash_area.queue_free()
+	if is_instance_valid(slash_area):
+		slash_area.disconnect("area_entered", Callable(self, "_on_slash_hit"))
+		#Connect the collision signal and bind fireball to remove
+		slash_area.queue_free()
 
 #Vine should dissapear when hit by fire slash
 func _on_slash_hit(area: Area2D) -> void:

@@ -6,7 +6,7 @@ func _ready():
 	connect("area_entered", Callable(self, "on_area_entered"))
 	
 	set_process(true)
-	visible = true
+	visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

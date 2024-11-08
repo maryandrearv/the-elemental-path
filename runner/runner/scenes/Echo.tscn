@@ -105,7 +105,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nvop"]
-size = Vector2(11.5, 22.1667)
+size = Vector2(11.5, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gmeea"]
 atlas = ExtResource("2_qb8ms")
@@ -170,13 +170,13 @@ script = ExtResource("1_yj31d")
 
 [node name="Echo" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(6, 32)
-scale = Vector2(6, 6)
+position = Vector2(3, 40)
+scale = Vector2(5.34375, 5.3125)
 sprite_frames = SubResource("SpriteFrames_k886e")
 animation = &"cast"
 
 [node name="RunCol" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, 32.5)
+position = Vector2(1.5, 39)
 scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_2nvop")
 
@@ -193,8 +193,10 @@ frame_progress = 0.0526812
 [node name="Fire" type="AnimatedSprite2D" parent="."]
 visible = false
 texture_filter = 1
-position = Vector2(78, 40)
+position = Vector2(47, 44)
 scale = Vector2(5.25, 5.59375)
 sprite_frames = SubResource("SpriteFrames_f6y3w")
 animation = &"fire"
+frame = 3
+frame_progress = 0.299554
 speed_scale = 2.0
