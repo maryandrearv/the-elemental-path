@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmvwpdgp377tx"
-path="res://.godot/imported/platform 8bit.png-ec40561783f343181ebe7052c21dcfbf.ctex"
+uid="uid://cdr430oh8005q"
+path="res://.godot/imported/Fire slash sprite.png-82d5a3bedd91682f0b444f22d2be1399.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/platform 8bit.png"
-dest_files=["res://.godot/imported/platform 8bit.png-ec40561783f343181ebe7052c21dcfbf.ctex"]
+source_file="res://assets/Fire slash sprite.png"
+dest_files=["res://.godot/imported/Fire slash sprite.png-82d5a3bedd91682f0b444f22d2be1399.ctex"]
 
 [params]
 

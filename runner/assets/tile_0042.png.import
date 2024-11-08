@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca5f82egowum2"
-path="res://.godot/imported/fire slash still.png-1a1c631d9856515ef94a31d9a2ed7183.ctex"
+uid="uid://dwdctpvmd5xgt"
+path="res://.godot/imported/tile_0042.png-ad025762d0bbd7f037a97b5561cf13f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/fire slash still.png"
-dest_files=["res://.godot/imported/fire slash still.png-1a1c631d9856515ef94a31d9a2ed7183.ctex"]
+source_file="res://assets/tile_0042.png"
+dest_files=["res://.godot/imported/tile_0042.png-ad025762d0bbd7f037a97b5561cf13f4.ctex"]
 
 [params]
 

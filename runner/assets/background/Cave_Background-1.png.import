@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ihbb4rjmnr7t"
-path="res://.godot/imported/Basic Charakter Spritesheet copy.png-073cdc2eb40e64b3d43445193f4081e6.ctex"
+uid="uid://b7ex1yrgrtkdt"
+path="res://.godot/imported/Cave_Background-1.png-942df0a478c5e4fae76b0526075463f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Basic Charakter Spritesheet copy.png"
-dest_files=["res://.godot/imported/Basic Charakter Spritesheet copy.png-073cdc2eb40e64b3d43445193f4081e6.ctex"]
+source_file="res://assets/background/Cave_Background-1.png"
+dest_files=["res://.godot/imported/Cave_Background-1.png-942df0a478c5e4fae76b0526075463f6.ctex"]
 
 [params]
 

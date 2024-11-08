@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnkn33uq2rc2r"
-path="res://.godot/imported/EchoSpritesheet.png-f48c69646a4c436c3f9ab8014a58097f.ctex"
+uid="uid://brkjgflxxbyo4"
+path="res://.godot/imported/vine proto 2.png-b52c6f2168422179270545736567a2e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/EchoSpritesheet.png"
-dest_files=["res://.godot/imported/EchoSpritesheet.png-f48c69646a4c436c3f9ab8014a58097f.ctex"]
+source_file="res://assets/vine proto 2.png"
+dest_files=["res://.godot/imported/vine proto 2.png-b52c6f2168422179270545736567a2e7.ctex"]
 
 [params]
 

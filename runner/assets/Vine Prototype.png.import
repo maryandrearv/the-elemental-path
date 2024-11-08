@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ma6ybjrmexgd"
-path="res://.godot/imported/Fire_Powerups.png-ec2fbeee35a1b825ba20cd065bfd8e9a.ctex"
+uid="uid://dxfktyeaye5xv"
+path="res://.godot/imported/Vine Prototype.png-6c17e7068ab0581a6c310e2d7c2b153f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Fire_Powerups.png"
-dest_files=["res://.godot/imported/Fire_Powerups.png-ec2fbeee35a1b825ba20cd065bfd8e9a.ctex"]
+source_file="res://assets/Vine Prototype.png"
+dest_files=["res://.godot/imported/Vine Prototype.png-6c17e7068ab0581a6c310e2d7c2b153f.ctex"]
 
 [params]
 
