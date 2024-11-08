@@ -179,7 +179,7 @@ func generate_obs():
 			obs = platform_scene.instantiate()
 			var obs_height = obs.get_node("Sprite2D").texture.get_height()
 			var obs_scale = obs.get_node("Sprite2D").scale
-			var obs_y : int = (screen_size.y - ground_height - ceiling_height) / 1.90 - obs_height / 3
+			var obs_y : int = (screen_size.y - ground_height - ceiling_height) / 1.83 - obs_height / 3
 			
 			add_obs(obs, obs_x, obs_y)
 		
@@ -278,8 +278,6 @@ func _on_slash_hit(area: Area2D) -> void:
 		obstacles.erase(area)
 
 func _on_vine_collided():
-	$Echo.velocity = Vector2.ZERO
-	if $Echo.position.x <= 0:
-		game_over()
-		print("Game over: Collided with vine")
+	print("Game over: Collided with vine")
+	game_over()
 	

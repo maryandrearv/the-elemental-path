@@ -105,7 +105,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nvop"]
-size = Vector2(11.5, 20)
+size = Vector2(11.5, 17.6667)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gmeea"]
 atlas = ExtResource("2_qb8ms")
@@ -170,13 +170,13 @@ script = ExtResource("1_yj31d")
 
 [node name="Echo" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(3, 40)
-scale = Vector2(5.34375, 5.3125)
+position = Vector2(4, 40.75)
+scale = Vector2(5.15625, 4.67188)
 sprite_frames = SubResource("SpriteFrames_k886e")
 animation = &"cast"
 
 [node name="RunCol" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, 39)
+position = Vector2(2, 40)
 scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_2nvop")
 
