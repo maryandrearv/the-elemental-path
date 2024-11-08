@@ -1,0 +1,10 @@
+res://scenes/Echo.tscn
+res://scenes/main.tscn
+res://scenes/hud.tscn
+res://scenes/vine.tscn
+res://scenes/rock.tscn
+res://scenes/bg.tscn
+res://scenes/game_over.tscn
+res://scenes/fireball.tscn
+res://scenes/ground.tscn
+res://echo.gd
