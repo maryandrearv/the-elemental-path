@@ -1,0 +1,43 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1731035998
+dino.gd::GDScript::-1::1730625861::0::1::::<>CharacterBody2D<>::
+echo.gd::GDScript::-1::1731035981::0::1::::<>CharacterBody2D<>::
+icon.svg::CompressedTexture2D::2786870752514414775::1730625861::1731019273::1::::<><>::
+main.gd::GDScript::-1::1730625861::0::1::::<>Node2D<>::
+Main_ Story_Font_majorL retro by Catman Industries.ttf::FontFile::2720458259322528371::1730625861::1731019273::1::::<><>::
+::res://background/::1731030586
+bg-1.png::CompressedTexture2D::7919369094755693992::1731028927::1731030249::1::::<><>::
+bg-2.png::CompressedTexture2D::6977062595169525098::1731028927::1731030249::1::::<><>::
+bg-3.png::CompressedTexture2D::8498561365522797928::1731028927::1731030249::1::::<><>::
+bg-4.png::CompressedTexture2D::3053826819693324142::1731028927::1731030249::1::::<><>::
+bg-5.png::CompressedTexture2D::6335596254890864686::1731030142::1731030249::1::::<><>::
+ground-1.png::CompressedTexture2D::4294548208246290296::1731030581::1731030581::1::::<><>::
+::res://ground/::1731030578
+ground-1.png::CompressedTexture2D::8254047251198344076::1731030549::1731030568::1::::<><>::
+::res://obstacles/::1731035998
+rock-1.png::CompressedTexture2D::2914895775441187950::1731030996::1731031009::1::::<><>::
+rock-2.png::CompressedTexture2D::8315559653840605517::1731030996::1731035998::1::::<><>::
+::res://scenes/::1731035998
+bg.tscn::PackedScene::1496587574224242254::1731033684::0::1::::<><>::uid://ku5lg5ht7tly::::res://sprites/GrassetPack/GrassetPack.png
+Echo.tscn::PackedScene::834695192817639059::1731033684::0::1::::<><>::res://echo.gd<>uid://bnkn33uq2rc2r::::res://sprites/EchoSpritesheet.png
+fireball.tscn::PackedScene::3552814345945167213::1731033684::0::1::::<><>::uid://b4lobrldxa3ru::::res://sprites/fire_blast.png
+game_over.tscn::PackedScene::8560643243949177713::1731033684::0::1::::<><>::uid://be02sx43qwbhr::::res://Main_ Story_Font_majorL retro by Catman Industries.ttf
+Global.gd::GDScript::-1::1730625861::0::1::::<>Node<>::
+ground.tscn::PackedScene::4454488595430894858::1731033684::0::1::::<><>::uid://dpuk7m4bhkwie::::res://ground/ground-1.png<>uid://ku5lg5ht7tly::::res://sprites/GrassetPack/GrassetPack.png<>uid://dwdctpvmd5xgt::::res://sprites/tile_0042.png
+hud.tscn::PackedScene::3681556854371579524::1731033684::0::1::::<><>::uid://be02sx43qwbhr::::res://Main_ Story_Font_majorL retro by Catman Industries.ttf
+main.tscn::PackedScene::3623660669492681774::1731033684::0::1::::<><>::res://main.gd<>uid://vk7tw77xdles::::res://scenes/bg.tscn<>uid://b4p11np75v5y1::::res://scenes/ground.tscn<>uid://l5lkp5yy3b20::::res://scenes/Echo.tscn<>uid://bspmx6iy24yee::::res://scenes/hud.tscn<>uid://dt73sqj2tpqkv::::res://scenes/game_over.tscn<>uid://bok0y1ouh2fu1::::res://background/plx-1-1.png<>uid://bwpagp8hrtecj::::res://background/plx-1-2.png<>uid://dfcitu6fku36a::::res://background/plx-1-3.png<>uid://btaxsb0t2wfra::::res://background/plx-1-4.png<>uid://cwjalype0vllu::::res://background/bg-5.png
+rock.gd::GDScript::-1::1730625861::0::1::::<>RigidBody2D<>::
+rock.tscn::PackedScene::4763089855059141580::1731035998::0::1::::<><>::res://scenes/rock.gd<>uid://ku5lg5ht7tly::::res://sprites/GrassetPack/GrassetPack.png<>uid://dqqeb11u6r5vt::::res://obstacles/rock-2.png
+vine.tscn::PackedScene::6685331301752540685::1731033684::0::1::::<><>::uid://brkjgflxxbyo4::::res://sprites/vine proto 2.png
+::res://sprites/::1731019363
+Basic Charakter Spritesheet copy.png::CompressedTexture2D::576025446033664671::1730625861::1731019273::1::::<><>::
+EchoSpritesheet.png::CompressedTexture2D::3320360253977032551::1730625861::1731019273::1::::<><>::
+fire_blast.png::CompressedTexture2D::4445458038240209110::1730625861::1731019273::1::::<><>::
+Fire_Powerups.png::CompressedTexture2D::844191276701078635::1730625861::1731019273::1::::<><>::
+ground.png::CompressedTexture2D::5308807045694914764::1730625861::1731019273::1::::<><>::
+tile_0042.png::CompressedTexture2D::8709765929289505819::1730625861::1731019273::1::::<><>::
+vine proto 2.png::CompressedTexture2D::3600832251463994225::1730625861::1731019273::1::::<><>::
+Vine Prototype.png::CompressedTexture2D::8784569710308090427::1730625861::1731019273::1::::<><>::
+::res://sprites/GrassetPack/::1731019363
+GrassetPack.png::CompressedTexture2D::745017506806418922::1730625861::1731019273::1::::<><>::
+GrassetPackBig.png::CompressedTexture2D::7528654950608595459::1730625861::1731019273::1::::<><>::
