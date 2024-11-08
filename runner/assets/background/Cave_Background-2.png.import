@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brkjgflxxbyo4"
-path="res://.godot/imported/vine proto 2.png-0f0f9623e5ea15b2c48e42f9def869c7.ctex"
+uid="uid://c1wmyis780mix"
+path="res://.godot/imported/Cave_Background-2.png-035f2708c5e885efa72c6b2773f2ea94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/vine proto 2.png"
-dest_files=["res://.godot/imported/vine proto 2.png-0f0f9623e5ea15b2c48e42f9def869c7.ctex"]
+source_file="res://assets/background/Cave_Background-2.png"
+dest_files=["res://.godot/imported/Cave_Background-2.png-035f2708c5e885efa72c6b2773f2ea94.ctex"]
 
 [params]
 

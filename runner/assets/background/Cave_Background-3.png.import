@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfi632h442x6b"
-path="res://.godot/imported/GrassetPackBig.png-3e11635d893d75eafed6f4b1df578973.ctex"
+uid="uid://gvld3ovdb34q"
+path="res://.godot/imported/Cave_Background-3.png-77ebeba7f34bdf04793941ddf8fcc439.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/GrassetPack/GrassetPackBig.png"
-dest_files=["res://.godot/imported/GrassetPackBig.png-3e11635d893d75eafed6f4b1df578973.ctex"]
+source_file="res://assets/background/Cave_Background-3.png"
+dest_files=["res://.godot/imported/Cave_Background-3.png-77ebeba7f34bdf04793941ddf8fcc439.ctex"]
 
 [params]
 
