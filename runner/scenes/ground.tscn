@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://b4p11np75v5y1"]
+[gd_scene load_steps=8 format=4 uid="uid://b4p11np75v5y1"]
 
 [ext_resource type="Texture2D" uid="uid://ku5lg5ht7tly" path="res://assets/sprites/GrassetPack.png" id="1_bc51w"]
 [ext_resource type="Texture2D" uid="uid://chvvjnsi5j261" path="res://assets/ground.png" id="1_la0hv"]
-[ext_resource type="Texture2D" uid="uid://dwdctpvmd5xgt" path="res://assets/tile_0042.png" id="2_6mis0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwsa4"]
 size = Vector2(2499, 58)
@@ -35,7 +34,6 @@ texture = ExtResource("1_bc51w")
 2:7/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5eydc"]
-texture = ExtResource("2_6mis0")
 margins = Vector2i(0, 2)
 texture_region_size = Vector2i(18, 12)
 0:0/0 = 0
