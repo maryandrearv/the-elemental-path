@@ -47,7 +47,7 @@ var push_distance: float = 800.0
 func _ready() -> void:
 	screen_size = get_window().size
 	ground_height = $Ground.get_node("Sprite2D").texture.get_height()
-	ceiling_height = $Ceiling.get_node("Sprite2D").texture.get_height()
+	ceiling_height = $ceiling.get_node("Sprite2D").texture.get_height()
 	$GameOver.get_node("Button").pressed.connect(new_game)
 	new_game()
 	
@@ -69,7 +69,8 @@ func new_game():
 	$Echo.velocity = Vector2(0,0)
 	$Camera2D.position = CAM_START_POS
 	$Ground.position = Vector2(127,-623)
-	$Ceiling.position = Vector2(129,-1237)
+	$ceiling.position = Vector2(129,-1237)
+	$Bg.position = Vector2(0,0)
 	
 	# Hide User Interface nodes
 	$HUD.get_node("StartLabel").show()
@@ -101,9 +102,10 @@ func _process(delta):
 		# repeat backgrounds
 		if $Camera2D.position.x - $Ground.position.x > screen_size.x * 1.5:
 			$Ground.position.x += screen_size.x 
-		if $Camera2D.position.x - $Ceiling.position.x > screen_size.x * 1.5:
-			$Ceiling.position.x += screen_size.x 
-		
+		if $Camera2D.position.x - $ceiling.position.x > screen_size.x * 1.5:
+			$ceiling.position.x += screen_size.x 
+		if $Camera2D.position.x - $Bg.position.x > screen_size.x * 1.5:
+			$Bg.position.x += screen_size.x 
 	else:
 		if Input.is_action_just_pressed("ui_accept"):
 			game_running = true
