@@ -107,22 +107,22 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nvop"]
 size = Vector2(11.5, 17.6667)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gmeea"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0iqx2"]
 atlas = ExtResource("2_qb8ms")
-region = Rect2(96, 96, 32, 32)
+region = Rect2(32, 128, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k7gho"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4r0m"]
 atlas = ExtResource("2_qb8ms")
-region = Rect2(0, 128, 32, 32)
+region = Rect2(64, 128, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a8h5c"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gmeea")
+"texture": SubResource("AtlasTexture_0iqx2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k7gho")
+"texture": SubResource("AtlasTexture_n4r0m")
 }],
 "loop": true,
 "name": &"earth",
@@ -187,8 +187,7 @@ position = Vector2(81, 20)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_a8h5c")
 animation = &"earth"
-frame = 1
-frame_progress = 0.0526812
+frame_progress = 0.452353
 
 [node name="Fire" type="AnimatedSprite2D" parent="."]
 visible = false
