@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://c0ivdc8ehndid"
+=======
+uid="uid://f6ky377ecgle"
+>>>>>>> origin/mary
 valid=false
 
 [deps]
