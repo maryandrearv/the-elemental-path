@@ -18,3 +18,11 @@ func destroy_vine():
 		#Remove Vine from scene
 		queue_free()
 		print("Vine Destroyed!")
+
+
+func _on_vine_hitbox_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_vine_hitbox_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.

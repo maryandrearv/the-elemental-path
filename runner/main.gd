@@ -269,7 +269,7 @@ func fire_slash():
 		slash_area.queue_free()
 
 #Vine should dissapear when hit by fire slash
-func _on_slash_hit(area: StaticBody2D) -> void:
+func _on_slash_hit(area: Area2D) -> void:
 	if area.is_in_group("vine"):
 		print("Vine hit by fire slash")
 		area.queue_free()
