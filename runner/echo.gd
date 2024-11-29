@@ -4,9 +4,12 @@ extends CharacterBody2D
 @onready var echo_sprite: AnimatedSprite2D = $Echo
 @onready var earth_animation: AnimatedSprite2D = $Earth
 @onready var fire_animation: AnimatedSprite2D = $Fire
+@onready var water_animation: AnimatedSprite2D = $Water
 @onready var fire_sound = $fireslash
 @onready var rock_sound = $rocksound
 @onready var jump_sound = $jumpsound
+@onready var air_sound = $airsound
+@onready var water_sound = $watersound
 
 
 const ANIMATION_DURATION: float = 1.0 
@@ -35,6 +38,12 @@ func _physics_process(delta: float) -> void:
 		fire_animation.play("fire")
 		fire_sound.play()
 		_hide_fire_animation()
+	elif Input.is_action_just_pressed("water"):
+		water_animation.visible = true
+		echo_sprite.play("cast")
+		water_animation.play("water")
+		water_sound.play()
+		_hide_water_animation()
 
 		
 	# Add the gravity.
@@ -50,6 +59,7 @@ func _physics_process(delta: float) -> void:
 
 				velocity.y = JUMP_SPEED
 			elif Input.is_action_pressed("air"):
+				air_sound.play()
 				GRAVITY = 2000
 				velocity.y = -900
 			else:
@@ -88,3 +98,8 @@ func _hide_fire_animation() -> void:
 	# Wait for the duration of the animation
 	await get_tree().create_timer(ANIMATION_DURATION).timeout
 	fire_animation.visible = false
+	
+func _hide_water_animation() -> void:
+	# Wait for the duration of the animation
+	await get_tree().create_timer(ANIMATION_DURATION).timeout
+	water_animation.visible = false

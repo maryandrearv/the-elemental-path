@@ -8,12 +8,14 @@ var platform_scene = preload("res://scenes/platform.tscn")
 @onready var vine_scene = preload("res://scenes/vine.tscn")
 @onready var slash_scene = preload("res://scenes/slash.tscn")
 @onready var spike_scene = preload("res://scenes/spikes.tscn")
+@onready var fire_scene = preload("res://scenes/fire_obstacle.tscn")
+
 #var obstacle_types := [rock_scene,rock_scene,rock_scene]
 #var obstacles : Array = []
 # Obstacle Variables
 var last_obs
 var top_rocks : Array = []
-var bottom_spikes : Array = []
+#var bottom_spikes : Array = []
 var obstacles = Global.obstacles
 
 # Game component variables
@@ -147,7 +149,7 @@ func game_over():
 func generate_obs():
 	# Ensure to generate rocks at appropriate intervals
 	if last_obs == null or (is_instance_valid(last_obs) and last_obs.position.x < score + randi_range(300, 500)):
-		var obstacle_type = randi_range(0, 3)
+		var obstacle_type = randi_range(0, 4)
 		
 		var obs
 		var obs_x : int = $Camera2D.position.x + screen_size.x + randi_range(200, 400)
@@ -191,6 +193,13 @@ func generate_obs():
 			
 			add_obs(obs, obs_x, obs_y)
 		
+		elif obstacle_type == 4: #flames/fire obstacle
+			obs = fire_scene.instantiate()
+			obs.get_node("FireObstacle").play()
+			#hardcoded y-location, will have to readjust after sprite change
+			var obs_y : int = 294
+			
+			add_obs(obs, obs_x, obs_y)		
 
 		 #Set the position of the rock
 		
