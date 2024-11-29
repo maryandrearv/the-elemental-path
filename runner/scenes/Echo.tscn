@@ -6,6 +6,9 @@
 [ext_resource type="AudioStream" uid="uid://c5v63qm6mv3m7" path="res://audio/FireSlash.mp3" id="4_g3xbk"]
 [ext_resource type="AudioStream" uid="uid://bvlvd0ypchk0c" path="res://audio/rocksound.mp3" id="5_adel0"]
 [ext_resource type="AudioStream" uid="uid://yyc4mkjnw0th" path="res://audio/RetroJump.mp3" id="6_dl45f"]
+[ext_resource type="AudioStream" uid="uid://c5v63qm6mv3m7" path="res://audio/FireSlash.mp3" id="4_g3xbk"]
+[ext_resource type="AudioStream" uid="uid://bvlvd0ypchk0c" path="res://audio/rocksound.mp3" id="5_adel0"]
+[ext_resource type="AudioStream" uid="uid://yyc4mkjnw0th" path="res://audio/RetroJump.mp3" id="6_dl45f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8o44w"]
 atlas = ExtResource("2_qb8ms")
