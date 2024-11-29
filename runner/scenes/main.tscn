@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=3 uid="uid://brvlfrbrkhs2y"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_pxb6o"]
+[ext_resource type="PackedScene" uid="uid://l5lkp5yy3b20" path="res://scenes/Echo.tscn" id="4_n4rl8"]
+[ext_resource type="PackedScene" uid="uid://dc1gmpof73xp3" path="res://scenes/bgmusic.tscn" id="7_6i6id"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_pxb6o")
+
+[node name="Background" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+script = null
+
+[node name="Ground" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+z_index = 1
+position = Vector2(127, -623)
+scale = Vector2(2, 2)
+collision_layer = 3
+collision_mask = 3
+script = null
+
+[node name="Ceiling" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+z_index = 1
+position = Vector2(127, -1275)
+scale = Vector2(2, 2)
+script = null
+
+[node name="Echo" parent="." instance=ExtResource("4_n4rl8")]
+position = Vector2(87, 353)
+collision_layer = 3
+collision_mask = 3
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="HUD" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+script = null
+
+[node name="GameOver" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 2
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+script = null
+
+[node name="bgmusic" parent="." instance=ExtResource("7_6i6id")]
