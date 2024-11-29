@@ -1,0 +1,20 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1732844300
+dino.gd::GDScript::-1::1732844120::0::1::::<>CharacterBody2D<>::
+echo.gd::GDScript::-1::1732844120::0::1::::<>CharacterBody2D<>::
+main.gd::GDScript::-1::1732844120::0::1::::<>Node2D<>::
+::res://audio/::1732844148
+AirJumpWhoosh.mp3::AudioStreamMP3::8628826046723255059::1732844120::1732844148::1::::<><>::
+AirJumpWhoosh.wav::AudioStreamWAV::3759963336850148543::1732844120::1732844148::1::::<><>::
+FireSlash.mp3::AudioStreamMP3::6923791698704174064::1732844120::1732844148::1::::<><>::
+FireSlash.wav::AudioStreamWAV::7522243534638307845::1732844120::1732844148::1::::<><>::
+Look Again Kat.mp3::AudioStreamMP3::6543376381249360329::1732844120::1732844148::1::::<><>::
+RetroJump.mp3::AudioStreamMP3::1734251181574418065::1732844120::1732844148::1::::<><>::
+RetroJump.wav::AudioStreamWAV::6319349217095337208::1732844120::1732844148::1::::<><>::
+rocksound.mp3::AudioStreamMP3::3884376320459800244::1732844120::1732844148::1::::<><>::
+VinesBurning.mp3::AudioStreamMP3::230970370691180615::1732844120::1732844148::1::::<><>::
+VinesBurning.wav::AudioStreamWAV::5277788377463446470::1732844120::1732844148::1::::<><>::
+::res://scenes/::1732844120
+bgmusic.tscn::PackedScene::7353700101192961142::1732844120::0::1::::<><>::uid://c0hwpnwyduahl::::res://audio/Look Again Kat.mp3
+Echo.tscn::PackedScene::834695192817639059::1732844120::0::1::::<><>::res://echo.gd<>uid://bnkn33uq2rc2r::::res://sprites/EchoSpritesheet.png<>uid://cdr430oh8005q::::res://sprites/Fire slash sprite.png<>uid://c5v63qm6mv3m7::::res://audio/FireSlash.mp3<>uid://bvlvd0ypchk0c::::res://audio/rocksound.mp3<>uid://yyc4mkjnw0th::::res://audio/RetroJump.mp3
+main.tscn::PackedScene::3623660669492681774::1732844120::0::1::::<><>::res://main.gd<>uid://dho4c5ai7sf5c::::res://scenes/background.tscn<>uid://b4p11np75v5y1::::res://scenes/ground.tscn<>uid://l5lkp5yy3b20::::res://scenes/Echo.tscn<>uid://bspmx6iy24yee::::res://scenes/hud.tscn<>uid://dt73sqj2tpqkv::::res://scenes/game_over.tscn<>uid://dc1gmpof73xp3::::res://scenes/bgmusic.tscn
