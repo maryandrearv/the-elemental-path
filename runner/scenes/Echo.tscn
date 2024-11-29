@@ -221,3 +221,4 @@ position = Vector2(4, -2)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fire_slash_hitbox"]
 position = Vector2(50.75, 36.5)
 shape = SubResource("RectangleShape2D_fw7i3")
+disabled = true

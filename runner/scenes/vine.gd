@@ -1,12 +1,13 @@
 extends StaticBody2D
 
+@onready var hitbox: Area2D = $Vine_hitbox
+
 var is_destroyed : bool = false
 signal vine_collided
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.add_to_group("vine")
-	connect("body_entered", Callable(self, "_on_body_entered"))
+	hitbox.connect("area_entered", Callable(self, "_on_vine_hitbox_area_entered"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -20,9 +21,7 @@ func destroy_vine():
 		print("Vine Destroyed!")
 
 
-func _on_vine_hitbox_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
-
-
-func _on_vine_hitbox_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
+func _on_vine_hitbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Attack"):
+		queue_free()
+	

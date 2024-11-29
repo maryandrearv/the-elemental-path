@@ -59,7 +59,8 @@ func new_game():
 	
 	# Clear obstacles array to start a new game with fresh obstacles
 	for obs in obstacles:
-		obs.queue_free()
+		if is_instance_valid(obs):
+			obs.queue_free()
 	obstacles.clear()
 	
 	# Find position of each node
@@ -143,6 +144,9 @@ func game_over():
 			print("game over")
 	
 func generate_obs():
+	#clean up invalid obstacles
+	obstacles = obstacles.filter(is_instance_valid)
+	
 	# Ensure to generate rocks at appropriate intervals
 	if last_obs == null or (is_instance_valid(last_obs) and last_obs.position.x < score + randi_range(300, 500)):
 		var obstacle_type = randi_range(0, 2)
@@ -218,6 +222,9 @@ func check_high_score():
 
 # Need to ask tutorial leader how to seperate different skills into different files to eliminate confusing long code
 func knock_over_rock():
+	#remove invalid object
+	obstacles = obstacles.filter(is_instance_valid)
+	
 	var nearest_rock: RigidBody2D = null
 	var closest_distance: float = push_distance  # Start with the maximum push distance
 
@@ -272,8 +279,8 @@ func fire_slash():
 func _on_slash_hit(area: Area2D) -> void:
 	if area.is_in_group("vine"):
 		print("Vine hit by fire slash")
-		area.queue_free()
 		obstacles.erase(area)
+		area.queue_free()
 
 func _on_vine_collided():
 	print("Game over: Collided with vine")
