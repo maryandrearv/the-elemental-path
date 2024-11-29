@@ -79,7 +79,7 @@ scale = Vector2(1.56445, 1.52778)
 texture = ExtResource("1_leeml")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1054, 614)
+position = Vector2(1055, 618)
 shape = SubResource("RectangleShape2D_dwsa4")
 
 [node name="Layer0" type="TileMapLayer" parent="."]

@@ -11,7 +11,7 @@ extends CharacterBody2D
 
 const ANIMATION_DURATION: float = 1.0 
 
-const GRAVITY : int = 4200
+var GRAVITY : int = 4200
 const JUMP_SPEED : int = -2000
 
 func _on_ready():
@@ -49,6 +49,9 @@ func _physics_process(delta: float) -> void:
 				jump_sound.play()
 
 				velocity.y = JUMP_SPEED
+			elif Input.is_action_pressed("air"):
+				GRAVITY = 2000
+				velocity.y = -900
 			else:
 				echo_sprite.play("run")
 	else:
