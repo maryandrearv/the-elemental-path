@@ -26,5 +26,4 @@ texture = ExtResource("1_ja5jx")
 z_index = 2
 position = Vector2(0, 95.1349)
 rotation = -3.14159
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_1d7pm")
