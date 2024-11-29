@@ -1,6 +1,6 @@
 extends Node2D
 @onready var fire_animation: AnimatedSprite2D = $Fire
-@onready var vine_area: Area2D = $Vine
+@onready var vine_area: StaticBody2D = $Vine
 
 # preload obstacle scenes
 var rock_scene = preload("res://scenes/rock.tscn")
