@@ -7,11 +7,15 @@ var rock_scene = preload("res://scenes/rock.tscn")
 var platform_scene = preload("res://scenes/platform.tscn")
 @onready var vine_scene = preload("res://scenes/vine.tscn")
 @onready var slash_scene = preload("res://scenes/slash.tscn")
+@onready var spike_scene = preload("res://scenes/spikes.tscn")
+@onready var fire_scene = preload("res://scenes/fire_obstacle.tscn")
+
 #var obstacle_types := [rock_scene,rock_scene,rock_scene]
 #var obstacles : Array = []
 # Obstacle Variables
 var last_obs
 var top_rocks : Array = []
+#var bottom_spikes : Array = []
 var obstacles = Global.obstacles
 
 # Game component variables
@@ -72,9 +76,11 @@ func new_game():
 	
 	# Hide User Interface nodes
 	$HUD.get_node("StartLabel").show()
+
 	$GameOver.get_node("ScoreTitle").hide()
 	$GameOver.get_node("ScoreCount").hide()
 	$GameOver.get_node("Button").hide()
+	
 	
 	last_obs = null # Reset last_obs
 	
@@ -108,6 +114,7 @@ func _process(delta):
 		if Input.is_action_just_pressed("ui_accept"):
 			game_running = true
 			$HUD.get_node("StartLabel").hide()
+			$HUD.get_node("Return").hide()
 
 		
 	#knock over situation
@@ -145,7 +152,7 @@ func game_over():
 func generate_obs():
 	# Ensure to generate rocks at appropriate intervals
 	if last_obs == null or (is_instance_valid(last_obs) and last_obs.position.x < score + randi_range(300, 500)):
-		var obstacle_type = randi_range(0, 2)
+		var obstacle_type = randi_range(0, 4)
 		
 		var obs
 		var obs_x : int = $Camera2D.position.x + screen_size.x + randi_range(200, 400)
@@ -181,7 +188,23 @@ func generate_obs():
 			
 			add_obs(obs, obs_x, obs_y)
 		
-		# Set the position of the rock
+		elif obstacle_type == 3: #Spikes
+			obs = spike_scene.instantiate()
+			var obs_height = obs.get_node("Stalagmites").texture.get_height()
+			var obs_scale = obs.get_node("Stalactites").scale
+			var obs_y : int = ground_height
+			
+			add_obs(obs, obs_x, obs_y)
+		
+		elif obstacle_type == 4: #flames/fire obstacle
+			obs = fire_scene.instantiate()
+			obs.get_node("FireObstacle").play()
+			#hardcoded y-location, will have to readjust after sprite change
+			var obs_y : int = 294
+			
+			add_obs(obs, obs_x, obs_y)		
+
+		 #Set the position of the rock
 		
 		# Update last_obs to track the last generated rock
 		last_obs = obs
