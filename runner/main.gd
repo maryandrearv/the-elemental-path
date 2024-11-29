@@ -1,6 +1,6 @@
 extends Node2D
 @onready var fire_animation: AnimatedSprite2D = $Fire
-@onready var vine_area: Area2D = $Vine
+@onready var vine_area: StaticBody2D = $Vine
 
 # preload obstacle scenes
 var rock_scene = preload("res://scenes/rock.tscn")
@@ -269,7 +269,7 @@ func fire_slash():
 		slash_area.queue_free()
 
 #Vine should dissapear when hit by fire slash
-func _on_slash_hit(area: Area2D) -> void:
+func _on_slash_hit(area: StaticBody2D) -> void:
 	if area.is_in_group("vine"):
 		print("Vine hit by fire slash")
 		area.queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://l5lkp5yy3b20"]
+[gd_scene load_steps=29 format=3 uid="uid://l5lkp5yy3b20"]
 
 [ext_resource type="Script" path="res://echo.gd" id="1_yj31d"]
 [ext_resource type="Texture2D" uid="uid://bnkn33uq2rc2r" path="res://sprites/EchoSpritesheet.png" id="2_qb8ms"]
@@ -168,6 +168,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fw7i3"]
+size = Vector2(61.5, 149)
+
 [node name="Echo" type="CharacterBody2D"]
 script = ExtResource("1_yj31d")
 
@@ -193,14 +196,13 @@ animation = &"earth"
 frame_progress = 0.452353
 
 [node name="Fire" type="AnimatedSprite2D" parent="."]
-visible = false
 texture_filter = 1
 position = Vector2(47, 44)
 scale = Vector2(5.25, 5.59375)
 sprite_frames = SubResource("SpriteFrames_f6y3w")
 animation = &"fire"
-frame = 3
-frame_progress = 0.299554
+frame = 1
+frame_progress = 0.747292
 speed_scale = 2.0
 
 [node name="fireslash" type="AudioStreamPlayer2D" parent="."]
@@ -212,3 +214,10 @@ stream = ExtResource("5_adel0")
 [node name="jumpsound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_dl45f")
 volume_db = -15.353
+
+[node name="Fire_slash_hitbox" type="Area2D" parent="."]
+position = Vector2(4, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fire_slash_hitbox"]
+position = Vector2(50.75, 36.5)
+shape = SubResource("RectangleShape2D_fw7i3")

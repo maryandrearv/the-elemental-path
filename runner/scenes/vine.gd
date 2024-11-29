@@ -1,4 +1,4 @@
-extends Area2D
+extends StaticBody2D
 
 var is_destroyed : bool = false
 signal vine_collided

@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1wu3w"]
 size = Vector2(154, 523.5)
 
-[node name="Vine" type="Area2D" groups=["vine"]]
+[node name="Vine" type="StaticBody2D" groups=["vine"]]
 script = ExtResource("1_occcl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
