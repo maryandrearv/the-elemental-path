@@ -17,10 +17,6 @@ func _physics_process(delta: float) -> void:
 		echo_sprite.play("cast")
 		earth_animation.play("earth")
 		knock_over_rocks()
-<<<<<<< HEAD
-
-=======
->>>>>>> soundfeatures
 		# Start a coroutine to hide the earth animation after a delay
 		_hide_earth_animation()
 
