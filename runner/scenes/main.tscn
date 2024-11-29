@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=7 format=3 uid="uid://brvlfrbrkhs2y"]
+=======
+[gd_scene load_steps=8 format=3 uid="uid://brvlfrbrkhs2y"]
+>>>>>>> soundfeatures
 
 [ext_resource type="Script" path="res://main.gd" id="1_pxb6o"]
 [ext_resource type="PackedScene" uid="uid://dho4c5ai7sf5c" path="res://scenes/background.tscn" id="2_kvmyr"]
@@ -6,6 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://l5lkp5yy3b20" path="res://scenes/Echo.tscn" id="4_n4rl8"]
 [ext_resource type="PackedScene" uid="uid://bspmx6iy24yee" path="res://scenes/hud.tscn" id="5_0j2pw"]
 [ext_resource type="PackedScene" uid="uid://dt73sqj2tpqkv" path="res://scenes/game_over.tscn" id="6_ku17w"]
+<<<<<<< HEAD
+=======
+[ext_resource type="PackedScene" uid="uid://dc1gmpof73xp3" path="res://scenes/bgmusic.tscn" id="7_6i6id"]
+>>>>>>> soundfeatures
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_pxb6o")
@@ -26,7 +34,10 @@ scale = Vector2(2, 2)
 
 [node name="Echo" parent="." instance=ExtResource("4_n4rl8")]
 position = Vector2(87, 353)
+<<<<<<< HEAD
 scale = Vector2(2, 2)
+=======
+>>>>>>> soundfeatures
 collision_layer = 3
 collision_mask = 3
 
@@ -37,3 +48,8 @@ position = Vector2(576, 324)
 
 [node name="GameOver" parent="." instance=ExtResource("6_ku17w")]
 process_mode = 2
+<<<<<<< HEAD
+=======
+
+[node name="bgmusic" parent="." instance=ExtResource("7_6i6id")]
+>>>>>>> soundfeatures
