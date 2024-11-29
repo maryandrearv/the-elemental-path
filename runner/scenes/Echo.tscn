@@ -1,8 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://l5lkp5yy3b20"]
+[gd_scene load_steps=28 format=3 uid="uid://l5lkp5yy3b20"]
 
 [ext_resource type="Script" path="res://echo.gd" id="1_yj31d"]
-[ext_resource type="Texture2D" uid="uid://bnkn33uq2rc2r" path="res://sprites/EchoSpritesheet.png" id="2_qb8ms"]
-[ext_resource type="Texture2D" uid="uid://cdr430oh8005q" path="res://sprites/Fire slash sprite.png" id="3_x35eh"]
+[ext_resource type="Texture2D" uid="uid://bnkn33uq2rc2r" path="res://assets/EchoSpritesheet.png" id="2_qb8ms"]
+[ext_resource type="Texture2D" uid="uid://cdr430oh8005q" path="res://assets/Fire slash sprite.png" id="3_x35eh"]
+[ext_resource type="AudioStream" uid="uid://c5v63qm6mv3m7" path="res://audio/FireSlash.mp3" id="4_g3xbk"]
+[ext_resource type="AudioStream" uid="uid://bvlvd0ypchk0c" path="res://audio/rocksound.mp3" id="5_adel0"]
+[ext_resource type="AudioStream" uid="uid://yyc4mkjnw0th" path="res://audio/RetroJump.mp3" id="6_dl45f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8o44w"]
 atlas = ExtResource("2_qb8ms")
@@ -199,3 +202,13 @@ animation = &"fire"
 frame = 3
 frame_progress = 0.299554
 speed_scale = 2.0
+
+[node name="fireslash" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_g3xbk")
+
+[node name="rocksound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_adel0")
+
+[node name="jumpsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_dl45f")
+volume_db = -15.353
