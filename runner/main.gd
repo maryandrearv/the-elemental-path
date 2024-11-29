@@ -76,9 +76,11 @@ func new_game():
 	
 	# Hide User Interface nodes
 	$HUD.get_node("StartLabel").show()
+
 	$GameOver.get_node("ScoreTitle").hide()
 	$GameOver.get_node("ScoreCount").hide()
 	$GameOver.get_node("Button").hide()
+	
 	
 	last_obs = null # Reset last_obs
 	
@@ -112,6 +114,7 @@ func _process(delta):
 		if Input.is_action_just_pressed("ui_accept"):
 			game_running = true
 			$HUD.get_node("StartLabel").hide()
+			$HUD.get_node("Return").hide()
 
 		
 	#knock over situation
