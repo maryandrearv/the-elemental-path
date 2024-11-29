@@ -17,9 +17,7 @@ const ANIMATION_DURATION: float = 1.0
 var GRAVITY : int = 4200
 const JUMP_SPEED : int = -2000
 
-func _on_ready():
-	earth_animation.visible = false
-	fire_animation.visible = false
+
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("earth"):
