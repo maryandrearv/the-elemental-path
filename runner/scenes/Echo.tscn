@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [gd_scene load_steps=25 format=3 uid="uid://l5lkp5yy3b20"]
 
 [ext_resource type="Script" path="res://echo.gd" id="1_yj31d"]
@@ -46,6 +47,59 @@ region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jila4"]
 atlas = ExtResource("3_isgj5")
+=======
+[gd_scene load_steps=28 format=3 uid="uid://l5lkp5yy3b20"]
+
+[ext_resource type="Script" path="res://echo.gd" id="1_yj31d"]
+[ext_resource type="Texture2D" uid="uid://bnkn33uq2rc2r" path="res://sprites/EchoSpritesheet.png" id="2_qb8ms"]
+[ext_resource type="Texture2D" uid="uid://cdr430oh8005q" path="res://sprites/Fire slash sprite.png" id="3_x35eh"]
+[ext_resource type="AudioStream" uid="uid://c5v63qm6mv3m7" path="res://audio/FireSlash.mp3" id="4_g3xbk"]
+[ext_resource type="AudioStream" uid="uid://bvlvd0ypchk0c" path="res://audio/rocksound.mp3" id="5_adel0"]
+[ext_resource type="AudioStream" uid="uid://yyc4mkjnw0th" path="res://audio/RetroJump.mp3" id="6_dl45f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8o44w"]
+atlas = ExtResource("2_qb8ms")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfvqp"]
+atlas = ExtResource("2_qb8ms")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycsv6"]
+atlas = ExtResource("2_qb8ms")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xj6n7"]
+atlas = ExtResource("2_qb8ms")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yvc5"]
+atlas = ExtResource("2_qb8ms")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qou87"]
+atlas = ExtResource("2_qb8ms")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61w6j"]
+atlas = ExtResource("2_qb8ms")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tv0g3"]
+atlas = ExtResource("2_qb8ms")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aiahg"]
+atlas = ExtResource("2_qb8ms")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbmjb"]
+atlas = ExtResource("2_qb8ms")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jila4"]
+atlas = ExtResource("2_qb8ms")
+>>>>>>> soundfeatures
 region = Rect2(32, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k886e"]
@@ -107,22 +161,38 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nvop"]
 size = Vector2(11.5, 17.6667)
 
+<<<<<<< HEAD
 [sub_resource type="AtlasTexture" id="AtlasTexture_oxql1"]
 atlas = ExtResource("3_isgj5")
 region = Rect2(32, 128, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_soh5b"]
 atlas = ExtResource("3_isgj5")
+=======
+[sub_resource type="AtlasTexture" id="AtlasTexture_0iqx2"]
+atlas = ExtResource("2_qb8ms")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4r0m"]
+atlas = ExtResource("2_qb8ms")
+>>>>>>> soundfeatures
 region = Rect2(64, 128, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a8h5c"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+<<<<<<< HEAD
 "texture": SubResource("AtlasTexture_oxql1")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_soh5b")
+=======
+"texture": SubResource("AtlasTexture_0iqx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4r0m")
+>>>>>>> soundfeatures
 }],
 "loop": true,
 "name": &"earth",
@@ -187,8 +257,12 @@ position = Vector2(81, 20)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_a8h5c")
 animation = &"earth"
+<<<<<<< HEAD
 frame = 1
 frame_progress = 0.164959
+=======
+frame_progress = 0.452353
+>>>>>>> soundfeatures
 
 [node name="Fire" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -200,3 +274,16 @@ animation = &"fire"
 frame = 3
 frame_progress = 0.299554
 speed_scale = 2.0
+<<<<<<< HEAD
+=======
+
+[node name="fireslash" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_g3xbk")
+
+[node name="rocksound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_adel0")
+
+[node name="jumpsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_dl45f")
+volume_db = -15.353
+>>>>>>> soundfeatures
