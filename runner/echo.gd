@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 		fire_animation.play("fire")
 
 		fire_sound.play()
-
+		_hide_fire_animation()
 		
 	# Add the gravity.
 	velocity.y += GRAVITY * delta
