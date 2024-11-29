@@ -1,5 +1,4 @@
 extends Node2D
-
 @onready var fire_animation: AnimatedSprite2D = $Fire
 @onready var vine_area: Area2D = $Vine
 
@@ -50,9 +49,8 @@ func _ready() -> void:
 	ceiling_height = $Ceiling.get_node("Sprite2D").texture.get_height()
 	$GameOver.get_node("Button").pressed.connect(new_game)
 	new_game()
-	
 func new_game():
-	
+
 	#Start Game in paused state and allows user to press space to start
 	get_tree().paused = false
 	score = 0
