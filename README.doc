@@ -1,4 +1,12 @@
+CTRLS
+-------
+Q - AIR
+W - WATER
+E - EARTH
+R - FIRE
+-------
 Implementation of air ability
+-------
 -Created a new scene for the Spike obstacle with temporary spike assets
 -Spike assets do not have collisions yet
 Changes in echo.gd
@@ -14,5 +22,6 @@ Changes in main.gd
 -all that was done to generate both was making the sprites closer in scene
 
 Implementation of water ability
+-------
 -created a new scene for fire obstacle, hardcoded fire location because animated sprite2d is difficult to find dimensions
 -added water sound affects and air sound affects
