@@ -14,7 +14,7 @@ script = ExtResource("1_pxb6o")
 
 [node name="Ground" parent="." instance=ExtResource("3_r477m")]
 z_index = 1
-position = Vector2(127, -623)
+position = Vector2(-630, -534)
 scale = Vector2(2, 2)
 collision_layer = 3
 collision_mask = 3
@@ -25,7 +25,7 @@ position = Vector2(127, -1275)
 scale = Vector2(2, 2)
 
 [node name="Echo" parent="." instance=ExtResource("4_n4rl8")]
-position = Vector2(87, 353)
+position = Vector2(89, 467)
 scale = Vector2(2, 2)
 collision_layer = 3
 collision_mask = 3
