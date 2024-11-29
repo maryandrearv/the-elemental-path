@@ -4,10 +4,10 @@ extends CharacterBody2D
 @onready var echo_sprite: AnimatedSprite2D = $Echo
 @onready var earth_animation: AnimatedSprite2D = $Earth
 @onready var fire_animation: AnimatedSprite2D = $Fire
+
 @onready var fire_sound = $fireslash
 @onready var rock_sound = $rocksound
 @onready var jump_sound = $jumpsound
-
 
 const ANIMATION_DURATION: float = 1.0 
 
@@ -24,6 +24,7 @@ func _physics_process(delta: float) -> void:
 		echo_sprite.play("cast")
 		earth_animation.play("earth")
 		knock_over_rocks()
+
 		rock_sound.play()
 		
 		# Start a coroutine to hide the earth animation after a delay
@@ -33,8 +34,8 @@ func _physics_process(delta: float) -> void:
 		fire_animation.visible = true
 		echo_sprite.play("cast")
 		fire_animation.play("fire")
+
 		fire_sound.play()
-		_hide_fire_animation()
 
 		
 	# Add the gravity.
