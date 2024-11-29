@@ -1,14 +1,14 @@
-[gd_scene load_steps=29 format=3 uid="uid://l5lkp5yy3b20"]
+[gd_scene load_steps=35 format=3 uid="uid://l5lkp5yy3b20"]
 
 [ext_resource type="Script" path="res://echo.gd" id="1_yj31d"]
 [ext_resource type="Texture2D" uid="uid://bnkn33uq2rc2r" path="res://sprites/EchoSpritesheet.png" id="2_qb8ms"]
+[ext_resource type="Texture2D" uid="uid://bb1xdvnxgej31" path="res://sprites/Water Effect and Bullet 16x16.png" id="3_v8dir"]
 [ext_resource type="Texture2D" uid="uid://cdr430oh8005q" path="res://sprites/Fire slash sprite.png" id="3_x35eh"]
 [ext_resource type="AudioStream" uid="uid://c5v63qm6mv3m7" path="res://audio/FireSlash.mp3" id="4_g3xbk"]
 [ext_resource type="AudioStream" uid="uid://bvlvd0ypchk0c" path="res://audio/rocksound.mp3" id="5_adel0"]
 [ext_resource type="AudioStream" uid="uid://yyc4mkjnw0th" path="res://audio/RetroJump.mp3" id="6_dl45f"]
-[ext_resource type="AudioStream" uid="uid://c5v63qm6mv3m7" path="res://audio/FireSlash.mp3" id="4_g3xbk"]
-[ext_resource type="AudioStream" uid="uid://bvlvd0ypchk0c" path="res://audio/rocksound.mp3" id="5_adel0"]
-[ext_resource type="AudioStream" uid="uid://yyc4mkjnw0th" path="res://audio/RetroJump.mp3" id="6_dl45f"]
+[ext_resource type="AudioStream" uid="uid://du64re8djojgd" path="res://audio/AirJumpWhoosh.mp3" id="8_me835"]
+[ext_resource type="AudioStream" uid="uid://5loceel540sj" path="res://audio/water-splash-type-4-265467.mp3" id="9_86l8x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8o44w"]
 atlas = ExtResource("2_qb8ms")
@@ -135,6 +135,35 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_f34xf"]
+atlas = ExtResource("3_v8dir")
+region = Rect2(165, 49, 14, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g372"]
+atlas = ExtResource("3_v8dir")
+region = Rect2(179, 49, 14, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opyr0"]
+atlas = ExtResource("3_v8dir")
+region = Rect2(193, 49, 14, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cvafy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f34xf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g372")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opyr0")
+}],
+"loop": true,
+"name": &"water",
+"speed": 4.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_y1o48"]
 atlas = ExtResource("3_x35eh")
 region = Rect2(0, 0, 32, 32)
@@ -198,6 +227,15 @@ sprite_frames = SubResource("SpriteFrames_a8h5c")
 animation = &"earth"
 frame_progress = 0.452353
 
+[node name="Water" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(62, 42)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_cvafy")
+animation = &"water"
+frame_progress = 0.476749
+
 [node name="Fire" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(47, 44)
@@ -207,6 +245,8 @@ animation = &"fire"
 frame = 1
 frame_progress = 0.747292
 speed_scale = 2.0
+
+[node name="air" type="AnimatedSprite2D" parent="."]
 
 [node name="fireslash" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_g3xbk")
@@ -218,9 +258,8 @@ stream = ExtResource("5_adel0")
 stream = ExtResource("6_dl45f")
 volume_db = -15.353
 
-[node name="Fire_slash_hitbox" type="Area2D" parent="."]
-position = Vector2(4, -2)
+[node name="airsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_me835")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fire_slash_hitbox"]
-position = Vector2(50.75, 36.5)
-shape = SubResource("RectangleShape2D_fw7i3")
+[node name="watersound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_86l8x")
