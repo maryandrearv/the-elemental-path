@@ -21,6 +21,6 @@ func destroy_vine():
 		print("Vine Destroyed!")
 
 func _on_fireobs_hitbox_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Attack"):
+	if area.is_in_group("Water_Attack"):
 		queue_free()
 		print("Vine Destroyed!")
