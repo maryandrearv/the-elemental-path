@@ -49,7 +49,9 @@ func _physics_process(delta: float) -> void:
 
 		fire_sound.play()
 		_hide_fire_animation()
+		
 	elif Input.is_action_just_pressed("water"):
+		perform_attack()
 		water_animation.visible = true
 		echo_sprite.play("cast")
 		water_animation.play("waterwall")
