@@ -19,7 +19,7 @@ var can_attack: bool = true
 const ANIMATION_DURATION: float = 1.0 
 
 var GRAVITY : int = 3000
-const JUMP_SPEED : int = -1200
+const JUMP_SPEED : int = -1275
 
 
 func _on_ready():
@@ -52,7 +52,7 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_pressed("water"):
 		water_animation.visible = true
 		echo_sprite.play("cast")
-		water_animation.play("water")
+		water_animation.play("waterwall")
 		water_sound.play()
 		_hide_water_animation()
 
@@ -132,3 +132,4 @@ func _hide_water_animation() -> void:
 	# Wait for the duration of the animation
 	await get_tree().create_timer(ANIMATION_DURATION).timeout
 	water_animation.visible = false
+	
