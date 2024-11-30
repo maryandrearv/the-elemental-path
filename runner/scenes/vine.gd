@@ -22,7 +22,9 @@ func destroy_vine():
 
 
 func _on_vine_hitbox_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Attack"):
+	if area.is_in_group("Fire_Attack"):
 		queue_free()
 		print("Vine Destroyed!")
+	else:
+		print("Cannot use this power")
 	

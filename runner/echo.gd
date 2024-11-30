@@ -51,7 +51,7 @@ func _physics_process(delta: float) -> void:
 		_hide_fire_animation()
 		
 	elif Input.is_action_just_pressed("water"):
-		perform_attack()
+		water_attack_perform()
 		water_animation.visible = true
 		echo_sprite.play("cast")
 		water_animation.play("waterwall")
@@ -119,8 +119,16 @@ func perform_attack():
 		attack_area.monitoring = true
 		attack_collision.disabled = false
 		attack_area.visible = true
-		attack_area.add_to_group("Attack")
-		
+		attack_area.add_to_group("Fire_Attack")
+		_hide_attack_area()
+
+func water_attack_perform():
+	if can_attack:
+		can_attack = false
+		attack_area.monitoring = true
+		attack_collision.disabled = false
+		attack_area.visible = true
+		attack_area.add_to_group("Water_Attack")
 		_hide_attack_area()
 
 func _hide_attack_area() -> void:
