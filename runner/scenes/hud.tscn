@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bspmx6iy24yee"]
+[gd_scene load_steps=3 format=3 uid="uid://bspmx6iy24yee"]
 
+[ext_resource type="Script" path="res://scenes/hud.gd" id="1_1u387"]
 [ext_resource type="FontFile" uid="uid://be02sx43qwbhr" path="res://Main_ Story_Font_majorL retro by Catman Industries.ttf" id="1_6pthw"]
 
 [node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_1u387")
 
 [node name="ScoreLayer" type="Label" parent="."]
 offset_left = 4.0
@@ -52,3 +54,18 @@ E = EARTH PUSH | R = FIRE SLASH
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Return" type="Button" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -74.5
+offset_top = 200.0
+offset_right = 74.5
+offset_bottom = 255.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Main Menu"
+
+[connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
