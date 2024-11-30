@@ -18,8 +18,8 @@ var can_attack: bool = true
 
 const ANIMATION_DURATION: float = 1.0 
 
-var GRAVITY : int = 4200
-const JUMP_SPEED : int = -2000
+var GRAVITY : int = 3000
+const JUMP_SPEED : int = -1200
 
 
 func _on_ready():
