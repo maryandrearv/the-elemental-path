@@ -196,6 +196,7 @@ animation = &"earth"
 frame_progress = 0.452353
 
 [node name="Fire" type="AnimatedSprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(47, 44)
 scale = Vector2(5.25, 5.59375)
