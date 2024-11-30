@@ -21,15 +21,13 @@ const ANIMATION_DURATION: float = 1.0
 var GRAVITY : int = 4200
 const JUMP_SPEED : int = -2000
 
-<<<<<<< HEAD
+
 func _on_ready():
 	earth_animation.visible = false
 	fire_animation.visible = false
 	attack_area.monitoring = false
 	attack_collision.disabled = true
-=======
 
->>>>>>> 2e95f0de3b05ae21073c562686da7d645de2dd1b
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("earth"):
@@ -112,7 +110,6 @@ func _hide_fire_animation() -> void:
 	await get_tree().create_timer(ANIMATION_DURATION).timeout
 	fire_animation.visible = false
 	
-<<<<<<< HEAD
 	
 func perform_attack():
 	if can_attack:
@@ -130,9 +127,8 @@ func _hide_attack_area() -> void:
 	attack_collision.disabled = true
 	attack_area.visible = false
 	can_attack = true
-=======
+
 func _hide_water_animation() -> void:
 	# Wait for the duration of the animation
 	await get_tree().create_timer(ANIMATION_DURATION).timeout
 	water_animation.visible = false
->>>>>>> 2e95f0de3b05ae21073c562686da7d645de2dd1b
