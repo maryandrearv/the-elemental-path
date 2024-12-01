@@ -12,4 +12,4 @@ func gem_spawner():
 	for i in range(4):
 		var gem = $GemStoneItem.instanciate()
 		$GemStoneItem.add_child(gem)
-		# gem.position = screensize
+		gem.position = randi_range(1000, 5000)
