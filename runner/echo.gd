@@ -11,21 +11,14 @@ extends CharacterBody2D
 @onready var air_sound = $airsound
 @onready var water_sound = $watersound
 
-<<<<<<< HEAD
 #Variables for the attacks and the obstacle signals
 var can_attack: bool = true
 @onready var attack_area: Area2D = $Ability_hitbox
 @onready var attack_collision: CollisionShape2D = $Ability_hitbox/CollisionShape2D
-=======
-var can_attack: bool = true
-@onready var attack_area: Area2D = $Fire_slash_hitbox
-@onready var attack_collision: CollisionShape2D = $Fire_slash_hitbox/CollisionShape2D
->>>>>>> e1edd04111e40fc0517a245a75f8d0c8e031cc8c
 
 
 const ANIMATION_DURATION: float = 1.0 
 
-<<<<<<< HEAD
 #Jump variables
 var GRAVITY : int = 3000
 var JUMP_SPEED : int = -1275
@@ -34,11 +27,6 @@ var JUMP_SPEED : int = -1275
 var DOUBLE_JUMP_ON: bool = false
 var DOUBLE_JUMP_GRAVITY : int = 2000
 var DOUBLE_JUMP_SPEED : int  = -900
-=======
-var GRAVITY : int = 3000
-const JUMP_SPEED : int = -1275
-
->>>>>>> e1edd04111e40fc0517a245a75f8d0c8e031cc8c
 
 func _on_ready():
 	#Adding to group "player". Used to have different interaction with fire and spike
@@ -62,7 +50,6 @@ func _physics_process(delta: float) -> void:
 		# Start a coroutine to hide the earth animation after a delay
 		_hide_earth_animation()
 	
-<<<<<<< HEAD
 	#Fire Slash button
 	elif Input.is_action_just_pressed("fire"):
 		perform_fire_attack()
@@ -73,17 +60,6 @@ func _physics_process(delta: float) -> void:
 		_hide_fire_animation()
 		
 	#Water Wall button
-=======
-	elif Input.is_action_just_pressed("fire"):
-		perform_attack()
-		fire_animation.visible = true
-		echo_sprite.play("cast")
-		fire_animation.play("fire")
-
-		fire_sound.play()
-		_hide_fire_animation()
-		
->>>>>>> e1edd04111e40fc0517a245a75f8d0c8e031cc8c
 	elif Input.is_action_just_pressed("water"):
 		water_attack_perform()
 		water_animation.visible = true
@@ -91,46 +67,31 @@ func _physics_process(delta: float) -> void:
 		water_animation.play("waterwall")
 		water_sound.play()
 		_hide_water_animation()
-<<<<<<< HEAD
 		
 	elif Input.is_action_just_pressed("air") and not DOUBLE_JUMP_ON:
 		DOUBLE_JUMP_ON = true
 		velocity.y = DOUBLE_JUMP_SPEED
 		GRAVITY = DOUBLE_JUMP_GRAVITY
-=======
->>>>>>> e1edd04111e40fc0517a245a75f8d0c8e031cc8c
 
 		
 	# Add the gravity.
 	velocity.y += GRAVITY * delta
 	# Handle jump.
 	if is_on_floor():
-<<<<<<< HEAD
 		#Remove double jump when landing
 		DOUBLE_JUMP_ON = false
 		GRAVITY = 3000
 		JUMP_SPEED = -1275
 		
-=======
->>>>>>> e1edd04111e40fc0517a245a75f8d0c8e031cc8c
 		if not get_parent().game_running:
 			echo_sprite.play("idle")
 		else:
 			$RunCol.disabled = false
 			if Input.is_action_pressed("ui_accept"):
 				jump_sound.play()
-<<<<<<< HEAD
 				velocity.y = JUMP_SPEED
 			elif Input.is_action_pressed("air"):
 				air_sound.play()
-=======
-
-				velocity.y = JUMP_SPEED
-			elif Input.is_action_pressed("air"):
-				air_sound.play()
-				GRAVITY = 2000
-				velocity.y = -900
->>>>>>> e1edd04111e40fc0517a245a75f8d0c8e031cc8c
 			else:
 				echo_sprite.play("run")
 	else:
@@ -168,7 +129,6 @@ func _hide_fire_animation() -> void:
 	await get_tree().create_timer(ANIMATION_DURATION).timeout
 	fire_animation.visible = false
 	
-<<<<<<< HEAD
 func _hide_water_animation() -> void:
 	# Wait for the duration of the animation
 	await get_tree().create_timer(ANIMATION_DURATION).timeout
@@ -176,10 +136,6 @@ func _hide_water_animation() -> void:
 	
 	
 func perform_fire_attack():
-=======
-	
-func perform_attack():
->>>>>>> e1edd04111e40fc0517a245a75f8d0c8e031cc8c
 	if can_attack:
 		can_attack = false
 		attack_area.monitoring = true
@@ -202,16 +158,6 @@ func _hide_attack_area() -> void:
 	attack_area.monitoring = false
 	attack_collision.disabled = true
 	attack_area.visible = false
-<<<<<<< HEAD
 	attack_area.remove_from_group("Fire_Attack")
 	attack_area.remove_from_group("Water_Attack")
 	can_attack = true
-=======
-	can_attack = true
-
-func _hide_water_animation() -> void:
-	# Wait for the duration of the animation
-	await get_tree().create_timer(ANIMATION_DURATION).timeout
-	water_animation.visible = false
-	
->>>>>>> e1edd04111e40fc0517a245a75f8d0c8e031cc8c

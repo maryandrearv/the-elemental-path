@@ -54,10 +54,6 @@ func _ready() -> void:
 	ceiling_height = $Ceiling.get_node("Sprite2D").texture.get_height()
 	$GameOver.get_node("Button").pressed.connect(new_game)
 	new_game()
-<<<<<<< HEAD
-=======
-	
->>>>>>> e1edd04111e40fc0517a245a75f8d0c8e031cc8c
 func new_game():
 
 	#Start Game in paused state and allows user to press space to start
@@ -129,14 +125,6 @@ func _process(delta):
 		# Debug: Print positions of the player and the boulder
 		print("Player Position:", player_position.global_position)
 	
-<<<<<<< HEAD
-=======
-	#Fire slash
-	if Input.is_action_just_pressed("fire"):
-		fire_slash()
-		
-	
->>>>>>> e1edd04111e40fc0517a245a75f8d0c8e031cc8c
 	game_over()
 
 # game over function that pauses game, shows scores, and allows you to restart
@@ -228,17 +216,6 @@ func add_obs(obs, x, y):
 		obstacles.append(obs)
 		
 
-<<<<<<< HEAD
-=======
-func hit_obs(body):
-	if body.name == "Echo":
-		_on_vine_collided()
-		print("Collided")
-		#body.connect("vine_collided", Callable(self, "_on_vine_collided"))
-	else:
-		game_over()
-
->>>>>>> e1edd04111e40fc0517a245a75f8d0c8e031cc8c
 func is_near_rock(rock: RigidBody2D) -> bool:
 	var distance_to_rock = player_position.global_position.distance_to(rock.global_position)
 	print("Distance to boulder:", distance_to_rock)  # Debugging output
@@ -259,11 +236,8 @@ func knock_over_rock():
 	#remove invalid object
 	obstacles = obstacles.filter(is_instance_valid)
 	
-<<<<<<< HEAD
 	var is_rock_hit: bool = false
 	
-=======
->>>>>>> e1edd04111e40fc0517a245a75f8d0c8e031cc8c
 	var nearest_rock: RigidBody2D = null
 	var closest_distance: float = push_distance  # Start with the maximum push distance
 
@@ -273,18 +247,12 @@ func knock_over_rock():
 			# Ensure the rock is in front of the player
 			if distance_to_rock < closest_distance and rock.global_position.x > player_position.global_position.x:
 				closest_distance = distance_to_rock
-<<<<<<< HEAD
 				#is_rock_hit = true
 				nearest_rock = rock  # Store the closest rock
 			#else:
 				#is_rock_hit = false
 
 	if nearest_rock: #and not is_rock_hit
-=======
-				nearest_rock = rock  # Store the closest rock
-
-	if nearest_rock:
->>>>>>> e1edd04111e40fc0517a245a75f8d0c8e031cc8c
 		# Move the nearest rock slightly (adjust the values as needed)
 		var offset = Vector2(200, 0)  # Move the rock slightly to the right
 		nearest_rock.position += offset  # Change position directly
@@ -301,39 +269,3 @@ func knock_over_rock():
 	else:
 		print("No nearby rock to knock over.")
 	
-<<<<<<< HEAD
-=======
-
-func fire_slash():
-	print("Fire slash activated")
-	var slash_area = slash_scene.instantiate()
-	slash_area.position = $Echo.position + FIRESLASH_OFFSET
-	
-	add_child(slash_area)
-	
-	#Short period visibilty for slash
-	slash_area.visible = false
-	
-	#Connect collision signal
-	slash_area.connect("area_entered", Callable(self, "_on_slash_hit"))
-	
-	#Set fireball to move forward
-	await get_tree().create_timer(0.1).timeout
-	
-	if is_instance_valid(slash_area):
-		slash_area.disconnect("area_entered", Callable(self, "_on_slash_hit"))
-		#Connect the collision signal and bind fireball to remove
-		slash_area.queue_free()
-
-#Vine should dissapear when hit by fire slash
-func _on_slash_hit(area: Area2D) -> void:
-	if area.is_in_group("vine"):
-		print("Vine hit by fire slash")
-		obstacles.erase(area)
-		area.queue_free()
-
-func _on_vine_collided():
-	print("Game over: Collided with vine")
-	game_over()
-	
->>>>>>> e1edd04111e40fc0517a245a75f8d0c8e031cc8c
