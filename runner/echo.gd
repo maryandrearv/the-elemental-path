@@ -29,6 +29,9 @@ var DOUBLE_JUMP_GRAVITY : int = 2000
 var DOUBLE_JUMP_SPEED : int  = -900
 
 func _on_ready():
+	#Adding to group "player". Used to have different interaction with fire and spike
+	add_to_group("Player")
+	
 	earth_animation.visible = false
 	fire_animation.visible = false
 	attack_area.monitoring = false

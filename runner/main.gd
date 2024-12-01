@@ -10,6 +10,7 @@ var platform_scene = preload("res://scenes/platform.tscn")
 @onready var spike_scene = preload("res://scenes/spikes.tscn")
 @onready var fire_scene = preload("res://scenes/fire_obstacle.tscn")
 
+
 #var obstacle_types := [rock_scene,rock_scene,rock_scene]
 #var obstacles : Array = []
 # Obstacle Variables
