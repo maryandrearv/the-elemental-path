@@ -6,7 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://l5lkp5yy3b20" path="res://scenes/Echo.tscn" id="4_n4rl8"]
 [ext_resource type="PackedScene" uid="uid://bspmx6iy24yee" path="res://scenes/hud.tscn" id="5_0j2pw"]
 [ext_resource type="PackedScene" uid="uid://dt73sqj2tpqkv" path="res://scenes/game_over.tscn" id="6_ku17w"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://dc1gmpof73xp3" path="res://scenes/bgmusic.tscn" id="7_6i6id"]
+=======
+[ext_resource type="PackedScene" uid="uid://ouqavc0xbsmn" path="res://scenes/bgmusic.tscn" id="7_6i6id"]
+>>>>>>> e1edd04111e40fc0517a245a75f8d0c8e031cc8c
 [ext_resource type="PackedScene" uid="uid://cydxp5fep4nu3" path="res://scenes/gem_stone_item.tscn" id="8_pf4yw"]
 
 [node name="main" type="Node2D"]
@@ -16,7 +20,11 @@ script = ExtResource("1_pxb6o")
 
 [node name="Ground" parent="." instance=ExtResource("3_r477m")]
 z_index = 1
+<<<<<<< HEAD
 position = Vector2(-630, -534)
+=======
+position = Vector2(108, -566)
+>>>>>>> e1edd04111e40fc0517a245a75f8d0c8e031cc8c
 scale = Vector2(2, 2)
 collision_layer = 3
 collision_mask = 3
