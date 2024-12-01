@@ -13,13 +13,6 @@ func _ready():
 func _process(delta: float) -> void:
 	pass
 
-func destroy_vine():
-	if not is_destroyed:
-		is_destroyed = true
-		#Remove Vine from scene
-		queue_free()
-		print("Vine Destroyed!")
-
 func _on_fireobs_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Water_Attack"):
 		queue_free()
