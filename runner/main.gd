@@ -10,6 +10,7 @@ var platform_scene = preload("res://scenes/platform.tscn")
 @onready var spike_scene = preload("res://scenes/spikes.tscn")
 @onready var fire_scene = preload("res://scenes/fire_obstacle.tscn")
 
+
 #var obstacle_types := [rock_scene,rock_scene,rock_scene]
 #var obstacles : Array = []
 # Obstacle Variables
@@ -53,6 +54,7 @@ func _ready() -> void:
 	ceiling_height = $Ceiling.get_node("Sprite2D").texture.get_height()
 	$GameOver.get_node("Button").pressed.connect(new_game)
 	new_game()
+	
 func new_game():
 
 	#Start Game in paused state and allows user to press space to start

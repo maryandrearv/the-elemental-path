@@ -23,6 +23,9 @@ const JUMP_SPEED : int = -1275
 
 
 func _on_ready():
+	#Adding to group "player". Used to have different interaction with fire and spike
+	add_to_group("Player")
+	
 	earth_animation.visible = false
 	fire_animation.visible = false
 	attack_area.monitoring = false

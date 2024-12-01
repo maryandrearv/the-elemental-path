@@ -1,7 +1,6 @@
-[gd_scene load_steps=39 format=3 uid="uid://l5lkp5yy3b20"]
+[gd_scene load_steps=38 format=3 uid="uid://l5lkp5yy3b20"]
 
 [ext_resource type="Script" path="res://echo.gd" id="1_yj31d"]
-[ext_resource type="Texture2D" uid="uid://bnkn33uq2rc2r" path="res://sprites/EchoSpritesheet.png" id="2_qb8ms"]
 [ext_resource type="Texture2D" uid="uid://ch157xogcy6nh" path="res://assets/Echo Beta Spritesheet.png" id="3_36or2"]
 [ext_resource type="Texture2D" uid="uid://bb1xdvnxgej31" path="res://sprites/Water Effect and Bullet 16x16.png" id="3_v8dir"]
 [ext_resource type="Texture2D" uid="uid://cdr430oh8005q" path="res://sprites/Fire slash sprite.png" id="3_x35eh"]
@@ -81,11 +80,9 @@ animations = [{
 size = Vector2(12.25, 20.1667)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0iqx2"]
-atlas = ExtResource("2_qb8ms")
 region = Rect2(32, 128, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n4r0m"]
-atlas = ExtResource("2_qb8ms")
 region = Rect2(64, 128, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a8h5c"]
