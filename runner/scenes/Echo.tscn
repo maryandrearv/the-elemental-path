@@ -208,7 +208,7 @@ texture_filter = 1
 position = Vector2(4, 40.75)
 scale = Vector2(5.15625, 4.67188)
 sprite_frames = SubResource("SpriteFrames_k886e")
-animation = &"cast"
+animation = &"jump"
 
 [node name="RunCol" type="CollisionShape2D" parent="."]
 position = Vector2(2, 40)
@@ -245,6 +245,7 @@ frame_progress = 0.747292
 speed_scale = 2.0
 
 [node name="air" type="AnimatedSprite2D" parent="."]
+visible = false
 
 [node name="fireslash" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_g3xbk")
