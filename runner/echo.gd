@@ -11,12 +11,22 @@ extends CharacterBody2D
 @onready var air_sound = $airsound
 @onready var water_sound = $watersound
 
+var can_attack: bool = true
+@onready var attack_area: Area2D = $Fire_slash_hitbox
+@onready var attack_collision: CollisionShape2D = $Fire_slash_hitbox/CollisionShape2D
+
 
 const ANIMATION_DURATION: float = 1.0 
 
-var GRAVITY : int = 4200
-const JUMP_SPEED : int = -2000
+var GRAVITY : int = 3000
+const JUMP_SPEED : int = -1275
 
+
+func _on_ready():
+	earth_animation.visible = false
+	fire_animation.visible = false
+	attack_area.monitoring = false
+	attack_collision.disabled = true
 
 
 func _physics_process(delta: float) -> void:
@@ -32,16 +42,19 @@ func _physics_process(delta: float) -> void:
 		_hide_earth_animation()
 	
 	elif Input.is_action_just_pressed("fire"):
+		perform_attack()
 		fire_animation.visible = true
 		echo_sprite.play("cast")
 		fire_animation.play("fire")
 
 		fire_sound.play()
 		_hide_fire_animation()
+		
 	elif Input.is_action_just_pressed("water"):
+		water_attack_perform()
 		water_animation.visible = true
 		echo_sprite.play("cast")
-		water_animation.play("water")
+		water_animation.play("waterwall")
 		water_sound.play()
 		_hide_water_animation()
 
@@ -84,7 +97,7 @@ func knock_over_rocks():
 
 	# Assuming the rocks are stored in an array called 'obstacles'
 	for rock in obstacles:
-		if rock and rock is RigidBody2D:
+		if is_instance_valid(rock) and rock is RigidBody2D:
 			# Apply a force to each rock to knock it over
 			var force = Vector2(randf_range(-300, 300), -500) # Random direction with upward push
 			rock.apply_impulse(Vector2.ZERO, force)
@@ -99,7 +112,34 @@ func _hide_fire_animation() -> void:
 	await get_tree().create_timer(ANIMATION_DURATION).timeout
 	fire_animation.visible = false
 	
+	
+func perform_attack():
+	if can_attack:
+		can_attack = false
+		attack_area.monitoring = true
+		attack_collision.disabled = false
+		attack_area.visible = true
+		attack_area.add_to_group("Fire_Attack")
+		_hide_attack_area()
+
+func water_attack_perform():
+	if can_attack:
+		can_attack = false
+		attack_area.monitoring = true
+		attack_collision.disabled = false
+		attack_area.visible = true
+		attack_area.add_to_group("Water_Attack")
+		_hide_attack_area()
+
+func _hide_attack_area() -> void:
+	await get_tree().create_timer(ANIMATION_DURATION).timeout
+	attack_area.monitoring = false
+	attack_collision.disabled = true
+	attack_area.visible = false
+	can_attack = true
+
 func _hide_water_animation() -> void:
 	# Wait for the duration of the animation
 	await get_tree().create_timer(ANIMATION_DURATION).timeout
 	water_animation.visible = false
+	
