@@ -1,17 +1,21 @@
 extends Node2D
 @onready var fire_animation: AnimatedSprite2D = $Fire
-@onready var vine_area: Area2D = $Vine
+@onready var vine_area: StaticBody2D = $Vine
 
 # preload obstacle scenes
 var rock_scene = preload("res://scenes/rock.tscn")
 var platform_scene = preload("res://scenes/platform.tscn")
 @onready var vine_scene = preload("res://scenes/vine.tscn")
 @onready var slash_scene = preload("res://scenes/slash.tscn")
+@onready var spike_scene = preload("res://scenes/spikes.tscn")
+@onready var fire_scene = preload("res://scenes/fire_obstacle.tscn")
+
 #var obstacle_types := [rock_scene,rock_scene,rock_scene]
 #var obstacles : Array = []
 # Obstacle Variables
 var last_obs
 var top_rocks : Array = []
+#var bottom_spikes : Array = []
 var obstacles = Global.obstacles
 
 # Game component variables
@@ -59,7 +63,8 @@ func new_game():
 	
 	# Clear obstacles array to start a new game with fresh obstacles
 	for obs in obstacles:
-		obs.queue_free()
+		if is_instance_valid(obs):
+			obs.queue_free()
 	obstacles.clear()
 	
 	# Find position of each node
@@ -72,9 +77,11 @@ func new_game():
 	
 	# Hide User Interface nodes
 	$HUD.get_node("StartLabel").show()
+
 	$GameOver.get_node("ScoreTitle").hide()
 	$GameOver.get_node("ScoreCount").hide()
 	$GameOver.get_node("Button").hide()
+	
 	
 	last_obs = null # Reset last_obs
 	
@@ -108,6 +115,7 @@ func _process(delta):
 		if Input.is_action_just_pressed("ui_accept"):
 			game_running = true
 			$HUD.get_node("StartLabel").hide()
+			$HUD.get_node("Return").hide()
 
 		
 	#knock over situation
@@ -143,9 +151,12 @@ func game_over():
 			print("game over")
 	
 func generate_obs():
+	#clean up invalid obstacles
+	obstacles = obstacles.filter(is_instance_valid)
+	
 	# Ensure to generate rocks at appropriate intervals
 	if last_obs == null or (is_instance_valid(last_obs) and last_obs.position.x < score + randi_range(300, 500)):
-		var obstacle_type = randi_range(0, 2)
+		var obstacle_type = randi_range(0, 4)
 		
 		var obs
 		var obs_x : int = $Camera2D.position.x + screen_size.x + randi_range(200, 400)
@@ -181,7 +192,23 @@ func generate_obs():
 			
 			add_obs(obs, obs_x, obs_y)
 		
-		# Set the position of the rock
+		elif obstacle_type == 3: #Spikes
+			obs = spike_scene.instantiate()
+			var obs_height = obs.get_node("Stalagmites").texture.get_height()
+			var obs_scale = obs.get_node("Stalactites").scale
+			var obs_y : int = ground_height
+			
+			add_obs(obs, obs_x, obs_y)
+		
+		elif obstacle_type == 4: #flames/fire obstacle
+			obs = fire_scene.instantiate()
+			obs.get_node("FireObstacle").play()
+			#hardcoded y-location, will have to readjust after sprite change
+			var obs_y : int = 294
+			
+			add_obs(obs, obs_x, obs_y)		
+
+		 #Set the position of the rock
 		
 		# Update last_obs to track the last generated rock
 		last_obs = obs
@@ -218,6 +245,9 @@ func check_high_score():
 
 # Need to ask tutorial leader how to seperate different skills into different files to eliminate confusing long code
 func knock_over_rock():
+	#remove invalid object
+	obstacles = obstacles.filter(is_instance_valid)
+	
 	var nearest_rock: RigidBody2D = null
 	var closest_distance: float = push_distance  # Start with the maximum push distance
 
@@ -272,8 +302,8 @@ func fire_slash():
 func _on_slash_hit(area: Area2D) -> void:
 	if area.is_in_group("vine"):
 		print("Vine hit by fire slash")
-		area.queue_free()
 		obstacles.erase(area)
+		area.queue_free()
 
 func _on_vine_collided():
 	print("Game over: Collided with vine")

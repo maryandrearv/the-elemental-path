@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://krinsc7rs1ij"]
 
 [ext_resource type="Script" path="res://scenes/slash.gd" id="1_d8rpe"]
-[ext_resource type="Texture2D" uid="uid://ca5f82egowum2" path="res://assets/fire slash still.png" id="1_dlh63"]
+[ext_resource type="Texture2D" uid="uid://ca5f82egowum2" path="res://sprites/fire slash still.png" id="1_dlh63"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rujnb"]
 size = Vector2(155, 276)
