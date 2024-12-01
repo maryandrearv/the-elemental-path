@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://bnkn33uq2rc2r"
-=======
-uid="uid://bm3k6ijwgj6jc"
->>>>>>> e1edd04111e40fc0517a245a75f8d0c8e031cc8c
-path="res://.godot/imported/EchoSpritesheet.png-d769d4975a4a1e526009a48833e5dfc4.ctex"
+uid="uid://xao7dj8d2rwk"
+path="res://.godot/imported/EchoSpritesheetBeta.png-1274102d7d836f7af0155ca8388bb817.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/EchoSpritesheet.png"
-dest_files=["res://.godot/imported/EchoSpritesheet.png-d769d4975a4a1e526009a48833e5dfc4.ctex"]
+source_file="res://assets/EchoSpritesheetBeta.png"
+dest_files=["res://.godot/imported/EchoSpritesheetBeta.png-1274102d7d836f7af0155ca8388bb817.ctex"]
 
 [params]
 

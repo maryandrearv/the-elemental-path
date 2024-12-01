@@ -1,7 +1,11 @@
 [gd_scene load_steps=8 format=4 uid="uid://b4p11np75v5y1"]
 
 [ext_resource type="Texture2D" uid="uid://ku5lg5ht7tly" path="res://sprites/GrassetPack/GrassetPack.png" id="1_bc51w"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://chvvjnsi5j261" path="res://assets/ground.png" id="1_tfqlp"]
+=======
+[ext_resource type="Texture2D" uid="uid://chvvjnsi5j261" path="res://sprites/ground.png" id="1_tuw7b"]
+>>>>>>> e1edd04111e40fc0517a245a75f8d0c8e031cc8c
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwsa4"]
 size = Vector2(2764, 58)
@@ -76,7 +80,11 @@ sources/2 = SubResource("TileSetAtlasSource_16o8m")
 texture_filter = 1
 position = Vector2(1055, 612)
 scale = Vector2(1.56445, 1.52778)
+<<<<<<< HEAD
 texture = ExtResource("1_tfqlp")
+=======
+texture = ExtResource("1_tuw7b")
+>>>>>>> e1edd04111e40fc0517a245a75f8d0c8e031cc8c
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1055, 618)
