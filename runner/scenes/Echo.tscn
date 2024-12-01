@@ -282,7 +282,8 @@ position = Vector2(99, 21)
 scale = Vector2(4.625, 10.25)
 sprite_frames = SubResource("SpriteFrames_cvafy")
 animation = &"waterwall"
-frame_progress = 0.518222
+frame = 1
+frame_progress = 0.432466
 
 [node name="Fire" type="AnimatedSprite2D" parent="."]
 visible = false

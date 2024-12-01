@@ -52,7 +52,6 @@ animation = &"FireObstacle"
 frame_progress = 0.631944
 
 [node name="FireCollision" type="CollisionShape2D" parent="."]
-scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_07324")
 
 [node name="fireobs_hitbox" type="Area2D" parent="."]

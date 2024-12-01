@@ -136,6 +136,8 @@ func _hide_attack_area() -> void:
 	attack_area.monitoring = false
 	attack_collision.disabled = true
 	attack_area.visible = false
+	attack_area.remove_from_group("Fire_Attack")
+	attack_area.remove_from_group("Water_Attack")
 	can_attack = true
 
 func _hide_water_animation() -> void:
