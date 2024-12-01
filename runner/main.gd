@@ -235,6 +235,8 @@ func knock_over_rock():
 	#remove invalid object
 	obstacles = obstacles.filter(is_instance_valid)
 	
+	var is_rock_hit: bool = false
+	
 	var nearest_rock: RigidBody2D = null
 	var closest_distance: float = push_distance  # Start with the maximum push distance
 
@@ -244,9 +246,12 @@ func knock_over_rock():
 			# Ensure the rock is in front of the player
 			if distance_to_rock < closest_distance and rock.global_position.x > player_position.global_position.x:
 				closest_distance = distance_to_rock
+				#is_rock_hit = true
 				nearest_rock = rock  # Store the closest rock
+			#else:
+				#is_rock_hit = false
 
-	if nearest_rock:
+	if nearest_rock: #and not is_rock_hit
 		# Move the nearest rock slightly (adjust the values as needed)
 		var offset = Vector2(200, 0)  # Move the rock slightly to the right
 		nearest_rock.position += offset  # Change position directly

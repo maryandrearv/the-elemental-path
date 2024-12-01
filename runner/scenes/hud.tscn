@@ -50,6 +50,7 @@ text = "PRESS SPACE TO PLAY
 
 SPACE = JUMP
 
+Q = AIR JUMP | W = WATER WALL
 E = EARTH PUSH | R = FIRE SLASH
 "
 horizontal_alignment = 1
