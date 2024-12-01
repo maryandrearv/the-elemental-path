@@ -11,16 +11,22 @@ extends CharacterBody2D
 @onready var air_sound = $airsound
 @onready var water_sound = $watersound
 
+#Variables for the attacks and the obstacle signals
 var can_attack: bool = true
-@onready var attack_area: Area2D = $Fire_slash_hitbox
-@onready var attack_collision: CollisionShape2D = $Fire_slash_hitbox/CollisionShape2D
+@onready var attack_area: Area2D = $Ability_hitbox
+@onready var attack_collision: CollisionShape2D = $Ability_hitbox/CollisionShape2D
 
 
 const ANIMATION_DURATION: float = 1.0 
 
+#Jump variables
 var GRAVITY : int = 3000
-const JUMP_SPEED : int = -1275
+var JUMP_SPEED : int = -1275
 
+#Double jump variables
+var DOUBLE_JUMP_ON: bool = false
+var DOUBLE_JUMP_GRAVITY : int = 2000
+var DOUBLE_JUMP_SPEED : int  = -900
 
 func _on_ready():
 	earth_animation.visible = false
@@ -41,15 +47,16 @@ func _physics_process(delta: float) -> void:
 		# Start a coroutine to hide the earth animation after a delay
 		_hide_earth_animation()
 	
+	#Fire Slash button
 	elif Input.is_action_just_pressed("fire"):
-		perform_attack()
+		perform_fire_attack()
 		fire_animation.visible = true
 		echo_sprite.play("cast")
 		fire_animation.play("fire")
-
 		fire_sound.play()
 		_hide_fire_animation()
 		
+	#Water Wall button
 	elif Input.is_action_just_pressed("water"):
 		water_attack_perform()
 		water_animation.visible = true
@@ -57,24 +64,31 @@ func _physics_process(delta: float) -> void:
 		water_animation.play("waterwall")
 		water_sound.play()
 		_hide_water_animation()
+		
+	elif Input.is_action_just_pressed("air") and not DOUBLE_JUMP_ON:
+		DOUBLE_JUMP_ON = true
+		velocity.y = DOUBLE_JUMP_SPEED
+		GRAVITY = DOUBLE_JUMP_GRAVITY
 
 		
 	# Add the gravity.
 	velocity.y += GRAVITY * delta
 	# Handle jump.
 	if is_on_floor():
+		#Remove double jump when landing
+		DOUBLE_JUMP_ON = false
+		GRAVITY = 3000
+		JUMP_SPEED = -1275
+		
 		if not get_parent().game_running:
 			echo_sprite.play("idle")
 		else:
 			$RunCol.disabled = false
 			if Input.is_action_pressed("ui_accept"):
 				jump_sound.play()
-
 				velocity.y = JUMP_SPEED
 			elif Input.is_action_pressed("air"):
 				air_sound.play()
-				GRAVITY = 2000
-				velocity.y = -900
 			else:
 				echo_sprite.play("run")
 	else:
@@ -112,8 +126,13 @@ func _hide_fire_animation() -> void:
 	await get_tree().create_timer(ANIMATION_DURATION).timeout
 	fire_animation.visible = false
 	
+func _hide_water_animation() -> void:
+	# Wait for the duration of the animation
+	await get_tree().create_timer(ANIMATION_DURATION).timeout
+	water_animation.visible = false
 	
-func perform_attack():
+	
+func perform_fire_attack():
 	if can_attack:
 		can_attack = false
 		attack_area.monitoring = true
@@ -139,9 +158,3 @@ func _hide_attack_area() -> void:
 	attack_area.remove_from_group("Fire_Attack")
 	attack_area.remove_from_group("Water_Attack")
 	can_attack = true
-
-func _hide_water_animation() -> void:
-	# Wait for the duration of the animation
-	await get_tree().create_timer(ANIMATION_DURATION).timeout
-	water_animation.visible = false
-	
