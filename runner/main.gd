@@ -1,10 +1,8 @@
 extends Node2D
 @onready var fire_animation: AnimatedSprite2D = $Fire
 @onready var vine_area: StaticBody2D = $Vine
-<<<<<<< HEAD
-=======
+
 @onready var game_over_sound = $GameOverSound
->>>>>>> fb0fded2a673846812ebbf8eb7174cfec05ad175
 
 # preload obstacle scenes
 var rock_scene = preload("res://scenes/rock.tscn")
