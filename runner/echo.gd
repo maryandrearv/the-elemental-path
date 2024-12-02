@@ -21,20 +21,12 @@ var can_attack: bool = true
 const ANIMATION_DURATION: float = 1.0 
 
 #Jump variables
-<<<<<<< HEAD
 var GRAVITY : int = 3000
-=======
-var GRAVITY : int = 4000
->>>>>>> fb0fded2a673846812ebbf8eb7174cfec05ad175
 var JUMP_SPEED : int = -1275
 
 #Double jump variables
 var DOUBLE_JUMP_ON: bool = false
-<<<<<<< HEAD
 var DOUBLE_JUMP_GRAVITY : int = 2000
-=======
-var DOUBLE_JUMP_GRAVITY : int = 2500
->>>>>>> fb0fded2a673846812ebbf8eb7174cfec05ad175
 var DOUBLE_JUMP_SPEED : int  = -900
 
 func _on_ready():
@@ -48,7 +40,6 @@ func _on_ready():
 
 
 func _physics_process(delta: float) -> void:
-<<<<<<< HEAD
 	if Input.is_action_just_pressed("earth"):
 		earth_animation.visible = true
 		echo_sprite.play("cast")
@@ -82,7 +73,7 @@ func _physics_process(delta: float) -> void:
 		DOUBLE_JUMP_ON = true
 		velocity.y = DOUBLE_JUMP_SPEED
 		GRAVITY = DOUBLE_JUMP_GRAVITY
-=======
+
 	if Input.is_action_just_pressed("air") and not DOUBLE_JUMP_ON:
 		DOUBLE_JUMP_ON = true
 		velocity.x = 4000
@@ -120,9 +111,6 @@ func _physics_process(delta: float) -> void:
 			water_sound.play()
 			_hide_water_animation()
 		
-
->>>>>>> fb0fded2a673846812ebbf8eb7174cfec05ad175
-
 		
 	# Add the gravity.
 	velocity.y += GRAVITY * delta

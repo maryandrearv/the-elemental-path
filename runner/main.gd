@@ -2,8 +2,6 @@ extends Node2D
 @onready var fire_animation: AnimatedSprite2D = $Fire
 @onready var vine_area: StaticBody2D = $Vine
 
-@onready var game_over_sound = $GameOverSound
-
 # preload obstacle scenes
 var rock_scene = preload("res://scenes/rock.tscn")
 var platform_scene = preload("res://scenes/platform.tscn")
@@ -146,7 +144,6 @@ func game_over():
 			$GameOver.get_node("ScoreTitle").show()
 			$GameOver.get_node("ScoreCount").show()
 			$GameOver.get_node("ScoreCount").text = str(score / SCORE_MODIFIER)
-			game_over_sound.play()
 			print("game over")
 	
 func generate_obs():
@@ -193,8 +190,8 @@ func generate_obs():
 		
 		elif obstacle_type == 3: #Spikes
 			obs = spike_scene.instantiate()
-			#var obs_height = obs.get_node("Stalagmites").texture.get_height()
-			#var obs_scale = obs.get_node("Stalactites").scale
+			var obs_height = obs.get_node("Stalagmites").texture.get_height()
+			var obs_scale = obs.get_node("Stalactites").scale
 			var obs_y : int = ground_height
 			
 			add_obs(obs, obs_x, obs_y)
