@@ -71,15 +71,15 @@ func _physics_process(delta: float) -> void:
 		
 	elif Input.is_action_just_pressed("air") and not DOUBLE_JUMP_ON:
 		DOUBLE_JUMP_ON = true
+		velocity.x += 4000
+		velocity.y = -900
+	
+	#Double Jump
+	elif Input.is_action_just_pressed("ui_accept") and not DOUBLE_JUMP_ON:
+		DOUBLE_JUMP_ON = true
 		velocity.y = DOUBLE_JUMP_SPEED
 		GRAVITY = DOUBLE_JUMP_GRAVITY
-
-	if Input.is_action_just_pressed("air") and not DOUBLE_JUMP_ON:
-		DOUBLE_JUMP_ON = true
-		velocity.x = 4000
-		velocity.y = -900
-		#DOUBLE_JUMP_SPEED
-		GRAVITY = DOUBLE_JUMP_GRAVITY
+		
 	else:
 		velocity.x = 0
 		if Input.is_action_just_pressed("earth"):
