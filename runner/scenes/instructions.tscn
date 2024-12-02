@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmaj22m4gouqk"]
+
+[ext_resource type="Script" path="res://scenes/instructions.gd" id="1_d6mhf"]
+[ext_resource type="VideoStream" path="res://assets/video/can-you-survive-the-path.ogv" id="1_gktoc"]
+[ext_resource type="FontFile" uid="uid://q0ryafcer5ri" path="res://assets/fonts/Pixeled.ttf" id="3_2biwx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5h56a"]
+
+[node name="Instructions" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_d6mhf")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+offset_right = 1152.0
+offset_bottom = 648.0
+stretch_mode = 0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="AspectRatioContainer"]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+stream = ExtResource("1_gktoc")
+autoplay = true
+expand = true
+loop = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = 30.0
+offset_right = 103.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("3_2biwx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5h56a")
+text = "Menu"
+
+[node name="menu" type="Button" parent="VBoxContainer/Label"]
+layout_mode = 2
+offset_left = -1.0
+offset_top = 13.0
+offset_right = 69.0
+offset_bottom = 43.0
+
+[connection signal="pressed" from="VBoxContainer/Label/menu" to="." method="_on_menu_pressed"]

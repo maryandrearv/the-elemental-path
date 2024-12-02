@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgi6f0enoto3q"]
+[gd_scene load_steps=7 format=3 uid="uid://cgi6f0enoto3q"]
 
 [ext_resource type="Script" path="res://scenes/menu.gd" id="1_1xpv3"]
+[ext_resource type="Texture2D" uid="uid://d0rq325hv2ut" path="res://scenes/interfaces/menu_background.png" id="2_vd1vd"]
 [ext_resource type="FontFile" uid="uid://q0ryafcer5ri" path="res://assets/fonts/Pixeled.ttf" id="3_n7hup"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ukk0"]
@@ -20,21 +21,12 @@ script = ExtResource("1_1xpv3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
-follow_viewport_enabled = true
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+[node name="MenuBackground" type="Sprite2D" parent="CanvasLayer"]
 texture_filter = 1
-texture_repeat = 1
-position = Vector2(576, 378.25)
-scale = Vector2(0.382, 0.40775)
-
-[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(579, 131)
-scale = Vector2(0.448795, 0.433994)
-
-[node name="TheElementalPath" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(576, 324)
-scale = Vector2(0.84041, 0.835938)
+position = Vector2(576, 329.5)
+scale = Vector2(0.841571, 0.860091)
+texture = ExtResource("2_vd1vd")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 texture_filter = 1
