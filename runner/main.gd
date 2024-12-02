@@ -1,7 +1,6 @@
 extends Node2D
 @onready var fire_animation: AnimatedSprite2D = $Fire
 @onready var vine_area: StaticBody2D = $Vine
-
 @onready var game_over_sound = $GameOverSound
 
 # preload obstacle scenes
@@ -146,7 +145,7 @@ func game_over():
 			$GameOver.get_node("ScoreTitle").show()
 			$GameOver.get_node("ScoreCount").show()
 			$GameOver.get_node("ScoreCount").text = str(score / SCORE_MODIFIER)
-			game_over_sound.play()
+			#game_over_sound.play()
 			print("game over")
 	
 func generate_obs():
