@@ -20,12 +20,20 @@ var can_attack: bool = true
 const ANIMATION_DURATION: float = 1.0 
 
 #Jump variables
+<<<<<<< HEAD
 var GRAVITY : int = 3000
+=======
+var GRAVITY : int = 4000
+>>>>>>> fb0fded2a673846812ebbf8eb7174cfec05ad175
 var JUMP_SPEED : int = -1275
 
 #Double jump variables
 var DOUBLE_JUMP_ON: bool = false
+<<<<<<< HEAD
 var DOUBLE_JUMP_GRAVITY : int = 2000
+=======
+var DOUBLE_JUMP_GRAVITY : int = 2500
+>>>>>>> fb0fded2a673846812ebbf8eb7174cfec05ad175
 var DOUBLE_JUMP_SPEED : int  = -900
 
 func _on_ready():
@@ -39,6 +47,7 @@ func _on_ready():
 
 
 func _physics_process(delta: float) -> void:
+<<<<<<< HEAD
 	if Input.is_action_just_pressed("earth"):
 		earth_animation.visible = true
 		echo_sprite.play("cast")
@@ -72,6 +81,46 @@ func _physics_process(delta: float) -> void:
 		DOUBLE_JUMP_ON = true
 		velocity.y = DOUBLE_JUMP_SPEED
 		GRAVITY = DOUBLE_JUMP_GRAVITY
+=======
+	if Input.is_action_just_pressed("air") and not DOUBLE_JUMP_ON:
+		DOUBLE_JUMP_ON = true
+		velocity.x = 4000
+		velocity.y = -900
+		#DOUBLE_JUMP_SPEED
+		GRAVITY = DOUBLE_JUMP_GRAVITY
+	else:
+		velocity.x = 0
+		if Input.is_action_just_pressed("earth"):
+			earth_animation.visible = true
+			echo_sprite.play("cast")
+			earth_animation.play("earth")
+			knock_over_rocks()
+
+			rock_sound.play()
+			
+			# Start a coroutine to hide the earth animation after a delay
+			_hide_earth_animation()
+		
+		#Fire Slash button
+		elif Input.is_action_just_pressed("fire"):
+			perform_fire_attack()
+			fire_animation.visible = true
+			echo_sprite.play("cast")
+			fire_animation.play("fire")
+			fire_sound.play()
+			_hide_fire_animation()
+			
+		#Water Wall button
+		elif Input.is_action_just_pressed("water"):
+			water_attack_perform()
+			water_animation.visible = true
+			echo_sprite.play("cast")
+			water_animation.play("waterwall")
+			water_sound.play()
+			_hide_water_animation()
+		
+
+>>>>>>> fb0fded2a673846812ebbf8eb7174cfec05ad175
 
 		
 	# Add the gravity.

@@ -4,6 +4,13 @@ Q - AIR
 W - WATER
 E - EARTH
 R - FIRE
+------
+implementation of dash in air ability
+-----
+-added an if conditional above abilities so that echo does not run 
+off the map
+-echo can fall off map still if he keeps pressing air and end game
+
 -------
 Implementation of air ability
 -------

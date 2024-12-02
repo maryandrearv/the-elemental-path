@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://d0x1bjfd7d5c0"
+=======
+uid="uid://gxgwvq761jao"
+>>>>>>> fb0fded2a673846812ebbf8eb7174cfec05ad175
 path="res://.godot/imported/Echo Beta Spritesheet.png-558d7ee027628d0ffbf7690a807e2cec.ctex"
 metadata={
 "vram_texture": false

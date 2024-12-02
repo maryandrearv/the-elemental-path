@@ -26,7 +26,12 @@ BackgroundMusic="*res://scenes/background_music.tscn"
 
 [display]
 
+window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[editor]
+
+movie_writer/movie_file="/Users/lyinmya/Desktop/School/GameProtoype/runner/scenes/tutorial_scenes/tutorial.avi"
 
 [input]
 
