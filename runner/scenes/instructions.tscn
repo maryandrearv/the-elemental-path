@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmaj22m4gouqk"]
+[gd_scene load_steps=5 format=3 uid="uid://be4is81b4rfw2"]
 
 [ext_resource type="Script" path="res://scenes/instructions.gd" id="1_d6mhf"]
 [ext_resource type="VideoStream" path="res://assets/video/can-you-survive-the-path.ogv" id="1_gktoc"]

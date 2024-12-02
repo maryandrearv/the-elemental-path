@@ -5,22 +5,12 @@ extends CharacterBody2D
 @onready var earth_animation: AnimatedSprite2D = $Earth
 @onready var fire_animation: AnimatedSprite2D = $Fire
 @onready var water_animation: AnimatedSprite2D = $Water
-
-
 @onready var fire_sound = $fireslash
 @onready var rock_sound = $rocksound
 @onready var jump_sound = $jumpsound
-
-const ANIMATION_DURATION: float = 1.0 
-
-const GRAVITY : int = 4200
-const JUMP_SPEED : int = -2000
-
-func _on_ready():
-	earth_animation.visible = false
-	fire_animation.visible = false
 @onready var air_sound = $airsound
 @onready var water_sound = $watersound
+@onready var hitbox: Area2D = $Echo_hitbox
 
 #Variables for the attacks and the obstacle signals
 var can_attack: bool = true
@@ -28,36 +18,15 @@ var can_attack: bool = true
 @onready var attack_collision: CollisionShape2D = $Ability_hitbox/CollisionShape2D
 
 
-
-#func _on_ready():
-	#earth_animation.visible = false
-	#fire_animation.visible = false
-	#attack_area.monitoring = false
-	#attack_collision.disabled = true
-
 const ANIMATION_DURATION: float = 1.0 
 
 #Jump variables
-
-var GRAVITY : int = 4000
-
-
 var GRAVITY : int = 3000
-
-var GRAVITY : int = 4000
-
 var JUMP_SPEED : int = -1275
 
 #Double jump variables
 var DOUBLE_JUMP_ON: bool = false
-
-var DOUBLE_JUMP_GRAVITY : int = 2500
-
-
 var DOUBLE_JUMP_GRAVITY : int = 2000
-
-var DOUBLE_JUMP_GRAVITY : int = 2500
-
 var DOUBLE_JUMP_SPEED : int  = -900
 
 func _on_ready():
@@ -71,26 +40,6 @@ func _on_ready():
 
 
 func _physics_process(delta: float) -> void:
-
-	if Input.is_action_just_pressed("air") and not DOUBLE_JUMP_ON:
-		DOUBLE_JUMP_ON = true
-		velocity.x = 4000
-		velocity.y = -900
-		#DOUBLE_JUMP_SPEED
-		GRAVITY = DOUBLE_JUMP_GRAVITY
-	else:
-		velocity.x = 0
-		if Input.is_action_just_pressed("earth"):
-			earth_animation.visible = true
-			echo_sprite.play("cast")
-			earth_animation.play("earth")
-			knock_over_rocks()
-
-			rock_sound.play()
-			
-			# Start a coroutine to hide the earth animation after a delay
-			_hide_earth_animation()
-
 	if Input.is_action_just_pressed("earth"):
 		earth_animation.visible = true
 		echo_sprite.play("cast")
@@ -99,30 +48,19 @@ func _physics_process(delta: float) -> void:
 
 		rock_sound.play()
 		
-		#Fire Slash button
-		elif Input.is_action_just_pressed("fire"):
-			perform_fire_attack()
-			fire_animation.visible = true
-			echo_sprite.play("cast")
-			fire_animation.play("fire")
-			fire_sound.play()
-			_hide_fire_animation()
-			
-		#Water Wall button
-		elif Input.is_action_just_pressed("water"):
-			water_attack_perform()
-			water_animation.visible = true
-			echo_sprite.play("cast")
-			water_animation.play("waterwall")
-			water_sound.play()
-			_hide_water_animation()
-		
-
-
+		# Start a coroutine to hide the earth animation after a delay
+		_hide_earth_animation()
+	
+	#Fire Slash button
+	elif Input.is_action_just_pressed("fire"):
+		perform_fire_attack()
+		fire_animation.visible = true
+		echo_sprite.play("cast")
+		fire_animation.play("fire")
 		fire_sound.play()
-
 		_hide_fire_animation()
 		
+	#Water Wall button
 	elif Input.is_action_just_pressed("water"):
 		water_attack_perform()
 		water_animation.visible = true
@@ -130,19 +68,18 @@ func _physics_process(delta: float) -> void:
 		water_animation.play("waterwall")
 		water_sound.play()
 		_hide_water_animation()
-
 		
 	elif Input.is_action_just_pressed("air") and not DOUBLE_JUMP_ON:
 		DOUBLE_JUMP_ON = true
+		velocity.x += 4000
+		velocity.y = -900
+	
+	#Double Jump
+	elif Input.is_action_just_pressed("ui_accept") and not DOUBLE_JUMP_ON:
+		DOUBLE_JUMP_ON = true
 		velocity.y = DOUBLE_JUMP_SPEED
 		GRAVITY = DOUBLE_JUMP_GRAVITY
-=======
-	if Input.is_action_just_pressed("air") and not DOUBLE_JUMP_ON:
-		DOUBLE_JUMP_ON = true
-		velocity.x = 4000
-		velocity.y = -900
-		#DOUBLE_JUMP_SPEED
-		GRAVITY = DOUBLE_JUMP_GRAVITY
+		
 	else:
 		velocity.x = 0
 		if Input.is_action_just_pressed("earth"):
@@ -173,7 +110,7 @@ func _physics_process(delta: float) -> void:
 			water_animation.play("waterwall")
 			water_sound.play()
 			_hide_water_animation()
-
+		
 		
 	# Add the gravity.
 	velocity.y += GRAVITY * delta
@@ -191,10 +128,8 @@ func _physics_process(delta: float) -> void:
 			if Input.is_action_pressed("ui_accept"):
 				jump_sound.play()
 				velocity.y = JUMP_SPEED
-        
 			elif Input.is_action_pressed("air"):
 				air_sound.play()
-
 			else:
 				echo_sprite.play("run")
 	else:
