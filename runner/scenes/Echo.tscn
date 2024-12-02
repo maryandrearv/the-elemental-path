@@ -279,6 +279,7 @@ scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_2nvop")
 
 [node name="Earth" type="AnimatedSprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(82, 28)
 scale = Vector2(5, 5)
