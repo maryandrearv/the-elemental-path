@@ -7,14 +7,54 @@ size = Vector2(371.784, 224.865)
 
 [node name="Spikes" type="Node2D"]
 
+[node name="Stalagmites2" type="Sprite2D" parent="."]
+position = Vector2(172.481, 476.962)
+scale = Vector2(0.287594, 0.23481)
+texture = ExtResource("1_ja5jx")
+
+[node name="Stalagmites_hit_box" type="Area2D" parent="Stalagmites2"]
+position = Vector2(-205.809, -2062.7)
+scale = Vector2(3.3195, 4.32432)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stalagmites2/Stalagmites_hit_box"]
+z_index = 2
+position = Vector2(62, 499)
+rotation = -3.14159
+scale = Vector2(0.30125, 0.23125)
+shape = SubResource("RectangleShape2D_1d7pm")
+
 [node name="Stalactites" type="Sprite2D" parent="."]
 position = Vector2(57, 47)
 rotation = 3.14159
 scale = Vector2(0.30125, 0.23125)
 texture = ExtResource("1_ja5jx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stalactites"]
-position = Vector2(-3.3195, 90.8109)
+[node name="Stalactites_hit_box" type="Area2D" parent="Stalactites"]
+position = Vector2(189.211, 203.244)
+rotation = -3.14159
+scale = Vector2(3.3195, 4.32432)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stalactites/Stalactites_hit_box"]
+position = Vector2(57.9999, 26)
+rotation = 3.14159
+scale = Vector2(0.30125, 0.23125)
+shape = SubResource("RectangleShape2D_1d7pm")
+
+[node name="Stalactites2" type="Sprite2D" parent="."]
+position = Vector2(177, 45)
+rotation = 3.14159
+scale = Vector2(0.30125, 0.23125)
+texture = ExtResource("1_ja5jx")
+
+[node name="Stalactites_hit_box" type="Area2D" parent="Stalactites2"]
+position = Vector2(189.211, 203.244)
+rotation = -3.14159
+scale = Vector2(3.3195, 4.32432)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stalactites2/Stalactites_hit_box"]
+position = Vector2(57.9999, 26)
+rotation = 3.14159
+scale = Vector2(0.30125, 0.23125)
 shape = SubResource("RectangleShape2D_1d7pm")
 
 [node name="Stalagmites" type="Sprite2D" parent="."]
@@ -22,8 +62,13 @@ position = Vector2(62, 477)
 scale = Vector2(0.30125, 0.23125)
 texture = ExtResource("1_ja5jx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stalagmites"]
+[node name="Stalagmites_hit_box" type="Area2D" parent="Stalagmites"]
+position = Vector2(-205.809, -2062.7)
+scale = Vector2(3.3195, 4.32432)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stalagmites/Stalagmites_hit_box"]
 z_index = 2
-position = Vector2(0, 95.1349)
+position = Vector2(62, 499)
 rotation = -3.14159
+scale = Vector2(0.30125, 0.23125)
 shape = SubResource("RectangleShape2D_1d7pm")

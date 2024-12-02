@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ihbb4rjmnr7t"
-path="res://.godot/imported/Basic Charakter Spritesheet copy.png-073cdc2eb40e64b3d43445193f4081e6.ctex"
+uid="uid://gxgwvq761jao"
+path="res://.godot/imported/Echo Beta Spritesheet.png-558d7ee027628d0ffbf7690a807e2cec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Basic Charakter Spritesheet copy.png"
-dest_files=["res://.godot/imported/Basic Charakter Spritesheet copy.png-073cdc2eb40e64b3d43445193f4081e6.ctex"]
+source_file="res://assets/Echo Beta Spritesheet.png"
+dest_files=["res://.godot/imported/Echo Beta Spritesheet.png-558d7ee027628d0ffbf7690a807e2cec.ctex"]
 
 [params]
 
