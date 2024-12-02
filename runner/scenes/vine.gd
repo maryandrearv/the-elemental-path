@@ -7,6 +7,7 @@ signal vine_collided
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	add_to_group("Vine")
 	hitbox.connect("area_entered", Callable(self, "_on_vine_hitbox_area_entered"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,6 +23,7 @@ func destroy_vine():
 
 
 func _on_vine_hitbox_area_entered(area: Area2D) -> void:
+	
 	if area.is_in_group("Fire_Attack"):
 		queue_free()
 		print("Vine Destroyed!")

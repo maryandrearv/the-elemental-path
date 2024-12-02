@@ -10,6 +10,7 @@ extends CharacterBody2D
 @onready var jump_sound = $jumpsound
 @onready var air_sound = $airsound
 @onready var water_sound = $watersound
+@onready var hitbox: Area2D = $Echo_hitbox
 
 #Variables for the attacks and the obstacle signals
 var can_attack: bool = true

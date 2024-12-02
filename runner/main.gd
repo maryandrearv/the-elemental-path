@@ -190,8 +190,8 @@ func generate_obs():
 		
 		elif obstacle_type == 3: #Spikes
 			obs = spike_scene.instantiate()
-			var obs_height = obs.get_node("Stalagmites").texture.get_height()
-			var obs_scale = obs.get_node("Stalactites").scale
+			#var obs_height = obs.get_node("Stalagmites").texture.get_height()
+			#var obs_scale = obs.get_node("Stalactites").scale
 			var obs_y : int = ground_height
 			
 			add_obs(obs, obs_x, obs_y)

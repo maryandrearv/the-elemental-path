@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://l5lkp5yy3b20"]
+[gd_scene load_steps=42 format=3 uid="uid://l5lkp5yy3b20"]
 
 [ext_resource type="Script" path="res://echo.gd" id="1_yj31d"]
 [ext_resource type="Texture2D" uid="uid://d0x1bjfd7d5c0" path="res://assets/Echo Beta Spritesheet.png" id="2_j7mbw"]
@@ -231,6 +231,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bayfr"]
 size = Vector2(51, 150)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4f3tm"]
+size = Vector2(97, 107)
+
 [node name="Echo" type="CharacterBody2D"]
 script = ExtResource("1_yj31d")
 
@@ -300,3 +303,9 @@ position = Vector2(46, 29)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ability_hitbox"]
 position = Vector2(18, 5)
 shape = SubResource("RectangleShape2D_bayfr")
+
+[node name="Echo_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Echo_hitbox"]
+position = Vector2(-12.5, 40.5)
+shape = SubResource("RectangleShape2D_4f3tm")
