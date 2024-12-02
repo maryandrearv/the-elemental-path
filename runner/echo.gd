@@ -136,7 +136,7 @@ func _physics_process(delta: float) -> void:
 		DOUBLE_JUMP_ON = true
 		velocity.y = DOUBLE_JUMP_SPEED
 		GRAVITY = DOUBLE_JUMP_GRAVITY
-=======
+
 	if Input.is_action_just_pressed("air") and not DOUBLE_JUMP_ON:
 		DOUBLE_JUMP_ON = true
 		velocity.x = 4000
