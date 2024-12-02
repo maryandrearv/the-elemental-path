@@ -55,5 +55,4 @@ scale = Vector2(0.999999, 0.999999)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Stalactites_hit_box"]
 position = Vector2(58, 26.5001)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_qo7ij")
