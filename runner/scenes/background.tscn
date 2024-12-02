@@ -8,10 +8,11 @@
 [node name="background" type="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-<<<<<<< HEAD
-=======
+
 texture_filter = 1
->>>>>>> fb0fded2a673846812ebbf8eb7174cfec05ad175
+
+texture_filter = 1
+
 position = Vector2(3, 0)
 scale = Vector2(2.99479, 2.97222)
 texture = ExtResource("1_0y6dt")

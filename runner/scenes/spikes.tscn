@@ -57,6 +57,23 @@ rotation = 3.14159
 scale = Vector2(0.30125, 0.23125)
 shape = SubResource("RectangleShape2D_1d7pm")
 
+[node name="Stalactites2" type="Sprite2D" parent="."]
+position = Vector2(177, 45)
+rotation = 3.14159
+scale = Vector2(0.30125, 0.23125)
+texture = ExtResource("1_ja5jx")
+
+[node name="Stalactites_hit_box" type="Area2D" parent="Stalactites2"]
+position = Vector2(189.211, 203.244)
+rotation = -3.14159
+scale = Vector2(3.3195, 4.32432)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stalactites2/Stalactites_hit_box"]
+position = Vector2(57.9999, 26)
+rotation = 3.14159
+scale = Vector2(0.30125, 0.23125)
+shape = SubResource("RectangleShape2D_1d7pm")
+
 [node name="Stalagmites" type="Sprite2D" parent="."]
 position = Vector2(62, 477)
 scale = Vector2(0.30125, 0.23125)

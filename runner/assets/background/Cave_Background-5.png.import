@@ -2,23 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-
-
-uid="uid://gxgwvq761jao"
-uid="uid://d0x1bjfd7d5c0"
-uid="uid://gxgwvq761jao"
-
-uid="uid://btv67fxt3gvf3"
-
-path="res://.godot/imported/Echo Beta Spritesheet.png-558d7ee027628d0ffbf7690a807e2cec.ctex"
+uid="uid://cnqaow5nnhfo6"
+path="res://.godot/imported/Cave_Background-5.png-face81473d1081fcadc09a81a4e8e21d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Echo Beta Spritesheet.png"
-dest_files=["res://.godot/imported/Echo Beta Spritesheet.png-558d7ee027628d0ffbf7690a807e2cec.ctex"]
+source_file="res://assets/background/Cave_Background-5.png"
+dest_files=["res://.godot/imported/Cave_Background-5.png-face81473d1081fcadc09a81a4e8e21d.ctex"]
 
 [params]
 
