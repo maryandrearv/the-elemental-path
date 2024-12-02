@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1evxy07plg1c"]
+
+[ext_resource type="Texture2D" uid="uid://cxr0katdm2gks" path="res://scenes/tutorial_scenes/The Elemental Path.png" id="1_4jupc"]
+
+[node name="Instructions" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TheElementalPath" type="Sprite2D" parent="."]
+position = Vector2(446, 453)
+texture = ExtResource("1_4jupc")
