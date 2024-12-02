@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgi6f0enoto3q"]
+[gd_scene load_steps=6 format=3 uid="uid://cgi6f0enoto3q"]
 
 [ext_resource type="Script" path="res://scenes/menu.gd" id="1_1xpv3"]
+[ext_resource type="FontFile" uid="uid://q0ryafcer5ri" path="res://assets/fonts/Pixeled.ttf" id="3_n7hup"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ukk0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_twtnu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_58s7w"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -25,17 +32,22 @@ scale = Vector2(0.382, 0.40775)
 position = Vector2(579, 131)
 scale = Vector2(0.448795, 0.433994)
 
+[node name="TheElementalPath" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(576, 324)
+scale = Vector2(0.84041, 0.835938)
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -200.0
-offset_right = 200.0
-offset_bottom = 200.0
+offset_left = -462.0
+offset_top = -164.0
+offset_right = -62.0
+offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -43,25 +55,46 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="."]
+modulate = Color(0.305882, 0.172549, 0.027451, 1)
 texture_filter = 1
 layout_mode = 2
+offset_left = 105.0
+offset_top = 363.0
+offset_right = 505.0
+offset_bottom = 431.0
+theme_override_fonts/font = ExtResource("3_n7hup")
 theme_override_font_sizes/font_size = 24
-text = "Play"
-
-[node name="Instructions" type="Button" parent="MarginContainer/VBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Instructions"
-
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6ukk0")
 text = "Quit
 "
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Instructions" to="." method="_on_instructions_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="Instructions" type="Button" parent="."]
+modulate = Color(0.305882, 0.172549, 0.027451, 1)
+texture_filter = 1
+layout_mode = 2
+offset_left = 106.0
+offset_top = 289.0
+offset_right = 506.0
+offset_bottom = 357.0
+theme_override_fonts/font = ExtResource("3_n7hup")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_twtnu")
+text = "Instructions"
+
+[node name="Play" type="Button" parent="."]
+modulate = Color(0.304953, 0.173475, 0.025611, 1)
+texture_filter = 1
+layout_mode = 2
+offset_left = 105.0
+offset_top = 222.0
+offset_right = 505.0
+offset_bottom = 290.0
+theme_override_fonts/font = ExtResource("3_n7hup")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_58s7w")
+text = "Play"
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Instructions" to="." method="_on_instructions_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]

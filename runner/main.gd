@@ -2,6 +2,8 @@ extends Node2D
 @onready var fire_animation: AnimatedSprite2D = $Fire
 @onready var vine_area: StaticBody2D = $Vine
 
+@onready var game_over_sound = $GameOverSound
+
 # preload obstacle scenes
 var rock_scene = preload("res://scenes/rock.tscn")
 var platform_scene = preload("res://scenes/platform.tscn")
@@ -129,6 +131,7 @@ func _process(delta):
 
 # game over function that pauses game, shows scores, and allows you to restart
 func game_over():
+	
 	check_high_score()
 	#reset hud and gameover screen
 	# Calculate the visible area based on the camera position
@@ -143,7 +146,7 @@ func game_over():
 			$GameOver.get_node("ScoreTitle").show()
 			$GameOver.get_node("ScoreCount").show()
 			$GameOver.get_node("ScoreCount").text = str(score / SCORE_MODIFIER)
-			
+			game_over_sound.play()
 			print("game over")
 	
 func generate_obs():
