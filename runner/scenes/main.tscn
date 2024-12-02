@@ -27,6 +27,8 @@ position = Vector2(127, -1275)
 scale = Vector2(2, 2)
 
 [node name="Echo" parent="." instance=ExtResource("4_n4rl8")]
+texture_filter = 1
+texture_repeat = 1
 position = Vector2(87, 468)
 collision_layer = 3
 collision_mask = 3
