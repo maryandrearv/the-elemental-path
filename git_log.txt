@@ -1,0 +1,407 @@
+commit 9dc65b4dd6752bd5c34d5429b81bcf076ffac99c
+Author: Diefer Santos (dls702) <dls702@mail.usask.ca>
+Date:   Fri Nov 8 20:35:59 2024 -0600
+
+    Removed unecessary files
+
+commit 3f905b33c1b245f01a1443a7cf02e1ab50cf9fd1
+Author: Diefer Santos (dls702) <dls702@mail.usask.ca>
+Date:   Fri Nov 8 20:32:15 2024 -0600
+
+    Made changes to the code after merging everything, should run smoother
+
+commit a77d005aea333c62e80d08b2224478767e1679d3
+Merge: 4d5adfe 979e8c1
+Author: Diefer Santos (dls702) <dls702@mail.usask.ca>
+Date:   Fri Nov 8 20:14:41 2024 -0600
+
+    Echo sprite
+
+commit 4d5adfe3f1998543c3cda600e0d1cca92eed8216
+Author: Diefer Santos (dls702) <dls702@mail.usask.ca>
+Date:   Fri Nov 8 20:14:05 2024 -0600
+
+    testing
+
+commit 979e8c12edff6fb9ca117203c68343127e436e78
+Author: Diefer Santos (dls702) <dls702@mail.usask.ca>
+Date:   Fri Nov 8 19:57:32 2024 -0600
+
+    Testing merge
+
+commit 29f8d9b31af65b3ff3c5101ec9b4334e1580a562
+Merge: 8e01460 6a8a084
+Author: Diefer Santos (dls702) <dls702@mail.usask.ca>
+Date:   Fri Nov 8 19:52:25 2024 -0600
+
+    Testing merges
+
+commit 8e014601cb6a0690949e74b830ec284f432419db
+Merge: 07de608 1eb208a
+Author: Diefer Santos (dls702) <dls702@mail.usask.ca>
+Date:   Fri Nov 8 19:46:17 2024 -0600
+
+    testing changes and merges
+
+commit 6a8a084015d39b456281ae30e5bd4a1c0ac79897
+Author: maryandrearv <maryandreavargas@gmail.com>
+Date:   Fri Nov 8 19:33:49 2024 -0600
+
+    Updated obstacles.
+
+commit 0467a47dba5522d6e1e9437251bbb19091abc0c4
+Merge: f337858 07de608
+Author: dls702 <dls702@usask.ca>
+Date:   Fri Nov 8 16:01:26 2024 -0600
+
+    Merge pull request #17 from ElleOwO/diefer
+    
+    Slight echo sizing
+
+commit 07de60858ea2f486dcc656daebfd970539c65005
+Author: Diefer Santos (dls702) <dls702@mail.usask.ca>
+Date:   Fri Nov 8 15:57:24 2024 -0600
+
+    Slight echo sizing
+
+commit f337858c886076bc9e380aebfc436a243bfedad7
+Author: Katherine Nguyen <katherinenguyen0205@gmail.com>
+Date:   Fri Nov 8 15:18:10 2024 -0600
+
+    fixed animation
+
+commit 8cf0321ebb92ba41fea4354b146a8dee5d4ff419
+Author: Katherine Nguyen <katherinenguyen0205@gmail.com>
+Date:   Fri Nov 8 14:54:06 2024 -0600
+
+    finish surgery
+
+commit 6f0d50497e40e1f3e5459377214303e79d99a6e6
+Author: Katherine Nguyen <katherinenguyen0205@gmail.com>
+Date:   Fri Nov 8 14:37:33 2024 -0600
+
+    change entry point
+
+commit fe49380da1bb7e2ef5658a4fa171efcb22752296
+Merge: e374be1 7029d8d
+Author: Katherine Nguyen <128651791+nyan-kaaaat@users.noreply.github.com>
+Date:   Fri Nov 8 14:09:38 2024 -0600
+
+    Merge pull request #16 from nyan-kaaaat/katbranch
+    
+    pulled from main
+
+commit 7029d8d81e3ebd9fd91415080584318b13d79a82
+Author: Katherine Nguyen <katherinenguyen0205@gmail.com>
+Date:   Fri Nov 8 14:08:11 2024 -0600
+
+    pulled from main
+
+commit 1eb208aeea3f0fcaa19015d6bf4de5dd868ec449
+Author: maryandrearv <maryandreavargas@gmail.com>
+Date:   Fri Nov 8 09:51:26 2024 -0600
+
+    Updated ground and ceiling.
+
+commit faaa1a8fab2b7a611054b3b1bb704664ac2fc6bd
+Author: maryandrearv <maryandreavargas@gmail.com>
+Date:   Fri Nov 8 09:24:37 2024 -0600
+
+    Created and updated infinite scrolling background.
+
+commit 2806a31ca4bc4bda53ffcc0b90f8093effd029ff
+Merge: 7a7191c cb4a473
+Author: dls702 <dls702@usask.ca>
+Date:   Thu Nov 7 22:49:19 2024 -0600
+
+    Merge pull request #15 from ElleOwO/diefer
+    
+    Diefer
+
+commit 023c3674914d87fe9a6884311b4b73b49bbfea4f
+Author: maryandrearv <maryandreavargas@gmail.com>
+Date:   Thu Nov 7 22:37:08 2024 -0600
+
+    Initial commit.
+
+commit cb4a4734c7370c88eeaa143cc5db15f84fb82e1e
+Author: Diefer Santos (dls702) <dls702@mail.usask.ca>
+Date:   Thu Nov 7 20:35:05 2024 -0600
+
+    Fixed a few sizings and placements for platform, and shortened the height of echo a bit. Still encountering bugs
+
+commit f60e946e1d163ba0d139e6123b509eda39e70d08
+Author: Diefer Santos (dls702) <dls702@mail.usask.ca>
+Date:   Thu Nov 7 20:04:17 2024 -0600
+
+    Added a platform obstacle that echo can jump over or stay under. The plan with this is to have some obstacles form under or over the platform at times to trick players. Also fixed a few sprite changes. Temporarily reverted the vine back to Area2D until I can figure out how to make the vine stop the player
+
+commit 844bca4059a4d87f73d20664fa50a509604e9ad1
+Author: Diefer Santos (dls702) <dls702@mail.usask.ca>
+Date:   Thu Nov 7 06:19:54 2024 -0600
+
+    Testing out to see vine as a StaticBody2D. It behaves as it should as an obstacle, but now it won't dissapear if it's hit with a fire slash
+
+commit c4f13c9faca9b6806298733599d052044e7f54bc
+Author: Diefer Santos (dls702) <dls702@mail.usask.ca>
+Date:   Thu Nov 7 02:30:48 2024 -0600
+
+    Still working on the collision for echo and vines. The collision does hit as stated in the debug lines. But need to figure out how to stop the character from running until the end of screen
+
+commit 254dea39f9be52f671bdc98b2c041c311889c3e0
+Author: Diefer Santos (dls702) <dls702@mail.usask.ca>
+Date:   Wed Nov 6 23:48:24 2024 -0600
+
+    After many trials and errors, I have created the vine obstacle and the fire move can now hit it. Vine has been changed from a StaticBody2D to Area2D as it worked best and it detected collision a little better. There might be a better way to go with it, but we'll have to make changes after. Need to make collision with player when it hits the vine
+
+commit 6806f8a05133262ea0b15f586fd385e8560cb4f5
+Author: Diefer Santos (dls702) <dls702@mail.usask.ca>
+Date:   Wed Nov 6 15:25:39 2024 -0600
+
+    Fireballs are now spawning and shooting, but it's slower than player and there's no collision happening.
+
+commit 16f454691d15757c3a8041ab3be5d0c3baa2d034
+Author: Diefer Santos (dls702) <dls702@mail.usask.ca>
+Date:   Sun Nov 3 03:24:21 2024 -0600
+
+    Started working on the fireball aspect to be able to attack the vine obstacles
+
+commit e3059a5bec8c3823e2ce1c414b41b06167d1ed37
+Author: Diefer Santos (dls702) <dls702@mail.usask.ca>
+Date:   Sun Nov 3 00:38:28 2024 -0600
+
+    Added the Vine sprites as an obstacle. Changed the node type from rigidbody to a static body so the obstacle stays in place. Need to implementa new attack or move to be able to get away or rid of obstacle
+
+commit 600027a5cdebbb84954b4272a6f1cf9eeb37b998
+Author: Diefer Santos (dls702) <dls702@mail.usask.ca>
+Date:   Sat Nov 2 23:42:52 2024 -0600
+
+    Tested out mostly sizes and gameplay. Created a vine pixel and imported it for a new obstacle for game
+
+commit 061617c99bf9bd0860a16acd71b3bbe8f3a40ecd
+Author: Diefer Santos (dls702) <dls702@mail.usask.ca>
+Date:   Sat Nov 2 00:28:27 2024 -0600
+
+    imported runner file from Lyin
+
+commit e374be19e774005326e52c05a23d6252746bfa63
+Merge: 870bcc0 37dc4e4
+Author: Katherine Nguyen <128651791+nyan-kaaaat@users.noreply.github.com>
+Date:   Fri Nov 1 22:22:48 2024 -0600
+
+    Merge pull request #11 from nyan-kaaaat/katbranch
+    
+    added idle sprites for player spritesheet
+
+commit 9cee2604c7db3608ddeb7adf87dd6141b88892fa
+Author: ElleOwO <lmtdmya@gmail.com>
+Date:   Fri Nov 1 22:19:49 2024 -0600
+
+    added descriptions and cleaned up some code
+
+commit 37dc4e4b83031254a26f1703e91961ee3e7f256d
+Merge: 7eb7b7c 870bcc0
+Author: Katherine Nguyen <wvk548@usask.ca>
+Date:   Fri Nov 1 22:19:47 2024 -0600
+
+    Merge remote-tracking branch 'refs/remotes/origin/katbranch' into katbranch
+    
+    keeping commits up to date
+
+commit 7eb7b7c4fe38d62f7db172a2e5737d568b825369
+Author: Katherine Nguyen <wvk548@usask.ca>
+Date:   Fri Nov 1 22:14:55 2024 -0600
+
+    added idle animations for player spritesheet
+
+commit 20d6060e30480aa9841a157b9edb6fd10d085abc
+Author: ElleOwO <lmtdmya@gmail.com>
+Date:   Fri Nov 1 22:01:25 2024 -0600
+
+    implement highscore system, earth cast
+
+commit 1d36600aa5b9228525446ee1e293aba733bac55b
+Author: ElleOwO <lmtdmya@gmail.com>
+Date:   Fri Nov 1 20:32:47 2024 -0600
+
+    move obtacle with e, restart page implement
+
+commit 870bcc06a4c4e8b6c53d8720c3de0a4d807a3e20
+Merge: f100be2 79746f0
+Author: Katherine Nguyen <128651791+nyan-kaaaat@users.noreply.github.com>
+Date:   Fri Nov 1 19:29:27 2024 -0600
+
+    Merge pull request #9 from nyan-kaaaat/katbranch
+    
+    readded player spritesheet
+
+commit 79746f027ae179bd099b36ab3d6552c58e58aeab
+Author: Katherine Nguyen <wvk548@usask.ca>
+Date:   Fri Nov 1 19:28:21 2024 -0600
+
+    readded player spritesheet
+
+commit f100be2ade2ecba239cdb5d1ef18592995cc8c42
+Merge: 3ea28e1 a1e1fda
+Author: ElleOwO <76455872+ElleOwO@users.noreply.github.com>
+Date:   Fri Nov 1 19:14:55 2024 -0600
+
+    Merge pull request #8 from ElleOwO/main
+    
+    Merge pull request #7 from ElleOwO/katbranch
+
+commit a1e1fdabab7d217d0e866539578a9d2e24410e6a
+Merge: 9758b74 3ea28e1
+Author: ElleOwO <76455872+ElleOwO@users.noreply.github.com>
+Date:   Fri Nov 1 19:14:07 2024 -0600
+
+    Merge pull request #7 from ElleOwO/katbranch
+    
+    Katbranch
+
+commit 3ea28e1c74c8f12ecc5f696cccee32a6ccf1974f
+Merge: 2659590 9758b74
+Author: Katherine Nguyen <128651791+nyan-kaaaat@users.noreply.github.com>
+Date:   Fri Nov 1 18:45:45 2024 -0600
+
+    Merge pull request #6 from ElleOwO/main
+    
+    merging commits from merge to katbranch
+
+commit 2659590fbe86a9e75106b6236f873d4499ba5402
+Merge: 39db8d1 cd211d0
+Author: Katherine Nguyen <128651791+nyan-kaaaat@users.noreply.github.com>
+Date:   Fri Nov 1 18:44:25 2024 -0600
+
+    Merge pull request #5 from nyan-kaaaat/katbranch
+    
+    created an animation sprite sheet for the player and saved it as a png. 4 columns 5 rows
+
+commit 9758b74f89c5edd4f515ffc2f31a2d186592a793
+Author: Katherine Nguyen <128651791+nyan-kaaaat@users.noreply.github.com>
+Date:   Fri Nov 1 18:41:12 2024 -0600
+
+    Delete EchoSpritesheet.png from main branch
+
+commit 37d305d2a86a6557583b68344ae1bf5e50035e09
+Merge: 55b0455 cd211d0
+Author: Katherine Nguyen <128651791+nyan-kaaaat@users.noreply.github.com>
+Date:   Fri Nov 1 18:37:29 2024 -0600
+
+    Merge pull request #4 from nyan-kaaaat/katbranch
+    
+    Player Spritesheet
+
+commit cd211d020646576c40316ae2db68f980cb49aeaf
+Author: Katherine Nguyen <wvk548@usask.ca>
+Date:   Fri Nov 1 18:35:09 2024 -0600
+
+    created an animation sprite sheet for the player and saved it as a png
+
+commit c4c394ebab0d68706ebe30582bff38943570add1
+Author: ElleOwO <lmtdmya@gmail.com>
+Date:   Mon Oct 28 01:03:01 2024 -0600
+
+    updated runner so that there is a score and it generates a rock
+
+commit 39db8d1fe2b2e42c207b0123b9820cf7d78fbd65
+Merge: 8d3637a 2917be6
+Author: Katherine Nguyen <128651791+nyan-kaaaat@users.noreply.github.com>
+Date:   Sat Oct 26 13:33:25 2024 -0600
+
+    Merge pull request #3 from nyan-kaaaat/katbranch
+    
+    removed readme.md and git files
+
+commit 2917be6e045a95177131f3e2ed276a3d36ce02b0
+Author: Katherine Nguyen <wvk548@usask.ca>
+Date:   Sat Oct 26 13:19:10 2024 -0600
+
+    removed readme and git stuff to test
+
+commit 8d3637ae2299ca74773331530a9c2fcf9244cb77
+Author: ElleOwO <lmtdmya@gmail.com>
+Date:   Fri Oct 25 21:44:32 2024 -0600
+
+    katbranch
+
+commit 55b0455d28df1f51ffa8725d75c7bd5343f63ce5
+Author: ElleOwO <lmtdmya@gmail.com>
+Date:   Fri Oct 25 21:43:07 2024 -0600
+
+    removed kat.txt
+
+commit 47da33246ca0fb918a61692834acc42b9c490e7d
+Author: Diefer Santos (dls702) <dls702@mail.usask.ca>
+Date:   Fri Oct 25 21:42:04 2024 -0600
+
+    initial commit
+
+commit 5b4badc5d98fade211c7b7861d9feffdaef9b669
+Merge: 7a7191c 2f1db9d
+Author: ElleOwO <76455872+ElleOwO@users.noreply.github.com>
+Date:   Fri Oct 25 21:36:12 2024 -0600
+
+    Merge pull request #1 from nyan-kaaaat/kat-branch
+    
+    kat's test
+
+commit 2f1db9dce9d1ecbd1a9861f1f073114e9125e0cf
+Author: Katherine Nguyen <wvk548@usask.ca>
+Date:   Fri Oct 25 21:31:48 2024 -0600
+
+    kat's test
+
+commit e098542851cf0f9579cca2c73148a384f8048ad5
+Author: ElleOwO <lmtdmya@gmail.com>
+Date:   Fri Oct 25 21:28:47 2024 -0600
+
+    deleted random files
+
+commit e3eefd55bf3f7391d41261ed54c8f791989b341b
+Author: ElleOwO <lmtdmya@gmail.com>
+Date:   Fri Oct 25 21:25:18 2024 -0600
+
+    game prototype test files
+
+commit 7a7191c84334babaabac4ece68c0f79eb3dc24f7
+Author: Katherine Nguyen <128651791+nyan-kaaaat@users.noreply.github.com>
+Date:   Fri Oct 25 21:18:48 2024 -0600
+
+    Delete .gitattributes
+
+commit 504acade2d1513492a9a188a6cd9750925a21f02
+Author: Katherine Nguyen <128651791+nyan-kaaaat@users.noreply.github.com>
+Date:   Fri Oct 25 21:18:36 2024 -0600
+
+    Delete .gitignore
+
+commit 3916ae301dfbb871bf9a03e1e5bc472a16c0bd38
+Author: Katherine Nguyen <wvk548@usask.ca>
+Date:   Fri Oct 25 21:17:03 2024 -0600
+
+    clreaned main branch
+
+commit c85816d6ed0ff41478d3a1c21508ac989b6dfc66
+Author: ElleOwO <lmtdmya@gmail.com>
+Date:   Fri Oct 25 21:12:06 2024 -0600
+
+    first commit
+
+commit 46d72981795594588d3f8fc707febdd06b2cedf9
+Author: Katherine Nguyen <wvk548@usask.ca>
+Date:   Wed Oct 23 14:22:36 2024 -0600
+
+    added game scene
+
+commit 22dd45170efbc9ec439ca8821210f87070d75a6d
+Author: Katherine Nguyen <wvk548@usask.ca>
+Date:   Wed Oct 23 14:16:17 2024 -0600
+
+    adding godot project files and created a 2d scene with the player node's collision and animated sprite nodes. nothing done to them yet
+
+commit 372bc016b1234678207f98eafa490db6a57c7df7
+Author: ElleOwO <76455872+ElleOwO@users.noreply.github.com>
+Date:   Fri Oct 11 21:50:18 2024 -0600
+
+    Initial commit

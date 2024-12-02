@@ -2,6 +2,17 @@
 
 [ext_resource type="Script" path="res://echo.gd" id="1_yj31d"]
 [ext_resource type="Texture2D" uid="uid://gxgwvq761jao" path="res://assets/Echo Beta Spritesheet.png" id="2_j7mbw"]
+
+[gd_scene load_steps=41 format=3 uid="uid://l5lkp5yy3b20"]
+
+[ext_resource type="Script" path="res://echo.gd" id="1_yj31d"]
+[ext_resource type="Texture2D" uid="uid://d0x1bjfd7d5c0" path="res://assets/Echo Beta Spritesheet.png" id="2_j7mbw"]
+
+[gd_scene load_steps=44 format=3 uid="uid://l5lkp5yy3b20"]
+
+[ext_resource type="Script" path="res://echo.gd" id="1_yj31d"]
+[ext_resource type="Texture2D" uid="uid://gxgwvq761jao" path="res://assets/Echo Beta Spritesheet.png" id="2_j7mbw"]
+
 [ext_resource type="Texture2D" uid="uid://bnkn33uq2rc2r" path="res://sprites/EchoSpritesheet.png" id="2_qb8ms"]
 [ext_resource type="Texture2D" uid="uid://bb1xdvnxgej31" path="res://sprites/Water Effect and Bullet 16x16.png" id="3_v8dir"]
 [ext_resource type="Texture2D" uid="uid://cdr430oh8005q" path="res://sprites/Fire slash sprite.png" id="3_x35eh"]
@@ -24,6 +35,12 @@ region = Rect2(250, 0, 50, 50)
 atlas = ExtResource("2_j7mbw")
 region = Rect2(0, 0, 50, 50)
 
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efuyk"]
+atlas = ExtResource("2_j7mbw")
+region = Rect2(150, 0, 50, 50)
+
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ib2vf"]
 atlas = ExtResource("2_j7mbw")
 region = Rect2(200, 0, 50, 50)
@@ -38,6 +55,24 @@ region = Rect2(50, 0, 50, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lf0r4"]
 atlas = ExtResource("2_j7mbw")
+
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28nyh"]
+atlas = ExtResource("2_j7mbw")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2edts"]
+atlas = ExtResource("2_j7mbw")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_au86d"]
+atlas = ExtResource("2_j7mbw")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_203tn"]
+atlas = ExtResource("2_j7mbw")
+
 region = Rect2(100, 0, 50, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_28nyh"]
@@ -79,9 +114,21 @@ animations = [{
 }, {
 "frames": [{
 "duration": 2.5,
+
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efuyk")
+}, {
+"duration": 1.0,
+
 "texture": SubResource("AtlasTexture_ib2vf")
 }, {
 "duration": 1.0,
+
+"duration": 2.5,
+"texture": SubResource("AtlasTexture_ib2vf")
+}, {
+"duration": 1.0,
+
 "texture": SubResource("AtlasTexture_vvv8f")
 }],
 "loop": true,
@@ -94,6 +141,7 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lf0r4")
+
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_28nyh")
@@ -106,6 +154,7 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_203tn")
+
 }],
 "loop": true,
 "name": &"run",
@@ -260,8 +309,20 @@ texture_filter = 1
 position = Vector2(-21, 34)
 scale = Vector2(3.48953, 3.16)
 sprite_frames = SubResource("SpriteFrames_k886e")
+
+animation = &"jump"
+
+animation = &"run"
+
+animation = &"jump"
+frame_progress = 0.335837
+
+animation = &"run"
+frame_progress = 0.231254
+
 animation = &"jump"
 frame_progress = 0.234541
+
 
 [node name="RunCol" type="CollisionShape2D" parent="."]
 position = Vector2(-12.25, 40)
@@ -298,6 +359,7 @@ frame_progress = 0.747292
 speed_scale = 2.0
 
 [node name="air" type="AnimatedSprite2D" parent="."]
+visible = false
 
 [node name="fireslash" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_g3xbk")
