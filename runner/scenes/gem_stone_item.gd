@@ -5,6 +5,7 @@ extends Area2D
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Echo":
 		queue_free()
+		print("gem picked up")
 
 # randomly spawns coins
 func gem_spawner():
