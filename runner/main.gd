@@ -271,4 +271,11 @@ func knock_over_rock():
 			collision_shape.position += offset  # Move the collision shape along with the top rock
 	else:
 		print("No nearby rock to knock over.")
-	
+
+# spawns gems at random positions
+func _on_gem_spawn_timer_timeout() -> void:
+	var gem = preload("res://scenes/gem_stone_item.tscn").instantiate()
+	var x_gem_pos = randf_range(20, 20)
+	var y_gem_pos = randf_range(20, 20)
+	gem.global.position = Vector2(x_gem_pos, y_gem_pos)
+	self.add_child(gem)
