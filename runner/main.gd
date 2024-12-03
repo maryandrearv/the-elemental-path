@@ -11,6 +11,7 @@ var platform_scene = preload("res://scenes/platform.tscn")
 @onready var slash_scene = preload("res://scenes/slash.tscn")
 @onready var spike_scene = preload("res://scenes/spikes.tscn")
 @onready var fire_scene = preload("res://scenes/fire_obstacle.tscn")
+@onready var gemstone_scene = preload("res://scenes/gem_stone_item.tscn")
 
 
 #var obstacle_types := [rock_scene,rock_scene,rock_scene]
@@ -113,7 +114,10 @@ func _process(delta):
 		if $Camera2D.position.x - $Ceiling.position.x > screen_size.x * 1.5:
 			$Ceiling.position.x += screen_size.x 
 		if $Camera2D.position.x - $Background.scroll_offset.x > screen_size.x * 1.5:
-			$Background.scroll_offset.x += screen_size.x 
+			$Background.scroll_offset.x += screen_size.x
+		
+		spawn_gem()
+		 
 	else:
 		if Input.is_action_just_pressed("ui_accept"):
 			game_running = true
@@ -272,10 +276,13 @@ func knock_over_rock():
 	else:
 		print("No nearby rock to knock over.")
 
+func spawn_gem() -> void:
+	_on_gem_spawn_timer_timeout()
+	
 # spawns gems at random positions
 func _on_gem_spawn_timer_timeout() -> void:
-	var gem = preload("res://scenes/gem_stone_item.tscn").instantiate()
-	var x_gem_pos = randf_range(20, 20)
-	var y_gem_pos = randf_range(20, 20)
-	gem.global.position = Vector2(x_gem_pos, y_gem_pos)
-	self.add_child(gem)
+	var gem = gemstone_scene.instantiate()
+	var x_gem_pos = randf_range(200, screen_size.x)
+	var y_gem_pos = randf_range(-529, -1275)
+	gem.position = Vector2(x_gem_pos, y_gem_pos)
+	add_child(gem)
