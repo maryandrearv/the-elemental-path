@@ -2,9 +2,8 @@
 
 [ext_resource type="Script" path="res://scenes/instructions.gd" id="1_d6mhf"]
 [ext_resource type="VideoStream" path="res://assets/video/can-you-survive-the-path.ogv" id="1_gktoc"]
-[ext_resource type="FontFile" uid="uid://q0ryafcer5ri" path="res://assets/fonts/Pixeled.ttf" id="3_2biwx"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5h56a"]
+[ext_resource type="Texture2D" uid="uid://dakt4p3rxqvcr" path="res://assets/interfaces/Buttons/Menu1.png" id="3_hsco0"]
+[ext_resource type="Texture2D" uid="uid://yubem7eeixk3" path="res://assets/interfaces/Buttons/Menu2.png" id="4_0dx7k"]
 
 [node name="Instructions" type="Control"]
 layout_mode = 3
@@ -27,31 +26,16 @@ autoplay = true
 expand = true
 loop = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 35.0
+[node name="menu" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = 61.0
 offset_top = 30.0
-offset_right = 103.0
-offset_bottom = 76.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
+offset_right = 131.0
+offset_bottom = 60.0
+texture_normal = ExtResource("3_hsco0")
+texture_pressed = ExtResource("4_0dx7k")
+texture_hover = ExtResource("4_0dx7k")
+ignore_texture_size = true
+stretch_mode = 4
 
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("3_2biwx")
-theme_override_styles/normal = SubResource("StyleBoxFlat_5h56a")
-text = "Menu"
-
-[node name="menu" type="Button" parent="VBoxContainer/Label"]
-layout_mode = 2
-offset_left = -1.0
-offset_top = 13.0
-offset_right = 69.0
-offset_bottom = 43.0
-
-[connection signal="pressed" from="VBoxContainer/Label/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
