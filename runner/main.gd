@@ -1,6 +1,7 @@
 extends Node2D
 @onready var fire_animation: AnimatedSprite2D = $Fire
 @onready var vine_area: StaticBody2D = $Vine
+
 @onready var game_over_sound = $GameOverSound
 
 # preload obstacle scenes

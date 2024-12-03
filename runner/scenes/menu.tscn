@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgi6f0enoto3q"]
+[gd_scene load_steps=6 format=3 uid="uid://cgi6f0enoto3q"]
 
 [ext_resource type="Script" path="res://scenes/menu.gd" id="1_1xpv3"]
-[ext_resource type="Texture2D" uid="uid://cxr0katdm2gks" path="res://scenes/tutorial_scenes/The Elemental Path.png" id="2_ky0t1"]
 [ext_resource type="FontFile" uid="uid://q0ryafcer5ri" path="res://assets/fonts/Pixeled.ttf" id="3_n7hup"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ukk0"]
@@ -36,7 +35,6 @@ scale = Vector2(0.448795, 0.433994)
 [node name="TheElementalPath" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(576, 324)
 scale = Vector2(0.84041, 0.835938)
-texture = ExtResource("2_ky0t1")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 texture_filter = 1
