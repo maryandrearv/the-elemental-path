@@ -1,14 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://coalcw42gp1vj"]
+[gd_scene load_steps=5 format=3 uid="uid://coalcw42gp1vj"]
 
 [ext_resource type="PackedScene" uid="uid://dxl3r78agmayq" path="res://scenes/background_music.tscn" id="1_im0xc"]
-[ext_resource type="Script" path="res://scenes/tutorial_scenes/tutorial.gd" id="1_yu8k2"]
 [ext_resource type="PackedScene" uid="uid://dho4c5ai7sf5c" path="res://scenes/background.tscn" id="2_5ohd4"]
 [ext_resource type="PackedScene" uid="uid://b4p11np75v5y1" path="res://scenes/ground.tscn" id="3_xkg1a"]
 [ext_resource type="PackedScene" uid="uid://l5lkp5yy3b20" path="res://scenes/Echo.tscn" id="4_br4bs"]
-[ext_resource type="Script" path="res://scenes/tutorial_scenes/tutorialecho.gd" id="5_i1o60"]
 
 [node name="Tutorial" type="Node2D"]
-script = ExtResource("1_yu8k2")
 
 [node name="BackgroundMusic" parent="." instance=ExtResource("1_im0xc")]
 
@@ -16,6 +13,5 @@ script = ExtResource("1_yu8k2")
 
 [node name="TutorialEcho" parent="." instance=ExtResource("4_br4bs")]
 position = Vector2(130, 16)
-script = ExtResource("5_i1o60")
 
 [node name="StaticBody2D" parent="." instance=ExtResource("3_xkg1a")]
