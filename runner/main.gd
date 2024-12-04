@@ -10,7 +10,7 @@ var rock_scene = preload("res://scenes/rock.tscn")
 var platform_scene = preload("res://scenes/platform.tscn")
 @onready var vine_scene = preload("res://scenes/vine.tscn")
 @onready var slash_scene = preload("res://scenes/slash.tscn")
-@onready var spike_scene = preload("res://scenes/spikes.tscn")
+@onready var spike_scene = preload("res://scenes/spike_obs.tscn")
 @onready var fire_scene = preload("res://scenes/fire_obstacle.tscn")
 @onready var gemstone_scene = preload("res://scenes/gem_stone_item.tscn")
 
@@ -81,9 +81,9 @@ func new_game():
 	$Ceiling.position = Vector2(129,-1237)
 	$Background.scroll_offset = Vector2(0,0)
 	
-	# Hide User Interface nodes
+	# Hide User Interface nodes and show instructions and return button
 	$HUD.get_node("StartLabel").show()
-
+	$HUD.get_node("Return").show()
 	$GameOver.get_node("ScoreTitle").hide()
 	$GameOver.get_node("ScoreCount").hide()
 	$GameOver.get_node("Button").hide()
@@ -202,7 +202,7 @@ func generate_obs():
 			obs = spike_scene.instantiate()
 			var obs_height = obs.get_node("Stalagmites").texture.get_height()
 			var obs_scale = obs.get_node("Stalactites").scale
-			var obs_y : int = ground_height
+			var obs_y : int = obs_height
 			
 			add_obs(obs, obs_x, obs_y)
 		
