@@ -1,91 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqikuy6nwd7nq"]
+[gd_scene load_steps=2 format=3 uid="uid://cqikuy6nwd7nq"]
 
-[ext_resource type="Texture2D" uid="uid://duqkbehb6f7yf" path="res://assets/courtney-spikeshq-removebg-preview.png" id="1_ja5jx"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1d7pm"]
-size = Vector2(371.784, 224.865)
+[ext_resource type="Texture2D" uid="uid://bommkt2bjpsy8" path="res://assets/sprites/spikes.png" id="1_stg3h"]
 
 [node name="Spikes" type="Node2D"]
 
 [node name="Stalagmites2" type="Sprite2D" parent="."]
-position = Vector2(172.481, 476.962)
-scale = Vector2(0.287594, 0.23481)
-texture = ExtResource("1_ja5jx")
-
-[node name="Stalagmites_hit_box" type="Area2D" parent="Stalagmites2"]
-position = Vector2(-205.809, -2062.7)
-scale = Vector2(3.3195, 4.32432)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stalagmites2/Stalagmites_hit_box"]
-z_index = 2
-position = Vector2(62, 499)
+texture_filter = 1
+position = Vector2(175, 480)
 rotation = -3.14159
-scale = Vector2(0.30125, 0.23125)
-shape = SubResource("RectangleShape2D_1d7pm")
+scale = Vector2(4, 3.264)
+texture = ExtResource("1_stg3h")
 
 [node name="Stalactites" type="Sprite2D" parent="."]
-position = Vector2(57, 47)
-rotation = 3.14159
-scale = Vector2(0.30125, 0.23125)
-texture = ExtResource("1_ja5jx")
+texture_filter = 1
+position = Vector2(113, 87)
+scale = Vector2(7, 5.373)
+texture = ExtResource("1_stg3h")
 
-[node name="Stalactites_hit_box" type="Area2D" parent="Stalactites"]
-position = Vector2(189.211, 203.244)
-rotation = -3.14159
-scale = Vector2(3.3195, 4.32432)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stalactites/Stalactites_hit_box"]
-position = Vector2(57.9999, 26)
-rotation = 3.14159
-scale = Vector2(0.30125, 0.23125)
-shape = SubResource("RectangleShape2D_1d7pm")
-
-[node name="Stalactites2" type="Sprite2D" parent="."]
+[node name="Stalactites3" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
 position = Vector2(177, 45)
-rotation = 3.14159
-scale = Vector2(0.30125, 0.23125)
-texture = ExtResource("1_ja5jx")
-
-[node name="Stalactites_hit_box" type="Area2D" parent="Stalactites2"]
-position = Vector2(189.211, 203.244)
-rotation = -3.14159
-scale = Vector2(3.3195, 4.32432)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stalactites2/Stalactites_hit_box"]
-position = Vector2(57.9999, 26)
-rotation = 3.14159
-scale = Vector2(0.30125, 0.23125)
-shape = SubResource("RectangleShape2D_1d7pm")
-
-[node name="Stalactites2" type="Sprite2D" parent="."]
-position = Vector2(177, 45)
-rotation = 3.14159
-scale = Vector2(0.30125, 0.23125)
-texture = ExtResource("1_ja5jx")
-
-[node name="Stalactites_hit_box" type="Area2D" parent="Stalactites2"]
-position = Vector2(189.211, 203.244)
-rotation = -3.14159
-scale = Vector2(3.3195, 4.32432)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stalactites2/Stalactites_hit_box"]
-position = Vector2(57.9999, 26)
-rotation = 3.14159
-scale = Vector2(0.30125, 0.23125)
-shape = SubResource("RectangleShape2D_1d7pm")
+scale = Vector2(4, 3.07)
+texture = ExtResource("1_stg3h")
 
 [node name="Stalagmites" type="Sprite2D" parent="."]
-position = Vector2(62, 477)
-scale = Vector2(0.30125, 0.23125)
-texture = ExtResource("1_ja5jx")
-
-[node name="Stalagmites_hit_box" type="Area2D" parent="Stalagmites"]
-position = Vector2(-205.809, -2062.7)
-scale = Vector2(3.3195, 4.32432)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stalagmites/Stalagmites_hit_box"]
-z_index = 2
-position = Vector2(62, 499)
-rotation = -3.14159
-scale = Vector2(0.30125, 0.23125)
-shape = SubResource("RectangleShape2D_1d7pm")
+texture_filter = 1
+position = Vector2(104, 447)
+rotation = 3.14159
+scale = Vector2(7, 5.374)
+texture = ExtResource("1_stg3h")
