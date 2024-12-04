@@ -104,7 +104,9 @@ func _process(delta):
 		$Echo.position.x += speed
 		$Camera2D.position.x += speed
 
-			
+		# starts gem spawner
+		$GemTimer.start()
+		
 		# update score
 		score += speed
 		show_score()
@@ -116,7 +118,6 @@ func _process(delta):
 		if $Camera2D.position.x - $Background.scroll_offset.x > screen_size.x * 1.5:
 			$Background.scroll_offset.x += screen_size.x
 		
-		spawn_gem()
 		 
 	else:
 		if Input.is_action_just_pressed("ui_accept"):
@@ -276,13 +277,13 @@ func knock_over_rock():
 	else:
 		print("No nearby rock to knock over.")
 
-func spawn_gem() -> void:
-	_on_gem_spawn_timer_timeout()
-	
-# spawns gems at random positions
+# spawns gems at random positions at a 5 second interval
 func _on_gem_spawn_timer_timeout() -> void:
 	var gem = gemstone_scene.instantiate()
-	var x_gem_pos = randf_range(200, screen_size.x)
-	var y_gem_pos = randf_range(-529, -1275)
-	gem.position = Vector2(x_gem_pos, y_gem_pos)
+	var gem_location = $GemSpawnPath/GemSpawnPathFollow
+	
+	gem_location.progress_ratio = randf()
+	gem.position = gem_location
+	gem.velocity = -speed
+	
 	add_child(gem)
