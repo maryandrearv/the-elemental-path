@@ -281,9 +281,6 @@ func knock_over_rock():
 func _on_gem_spawn_timer_timeout() -> void:
 	var gem = gemstone_scene.instantiate()
 	var gem_location = $GemSpawnPath/GemSpawnPathFollow
-	
 	gem_location.progress_ratio = randf()
 	gem.position = gem_location
-	gem.velocity = -speed
-	
 	add_child(gem)
