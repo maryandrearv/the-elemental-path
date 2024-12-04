@@ -175,5 +175,5 @@ func _hide_attack_area() -> void:
 	attack_area.visible = false
 	attack_area.remove_from_group("Fire_Attack")
 	attack_area.remove_from_group("Water_Attack")
-	attack_area.add_to_group("Earth_push")
+	attack_area.remove_from_group("Earth_push")
 	can_attack = true

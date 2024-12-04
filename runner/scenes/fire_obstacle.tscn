@@ -49,7 +49,7 @@ script = ExtResource("1_xu5aa")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_j7m3n")
 animation = &"FireObstacle"
-frame_progress = 0.631944
+frame_progress = 0.175777
 
 [node name="FireCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_07324")
