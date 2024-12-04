@@ -136,7 +136,7 @@ func game_over():
 	# Calculate the visible area based on the camera position
 	var camera_left_boundary = $Camera2D.position.x - screen_size.x / 2
 	var camera_right_boundary = $Camera2D.position.x + screen_size.x / 2
-
+	
 	# Check if the Echo is out of the visible area
 	if $Echo.position.x < camera_left_boundary or $Echo.position.x > camera_right_boundary:
 		get_tree().paused = true  # Pause the game
@@ -271,4 +271,3 @@ func knock_over_rock():
 			collision_shape.position += offset  # Move the collision shape along with the top rock
 	else:
 		print("No nearby rock to knock over.")
-	

@@ -76,7 +76,11 @@ func _physics_process(delta: float) -> void:
 			water_animation.play("waterwall")
 			water_sound.play()
 			_hide_water_animation()
-		
+			
+		elif Input.is_action_just_pressed("ui_accept") and not DOUBLE_JUMP_ON:
+			DOUBLE_JUMP_ON = true
+			velocity.y = DOUBLE_JUMP_SPEED
+			GRAVITY = DOUBLE_JUMP_GRAVITY
 
 
 		
