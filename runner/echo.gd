@@ -66,6 +66,8 @@ func _physics_process(delta: float) -> void:
 			fire_animation.play("fire")
 			fire_sound.play()
 			_hide_fire_animation()
+			#hide water animation
+			water_animation.visible = false
 			
 		#Water Wall button
 		elif Input.is_action_just_pressed("water"):
@@ -75,6 +77,9 @@ func _physics_process(delta: float) -> void:
 			water_animation.play("waterwall")
 			water_sound.play()
 			_hide_water_animation()
+			#hide fire animation
+			fire_animation.visible = false
+
 		
 
 

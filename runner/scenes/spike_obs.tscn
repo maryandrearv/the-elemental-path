@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqikuy6nwd7nq"]
+[gd_scene load_steps=7 format=3 uid="uid://cqikuy6nwd7nq"]
 
 [ext_resource type="Script" path="res://scenes/spike_obs.gd" id="1_r0ohr"]
 [ext_resource type="Texture2D" uid="uid://bommkt2bjpsy8" path="res://assets/sprites/spikes.png" id="2_11xnd"]
@@ -8,6 +8,12 @@ size = Vector2(36.2857, 20.2828)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3eep"]
 size = Vector2(33.5714, 20.6086)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjym5"]
+size = Vector2(251, 110)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxjnu"]
+size = Vector2(255, 115)
 
 [node name="Spikes" type="StaticBody2D"]
 script = ExtResource("1_r0ohr")
@@ -43,3 +49,11 @@ scale = Vector2(7, 5.373)
 position = Vector2(0.5, -6.39587)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_h3eep")
+
+[node name="StalagmiteCollision" type="CollisionShape2D" parent="."]
+position = Vector2(124, 474)
+shape = SubResource("RectangleShape2D_qjym5")
+
+[node name="StalactiteCollision" type="CollisionShape2D" parent="."]
+position = Vector2(127, 50)
+shape = SubResource("RectangleShape2D_nxjnu")
