@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://l5lkp5yy3b20"]
+[gd_scene load_steps=45 format=3 uid="uid://l5lkp5yy3b20"]
 
 [ext_resource type="Script" path="res://echo.gd" id="1_yj31d"]
 [ext_resource type="Texture2D" uid="uid://btv67fxt3gvf3" path="res://assets/Echo Beta Spritesheet.png" id="2_j7mbw"]
@@ -23,6 +23,10 @@ region = Rect2(250, 0, 50, 50)
 [sub_resource type="AtlasTexture" id="AtlasTexture_c4wrd"]
 atlas = ExtResource("2_j7mbw")
 region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efuyk"]
+atlas = ExtResource("2_j7mbw")
+region = Rect2(150, 0, 50, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ib2vf"]
 atlas = ExtResource("2_j7mbw")
@@ -78,6 +82,12 @@ animations = [{
 "speed": 4.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efuyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ib2vf")
+}, {
 "duration": 2.5,
 "texture": SubResource("AtlasTexture_ib2vf")
 }, {
@@ -269,6 +279,7 @@ scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_2nvop")
 
 [node name="Earth" type="AnimatedSprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(82, 28)
 scale = Vector2(5, 5)
@@ -298,6 +309,7 @@ frame_progress = 0.747292
 speed_scale = 2.0
 
 [node name="air" type="AnimatedSprite2D" parent="."]
+visible = false
 
 [node name="fireslash" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_g3xbk")
