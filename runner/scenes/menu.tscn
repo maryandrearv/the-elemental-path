@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgi6f0enoto3q"]
+[gd_scene load_steps=10 format=3 uid="uid://cgi6f0enoto3q"]
 
 [ext_resource type="Script" path="res://scenes/menu.gd" id="1_1xpv3"]
 [ext_resource type="Texture2D" uid="uid://d0rq325hv2ut" path="res://assets/interfaces/menu_background.png" id="2_3le8x"]
 [ext_resource type="Texture2D" uid="uid://c61qi7kwb1g28" path="res://assets/interfaces/Buttons/Quit1.png" id="3_3spmm"]
+[ext_resource type="FontFile" uid="uid://q0ryafcer5ri" path="res://assets/fonts/Pixeled.ttf" id="3_n7hup"]
 [ext_resource type="Texture2D" uid="uid://dw8iludxxqaeg" path="res://assets/interfaces/Buttons/Quit2.png" id="4_hels7"]
 [ext_resource type="Texture2D" uid="uid://4x5eo5babkuj" path="res://assets/interfaces/Buttons/Instruct1.png" id="5_ys73m"]
 [ext_resource type="Texture2D" uid="uid://0wynxp2ou724" path="res://assets/interfaces/Buttons/Instruct2.png" id="6_xv4gi"]
@@ -84,6 +85,15 @@ texture_pressed = ExtResource("8_44dnl")
 texture_hover = ExtResource("8_44dnl")
 ignore_texture_size = true
 stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 551.0
+offset_right = 411.0
+offset_bottom = 597.0
+theme_override_fonts/font = ExtResource("3_n7hup")
+text = "KEEP GOING GAMES ^_^ !"
 
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Instructions" to="." method="_on_instructions_pressed"]
