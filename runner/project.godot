@@ -27,7 +27,6 @@ BackgroundMusic="*res://scenes/background_music.tscn"
 [display]
 
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [editor]
 
