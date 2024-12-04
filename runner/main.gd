@@ -10,7 +10,7 @@ var rock_scene = preload("res://scenes/rock.tscn")
 var platform_scene = preload("res://scenes/platform.tscn")
 @onready var vine_scene = preload("res://scenes/vine.tscn")
 @onready var slash_scene = preload("res://scenes/slash.tscn")
-@onready var spike_scene = preload("res://scenes/spikes.tscn")
+@onready var spike_scene = preload("res://scenes/spike_obs.tscn")
 @onready var fire_scene = preload("res://scenes/fire_obstacle.tscn")
 
 
@@ -197,7 +197,7 @@ func generate_obs():
 			obs = spike_scene.instantiate()
 			var obs_height = obs.get_node("Stalagmites").texture.get_height()
 			var obs_scale = obs.get_node("Stalactites").scale
-			var obs_y : int = ground_height
+			var obs_y : int = obs_height
 			
 			add_obs(obs, obs_x, obs_y)
 		
