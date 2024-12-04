@@ -52,11 +52,12 @@ func _physics_process(delta: float) -> void:
 			echo_sprite.play("cast")
 			earth_animation.play("earth")
 			knock_over_rocks()
-
 			rock_sound.play()
-			
 			# Start a coroutine to hide the earth animation after a delay
 			_hide_earth_animation()
+			#hide other casting animations
+			water_animation.visible = false
+			fire_animation.visible = false
 		
 		#Fire Slash button
 		elif Input.is_action_just_pressed("fire"):
@@ -66,6 +67,9 @@ func _physics_process(delta: float) -> void:
 			fire_animation.play("fire")
 			fire_sound.play()
 			_hide_fire_animation()
+			#hide other casting animations
+			water_animation.visible = false
+			earth_animation.visible = false
 			
 		#Water Wall button
 		elif Input.is_action_just_pressed("water"):
@@ -75,6 +79,10 @@ func _physics_process(delta: float) -> void:
 			water_animation.play("waterwall")
 			water_sound.play()
 			_hide_water_animation()
+			#hide other casting animations
+			fire_animation.visible = false
+			earth_animation.visible = false
+
 		
 
 
