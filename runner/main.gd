@@ -9,6 +9,7 @@ var platform_scene = preload("res://scenes/platform.tscn")
 @onready var slash_scene = preload("res://scenes/slash.tscn")
 @onready var spike_scene = preload("res://scenes/spikes.tscn")
 @onready var fire_scene = preload("res://scenes/fire_obstacle.tscn")
+@onready var rock_pillar_scene = preload("res://scenes/rock_pillar.tscn")
 
 
 #var obstacle_types := [rock_scene,rock_scene,rock_scene]
@@ -152,7 +153,7 @@ func generate_obs():
 	
 	# Ensure to generate rocks at appropriate intervals
 	if last_obs == null or (is_instance_valid(last_obs) and last_obs.position.x < score + randi_range(300, 500)):
-		var obstacle_type = randi_range(0, 4)
+		var obstacle_type = randi_range(0, 5)
 		
 		var obs
 		var obs_x : int = $Camera2D.position.x + screen_size.x + randi_range(200, 400)
@@ -203,12 +204,14 @@ func generate_obs():
 			var obs_y : int = 294
 			
 			add_obs(obs, obs_x, obs_y)		
-
-		 #Set the position of the rock
 		
-		# Update last_obs to track the last generated rock
+		elif obstacle_type == 5: #Rock Wall
+			obs = rock_pillar_scene.instantiate()
+			var obs_y : int = 0
+			
+			add_obs(obs, obs_x, obs_y)		
+		
 		last_obs = obs
-		
 
 func add_obs(obs, x, y):
 		obs.position = Vector2(x, y)

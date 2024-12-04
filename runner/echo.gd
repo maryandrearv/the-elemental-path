@@ -48,6 +48,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = 0
 		if Input.is_action_just_pressed("earth"):
+			earth_push_perform()
 			earth_animation.visible = true
 			echo_sprite.play("cast")
 			earth_animation.play("earth")
@@ -158,6 +159,15 @@ func water_attack_perform():
 		attack_area.add_to_group("Water_Attack")
 		_hide_attack_area()
 
+func earth_push_perform():
+	if can_attack:
+		can_attack = false
+		attack_area.monitoring = true
+		attack_collision.disabled = false
+		attack_area.visible = true
+		attack_area.add_to_group("Earth_push")
+		_hide_attack_area()
+
 func _hide_attack_area() -> void:
 	await get_tree().create_timer(ANIMATION_DURATION).timeout
 	attack_area.monitoring = false
@@ -165,4 +175,5 @@ func _hide_attack_area() -> void:
 	attack_area.visible = false
 	attack_area.remove_from_group("Fire_Attack")
 	attack_area.remove_from_group("Water_Attack")
+	attack_area.add_to_group("Earth_push")
 	can_attack = true

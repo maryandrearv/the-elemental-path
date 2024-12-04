@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://dw6me1shp1b77"]
+
+[ext_resource type="Script" path="res://scenes/rock_pillar.gd" id="1_ir4kf"]
+[ext_resource type="Texture2D" uid="uid://pvcvbo5pqp25" path="res://sprites/Rock Pillar proto top and bottom.png" id="1_xijky"]
+[ext_resource type="Texture2D" uid="uid://c5jq081etkut7" path="res://sprites/Rock Pillar proto mid.png" id="2_b0qqn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pqmhs"]
+size = Vector2(14.8195, 6.57231)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ks5g"]
+size = Vector2(15.5169, 7.41238)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xvbr"]
+size = Vector2(19.4992, 42)
+
+[node name="Rock Pillar" type="Node2D"]
+scale = Vector2(9.385, 9.385)
+script = ExtResource("1_ir4kf")
+
+[node name="Top and Bottom" type="StaticBody2D" parent="."]
+scale = Vector2(1, 1)
+
+[node name="T_and_B_Sprites" type="Sprite2D" parent="Top and Bottom"]
+texture_filter = 1
+position = Vector2(7.56526, 34.3101)
+scale = Vector2(1.22231, 2.15625)
+texture = ExtResource("1_xijky")
+
+[node name="Top_pillar" type="Area2D" parent="Top and Bottom/T_and_B_Sprites"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top and Bottom/T_and_B_Sprites/Top_pillar"]
+position = Vector2(1.39478, -12.774)
+shape = SubResource("RectangleShape2D_pqmhs")
+
+[node name="Bottom_pillar" type="Area2D" parent="Top and Bottom/T_and_B_Sprites"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top and Bottom/T_and_B_Sprites/Bottom_pillar"]
+position = Vector2(0.69739, 12.4528)
+shape = SubResource("RectangleShape2D_1ks5g")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Top and Bottom"]
+position = Vector2(7.06632, 32.2648)
+scale = Vector2(1.18729, 2.03454)
+polygon = PackedVector2Array(8.68571, -16, -5.94286, -16, -5.94286, -14.1449, 3.2, -8.11594, 3.80952, -8.11594, 8.07619, -12.2899, 8.68571, -14.1449)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Top and Bottom"]
+position = Vector2(6.96851, 34.5)
+scale = Vector2(1.35861, 2.15625)
+polygon = PackedVector2Array(3.80952, 8.11594, 0.15238, 8.11594, 0.15238, 9.04348, -4.72381, 9.04348, -5.94286, 9.97102, -5.94286, 16, 8.07619, 16, 7.46667, 10.8986)
+
+[node name="Middle" type="StaticBody2D" parent="."]
+
+[node name="Middle_Sprites" type="Sprite2D" parent="Middle"]
+texture_filter = 1
+position = Vector2(7.4707, 34.75)
+scale = Vector2(1.40442, 2.20313)
+texture = ExtResource("2_b0qqn")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Middle"]
+position = Vector2(7.9541, 34.75)
+scale = Vector2(1.32445, 2.20313)
+polygon = PackedVector2Array(-3.92453, -12.1418, -5.13208, -9.87232, -5.13208, -7.14892, -6.33962, -6.69502, -5.73585, 1.02127, -5.13208, 6.92197, 5.13208, 10.0993, 6.9434, 9.19147, 8.15094, 1.02127, 8.15094, -4.87942, 6.9434, -4.87942, 6.9434, -10.7801, 5.13208, -12.1418, 3.92453, -8.96452, 2.11321, -10.7801, -0.90566, -12.1418)
+
+[node name="Middle_Rock_hitbox" type="Area2D" parent="Middle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Middle/Middle_Rock_hitbox"]
+position = Vector2(9.00373, 33)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_2xvbr")
+
+[connection signal="area_entered" from="Top and Bottom/T_and_B_Sprites/Top_pillar" to="." method="_on_top_pillar_area_entered"]
+[connection signal="area_entered" from="Top and Bottom/T_and_B_Sprites/Bottom_pillar" to="." method="_on_bottom_pillar_area_entered"]
+[connection signal="area_entered" from="Middle/Middle_Rock_hitbox" to="." method="_on_middle_rock_hitbox_area_entered"]
