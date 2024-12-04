@@ -10,6 +10,7 @@ var platform_scene = preload("res://scenes/platform.tscn")
 @onready var spike_scene = preload("res://scenes/spikes.tscn")
 @onready var fire_scene = preload("res://scenes/fire_obstacle.tscn")
 @onready var rock_pillar_scene = preload("res://scenes/rock_pillar.tscn")
+@onready var rock_pillar_tandb_scene = preload("res://scenes/rock_pillar_t_and_b.tscn")
 
 
 #var obstacle_types := [rock_scene,rock_scene,rock_scene]
@@ -153,65 +154,75 @@ func generate_obs():
 	
 	# Ensure to generate rocks at appropriate intervals
 	if last_obs == null or (is_instance_valid(last_obs) and last_obs.position.x < score + randi_range(300, 500)):
-		var obstacle_type = randi_range(0, 5)
 		
 		var obs
 		var obs_x : int = $Camera2D.position.x + screen_size.x + randi_range(200, 400)
 		
-		if obstacle_type == 0: #Rock
-			obs = rock_scene.instantiate()
-			var obs_height = obs.get_node("Sprite2D").texture.get_height()
-			var obs_scale = obs.get_node("Sprite2D").scale
-			var obs_y : int = screen_size.y - ground_height - obs_height
-			
-			#Set up rock obstacle
-			add_obs(obs, obs_x, obs_y)
-			
-			#Add top rock to array if it has one
-			var top_rock = obs.get_node("TopRock")  # Assuming your top rock is named "TopRock"
-			if top_rock:
-				top_rocks.append(top_rock)
+		var obstacle_type = randi_range(0, 5)
 		
-		elif obstacle_type == 1: #Vine
-			obs = vine_scene.instantiate()
-			obs.add_to_group("vine")
-			add_child(obs)
-			var obs_height = obs.get_node("Sprite2D").texture.get_height()
-			var obs_y : int = ceiling_height #position near ceiling
+		if obstacle_type == 0:
+			var pillar = rock_pillar_scene.instantiate()
+			var obs_y = ground_height
+			pillar.position = Vector2(obs_x, obs_y)
+			add_child(pillar)
+			obstacles.append(pillar)
 			
-			add_obs(obs, obs_x, obs_y)
+			var spikes = rock_pillar_tandb_scene.instantiate()
+			spikes.position = Vector2(obs_x, obs_y)
+			add_child(spikes)
+			obstacles.append(spikes)
 			
-		elif obstacle_type == 2: #Platform
-			obs = platform_scene.instantiate()
-			var obs_height = obs.get_node("Sprite2D").texture.get_height()
-			var obs_scale = obs.get_node("Sprite2D").scale
-			var obs_y : int = (screen_size.y - ground_height - ceiling_height) / 1.83 - obs_height / 3
+			last_obs = pillar
 			
-			add_obs(obs, obs_x, obs_y)
+		else: 
+			if obstacle_type == 1: #Rock
+				obs = rock_scene.instantiate()
+				var obs_height = obs.get_node("Sprite2D").texture.get_height()
+				var obs_scale = obs.get_node("Sprite2D").scale
+				var obs_y : int = screen_size.y - ground_height - obs_height
+			
+				#Set up rock obstacle
+				add_obs(obs, obs_x, obs_y)
+			
+				#Add top rock to array if it has one
+				var top_rock = obs.get_node("TopRock")  # Assuming your top rock is named "TopRock"
+				if top_rock:
+					top_rocks.append(top_rock)
 		
-		elif obstacle_type == 3: #Spikes
-			obs = spike_scene.instantiate()
-			var obs_height = obs.get_node("Stalagmites").texture.get_height()
-			var obs_scale = obs.get_node("Stalactites").scale
-			var obs_y : int = ground_height
+			elif obstacle_type == 2: #Vine
+				obs = vine_scene.instantiate()
+				obs.add_to_group("vine")
+				add_child(obs)
+				var obs_height = obs.get_node("Sprite2D").texture.get_height()
+				var obs_y : int = ceiling_height #position near ceiling
 			
-			add_obs(obs, obs_x, obs_y)
-		
-		elif obstacle_type == 4: #flames/fire obstacle
-			obs = fire_scene.instantiate()
-			obs.get_node("FireObstacle").play()
-			#hardcoded y-location, will have to readjust after sprite change
-			var obs_y : int = 294
+				add_obs(obs, obs_x, obs_y)
 			
-			add_obs(obs, obs_x, obs_y)		
-		
-		elif obstacle_type == 5: #Rock Wall
-			obs = rock_pillar_scene.instantiate()
-			var obs_y : int = 0
+			elif obstacle_type == 3: #Platform
+				obs = platform_scene.instantiate()
+				var obs_height = obs.get_node("Sprite2D").texture.get_height()
+				var obs_scale = obs.get_node("Sprite2D").scale
+				var obs_y : int = (screen_size.y - ground_height - ceiling_height) / 1.83 - obs_height / 3
 			
-			add_obs(obs, obs_x, obs_y)		
+				add_obs(obs, obs_x, obs_y)
 		
-		last_obs = obs
+			elif obstacle_type == 4: #Spikes
+				obs = spike_scene.instantiate()
+				var obs_height = obs.get_node("Stalagmites").texture.get_height()
+				var obs_scale = obs.get_node("Stalactites").scale
+				var obs_y : int = ground_height
+			
+				add_obs(obs, obs_x, obs_y)
+		
+			elif obstacle_type == 5: #flames/fire obstacle
+				obs = fire_scene.instantiate()
+				obs.get_node("FireObstacle").play()
+				#hardcoded y-location, will have to readjust after sprite change
+				var obs_y : int = 294
+			
+				add_obs(obs, obs_x, obs_y)		
+
+			last_obs = obs
 
 func add_obs(obs, x, y):
 		obs.position = Vector2(x, y)
