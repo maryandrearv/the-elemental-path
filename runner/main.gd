@@ -105,7 +105,7 @@ func _process(delta):
 		$Camera2D.position.x += speed
 
 		# starts gem spawner
-		$GemTimer.start()
+		$GemSpawnTimer.start()
 		
 		# update score
 		score += speed
@@ -279,8 +279,13 @@ func knock_over_rock():
 
 # spawns gems at random positions at a 5 second interval
 func _on_gem_spawn_timer_timeout() -> void:
-	var gem = gemstone_scene.instantiate()
-	var gem_location = $GemSpawnPath/GemSpawnPathFollow
-	gem_location.progress_ratio = randf()
-	gem.position = gem_location
-	add_child(gem)
+	# NOTE: the print statement only works once you restart the game after dying
+	#		but does not apply to the spawner code
+	
+	# var gem = gemstone_scene.instantiate()
+	# var gem_location = $GemSpawnPath/GemSpawnPathFollow
+	# gem_location.progress_ratio = randf()
+	# gem.position = gem_location
+	# add_child(gem)
+	
+	print("gem spawned")
