@@ -80,9 +80,9 @@ func new_game():
 	$Ceiling.position = Vector2(129,-1237)
 	$Background.scroll_offset = Vector2(0,0)
 	
-	# Hide User Interface nodes
+	# Hide User Interface nodes and show instructions and return button
 	$HUD.get_node("StartLabel").show()
-
+	$HUD.get_node("Return").show()
 	$GameOver.get_node("ScoreTitle").hide()
 	$GameOver.get_node("ScoreCount").hide()
 	$GameOver.get_node("Button").hide()
