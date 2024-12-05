@@ -12,6 +12,7 @@ var platform_scene = preload("res://scenes/platform.tscn")
 @onready var slash_scene = preload("res://scenes/slash.tscn")
 @onready var spike_scene = preload("res://scenes/spike_obs.tscn")
 @onready var fire_scene = preload("res://scenes/fire_obstacle.tscn")
+@onready var gemstone_scene = preload("res://scenes/gem_stone_item.tscn")
 
 
 #var obstacle_types := [rock_scene,rock_scene,rock_scene]
@@ -105,7 +106,9 @@ func _process(delta):
 		$Echo.position.x += speed
 		$Camera2D.position.x += speed
 
-			
+		# starts gem spawner
+		$GemSpawnTimer.start()
+		
 		# update score
 		score += speed
 		show_score()
@@ -115,7 +118,9 @@ func _process(delta):
 		if $Camera2D.position.x - $Ceiling.position.x > screen_size.x * 1.5:
 			$Ceiling.position.x += screen_size.x 
 		if $Camera2D.position.x - $Background.scroll_offset.x > screen_size.x * 1.5:
-			$Background.scroll_offset.x += screen_size.x 
+			$Background.scroll_offset.x += screen_size.x
+		
+		 
 	else:
 		if Input.is_action_just_pressed("ui_accept"):
 			game_running = true
@@ -273,4 +278,16 @@ func knock_over_rock():
 			collision_shape.position += offset  # Move the collision shape along with the top rock
 	else:
 		print("No nearby rock to knock over.")
+
+# spawns gems at random positions at a 5 second interval
+func _on_gem_spawn_timer_timeout() -> void:
+	# NOTE: code only works once you restart the game after dying once
+	#		problem with line 290
 	
+	# var gem = gemstone_scene.instantiate()
+	# var gem_location = $GemSpawnPath/GemSpawnPathFollow
+	# gem_location.progress_ratio = randf()
+	# gem.position = gem_location
+	# add_child(gem)
+	
+	print("gem spawned")
