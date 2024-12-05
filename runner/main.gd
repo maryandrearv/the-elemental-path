@@ -59,7 +59,7 @@ func new_game():
 	
 	
 	#Start Game in paused state and allows user to press space to start
-	# get rid of game pausing stuff later
+	# get rid of all game pausing stuff later
 	get_tree().paused = false
 	score = 0
 	show_score()
@@ -81,7 +81,6 @@ func new_game():
 	
 	# Hide User Interface nodes and show instructions and return button
 	$HUD.get_node("StartLabel").show()
-	$HUD.get_node("Return").show()
 	$GameOver.get_node("ScoreTitle").hide()
 	$GameOver.get_node("ScoreCount").hide()
 	$GameOver.get_node("Button").hide()
