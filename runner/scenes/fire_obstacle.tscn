@@ -47,11 +47,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_07324"]
-radius = 7.8
+radius = 8.6
 height = 25.9
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvvvt"]
-radius = 8.9
+radius = 9.25
 height = 33.6
 
 [node name="FireObstacle" type="StaticBody2D"]
@@ -75,7 +75,7 @@ shape = SubResource("CapsuleShape2D_07324")
 position = Vector2(-0.0999999, 6.05)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fireobs_hitbox"]
-position = Vector2(0.15, -3.85)
+position = Vector2(0.7, -3.95)
 shape = SubResource("CapsuleShape2D_cvvvt")
 
 [connection signal="area_entered" from="fireobs_hitbox" to="." method="_on_fireobs_hitbox_area_entered"]

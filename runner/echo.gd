@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 		air_animation.visible = true
 		air_animation.play("air")
 		DOUBLE_JUMP_ON = true
-		velocity.x = 3000
+		velocity.x = 2000
 		velocity.y = -200
 		#DOUBLE_JUMP_SPEED
 		GRAVITY = GLIDE_GRAVITY
