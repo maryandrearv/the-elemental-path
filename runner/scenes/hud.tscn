@@ -1,7 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://bspmx6iy24yee"]
+[gd_scene load_steps=5 format=3 uid="uid://bspmx6iy24yee"]
 
 [ext_resource type="Script" path="res://scenes/hud.gd" id="1_1u387"]
 [ext_resource type="FontFile" uid="uid://be02sx43qwbhr" path="res://Main_ Story_Font_majorL retro by Catman Industries.ttf" id="1_6pthw"]
+[ext_resource type="Texture2D" uid="uid://dakt4p3rxqvcr" path="res://assets/interfaces/Buttons/Menu1.png" id="3_2tjcx"]
+[ext_resource type="Texture2D" uid="uid://yubem7eeixk3" path="res://assets/interfaces/Buttons/Menu2.png" id="4_1tjcq"]
 [ext_resource type="Texture2D" uid="uid://dakt4p3rxqvcr" path="res://assets/interfaces/Buttons/Menu1.png" id="3_2tjcx"]
 [ext_resource type="Texture2D" uid="uid://yubem7eeixk3" path="res://assets/interfaces/Buttons/Menu2.png" id="4_1tjcq"]
 
@@ -66,11 +69,18 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -74.5
 offset_top = 192.0
+offset_top = 192.0
 offset_right = 74.5
+offset_bottom = 247.0
 offset_bottom = 247.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+texture_normal = ExtResource("3_2tjcx")
+texture_pressed = ExtResource("4_1tjcq")
+texture_hover = ExtResource("3_2tjcx")
+ignore_texture_size = true
+stretch_mode = 4
 texture_normal = ExtResource("3_2tjcx")
 texture_pressed = ExtResource("4_1tjcq")
 texture_hover = ExtResource("3_2tjcx")
