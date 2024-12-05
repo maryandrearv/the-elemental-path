@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dakt4p3rxqvcr" path="res://assets/interfaces/Buttons/Menu1.png" id="3_2tjcx"]
 [ext_resource type="Texture2D" uid="uid://yubem7eeixk3" path="res://assets/interfaces/Buttons/Menu2.png" id="4_1tjcq"]
 
+
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_1u387")
 
@@ -34,6 +35,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StartLabel" type="Label" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -59,6 +61,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Return" type="TextureButton" parent="."]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -74,5 +77,6 @@ texture_pressed = ExtResource("4_1tjcq")
 texture_hover = ExtResource("3_2tjcx")
 ignore_texture_size = true
 stretch_mode = 4
+
 
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]

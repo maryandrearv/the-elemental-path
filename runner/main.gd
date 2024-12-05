@@ -6,13 +6,13 @@ extends Node2D
 @onready var game_over_sound = $GameOverSound
 
 # preload obstacle scenes
-var rock_scene = preload("res://scenes/rock.tscn")
 var platform_scene = preload("res://scenes/platform.tscn")
 @onready var vine_scene = preload("res://scenes/vine.tscn")
-@onready var slash_scene = preload("res://scenes/slash.tscn")
 @onready var spike_scene = preload("res://scenes/spike_obs.tscn")
 @onready var fire_scene = preload("res://scenes/fire_obstacle.tscn")
 @onready var gemstone_scene = preload("res://scenes/gem_stone_item.tscn")
+@onready var rock_pillar_scene = preload("res://scenes/rock_pillar.tscn")
+@onready var rock_pillar_tandb_scene = preload("res://scenes/rock_pillar_t_and_b.tscn")
 
 
 #var obstacle_types := [rock_scene,rock_scene,rock_scene]
@@ -30,9 +30,6 @@ var screen_size : Vector2
 var ground_height : int
 var ceiling_height : int
 var game_running : bool
-
-#Fire Slash components
-const FIRESLASH_OFFSET = Vector2(100,0)
 
 #obstacle detection vars
 @onready var player_position: Node2D = $Echo
@@ -62,6 +59,7 @@ func new_game():
 	
 	
 	#Start Game in paused state and allows user to press space to start
+	# get rid of all game pausing stuff later
 	get_tree().paused = false
 	score = 0
 	show_score()
@@ -83,7 +81,6 @@ func new_game():
 	
 	# Hide User Interface nodes and show instructions and return button
 	$HUD.get_node("StartLabel").show()
-	$HUD.get_node("Return").show()
 	$GameOver.get_node("ScoreTitle").hide()
 	$GameOver.get_node("ScoreCount").hide()
 	$GameOver.get_node("Button").hide()
@@ -94,6 +91,7 @@ func new_game():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 
+# get rid of if statment later so the game does not pause
 # If game is running, calculate speed based on where you are at with the score.
 	if game_running:
 		speed = START_SPEED + score / SPEED_MODIFIER
@@ -124,16 +122,11 @@ func _process(delta):
 	else:
 		if Input.is_action_just_pressed("ui_accept"):
 			game_running = true
+			# get rid of this later
 			$HUD.get_node("StartLabel").hide()
 			$HUD.get_node("Return").hide()
 
-		
-	#knock over situation
-	if Input.is_action_just_pressed("earth"):
-		knock_over_rock()
-		# Debug: Print positions of the player and the boulder
-		print("Player Position:", player_position.global_position)
-	
+
 	game_over()
 
 # game over function that pauses game, shows scores, and allows you to restart
@@ -167,57 +160,60 @@ func generate_obs():
 		var obs
 		var obs_x : int = $Camera2D.position.x + screen_size.x + randi_range(200, 400)
 		
-		if obstacle_type == 0: #Rock
-			obs = rock_scene.instantiate()
-			var obs_height = obs.get_node("Sprite2D").texture.get_height()
-			var obs_scale = obs.get_node("Sprite2D").scale
-			var obs_y : int = screen_size.y - ground_height - obs_height
+		if obstacle_type == 0:
+			var pillar = rock_pillar_scene.instantiate()
+			var obs_y = ground_height
+			pillar.position = Vector2(obs_x, obs_y)
+			add_child(pillar)
+			obstacles.append(pillar)
 			
-			#Set up rock obstacle
-			add_obs(obs, obs_x, obs_y)
+			var spikes = rock_pillar_tandb_scene.instantiate()
+			spikes.position = Vector2(obs_x, obs_y)
+			add_child(spikes)
+			obstacles.append(spikes)
 			
-			#Add top rock to array if it has one
-			var top_rock = obs.get_node("TopRock")  # Assuming your top rock is named "TopRock"
-			if top_rock:
-				top_rocks.append(top_rock)
+			last_obs = pillar
 		
-		elif obstacle_type == 1: #Vine
-			obs = vine_scene.instantiate()
-			obs.add_to_group("vine")
-			add_child(obs)
-			var obs_height = obs.get_node("Sprite2D").texture.get_height()
-			var obs_y : int = ceiling_height #position near ceiling
+		else:
+			if obstacle_type == 1: #Vine
+				obs = vine_scene.instantiate()
+				obs.add_to_group("vine")
+				add_child(obs)
+				var obs_height = obs.get_node("Sprite2D").texture.get_height()
+				var obs_y : int = ceiling_height #position near ceiling
 			
-			add_obs(obs, obs_x, obs_y)
+				add_obs(obs, obs_x, obs_y)
 			
-		elif obstacle_type == 2: #Platform
-			obs = platform_scene.instantiate()
-			var obs_height = obs.get_node("Sprite2D").texture.get_height()
-			var obs_scale = obs.get_node("Sprite2D").scale
-			var obs_y : int = (screen_size.y - ground_height - ceiling_height) / 1.83 - obs_height / 3
+			elif obstacle_type == 2: #Platform
+				obs = platform_scene.instantiate()
+				var obs_height = obs.get_node("Sprite2D").texture.get_height()
+				var obs_scale = obs.get_node("Sprite2D").scale
+				var obs_y : int = (screen_size.y - ground_height - ceiling_height) / 1.83 - obs_height / 3
 			
-			add_obs(obs, obs_x, obs_y)
+				add_obs(obs, obs_x, obs_y)
 		
-		elif obstacle_type == 3: #Spikes
-			obs = spike_scene.instantiate()
-			var obs_height = obs.get_node("Stalagmites").texture.get_height()
-			var obs_scale = obs.get_node("Stalactites").scale
-			var obs_y : int = obs_height
+			elif obstacle_type == 3: #Spikes
+				obs = spike_scene.instantiate()
+				obs.add_to_group("Spikes_obs")
+				var obs_height = obs.get_node("Stalagmites").texture.get_height()
+				var obs_scale = obs.get_node("Stalactites").scale
+				var obs_y : int = ground_height
+				obs.connect("game_over_triggered", Callable(self, "instant_game_over"))
 			
-			add_obs(obs, obs_x, obs_y)
+				add_obs(obs, obs_x, obs_y)
 		
-		elif obstacle_type == 4: #flames/fire obstacle
-			obs = fire_scene.instantiate()
-			obs.get_node("FireObstacle").play()
-			#hardcoded y-location, will have to readjust after sprite change
-			var obs_y : int = 294
-			
-			add_obs(obs, obs_x, obs_y)		
+			elif obstacle_type == 4: #flames/fire obstacle
+				obs = fire_scene.instantiate()
+				obs.add_to_group("Fire_obs")
+				obs.get_node("FireObstacle").play()
+				#hardcoded y-location, will have to readjust after sprite change
+				var obs_y : int = 294
+				obs.connect("game_over_triggered", Callable(self, "instant_game_over"))
 
-		 #Set the position of the rock
-		
-		# Update last_obs to track the last generated rock
-		last_obs = obs
+			
+				add_obs(obs, obs_x, obs_y)		
+
+			last_obs = obs
 		
 
 func add_obs(obs, x, y):
@@ -241,43 +237,6 @@ func check_high_score():
 		high_score = score
 		$HUD.get_node("HighScoreLabel").text = "HIGH SCORE: " + str(high_score/SCORE_MODIFIER) 
 
-# Need to ask tutorial leader how to seperate different skills into different files to eliminate confusing long code
-func knock_over_rock():
-	#remove invalid object
-	obstacles = obstacles.filter(is_instance_valid)
-	
-	var is_rock_hit: bool = false
-	
-	var nearest_rock: RigidBody2D = null
-	var closest_distance: float = push_distance  # Start with the maximum push distance
-
-	for rock in obstacles:
-		if rock is RigidBody2D and is_near_rock(rock):
-			var distance_to_rock = player_position.global_position.distance_to(rock.global_position)
-			# Ensure the rock is in front of the player
-			if distance_to_rock < closest_distance and rock.global_position.x > player_position.global_position.x:
-				closest_distance = distance_to_rock
-				#is_rock_hit = true
-				nearest_rock = rock  # Store the closest rock
-			#else:
-				#is_rock_hit = false
-
-	if nearest_rock: #and not is_rock_hit
-		# Move the nearest rock slightly (adjust the values as needed)
-		var offset = Vector2(200, 0)  # Move the rock slightly to the right
-		nearest_rock.position += offset  # Change position directly
-		
-		# Move the top rock sprite (assuming it's a direct child of the same RigidBody2D)
-		var top_rock_sprite = nearest_rock.get_node("TopRock")  # Change "Sprite2D" to your top rock sprite's name
-		if top_rock_sprite:
-			top_rock_sprite.position += offset  # Move the top rock sprite
-
-		# Move the collision shape (make sure it exists)
-		var collision_shape = nearest_rock.get_node("CollisionShape2D")  # Assuming your collision shape is named "CollisionShape2D"
-		if collision_shape:
-			collision_shape.position += offset  # Move the collision shape along with the top rock
-	else:
-		print("No nearby rock to knock over.")
 
 # spawns gems at random positions at a 5 second interval
 func _on_gem_spawn_timer_timeout() -> void:
@@ -291,3 +250,13 @@ func _on_gem_spawn_timer_timeout() -> void:
 	# add_child(gem)
 	
 	print("gem spawned")
+
+#Game over function for instant death obstacles like fire_obs or spikes
+func instant_game_over() -> void:
+	print("Game over by insta death")
+	get_tree().paused = true
+	$GameOver.get_node("Button").show()
+	$GameOver.get_node("ScoreTitle").show()
+	$GameOver.get_node("ScoreCount").show()
+	$GameOver.get_node("ScoreCount").text = str(score / SCORE_MODIFIER)
+	game_over_sound.play()
