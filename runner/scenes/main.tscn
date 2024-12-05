@@ -63,5 +63,4 @@ curve = SubResource("Curve2D_xidyd")
 position = Vector2(1152, 48)
 rotation = 1.5708
 
-[connection signal="body_entered" from="GemStoneItem" to="GemStoneItem" method="_on_body_entered"]
 [connection signal="timeout" from="GemSpawnTimer" to="." method="_on_gem_spawn_timer_timeout"]
