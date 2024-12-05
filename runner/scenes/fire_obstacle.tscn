@@ -47,11 +47,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_07324"]
-radius = 7.5
+radius = 7.8
 height = 25.9
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvvvt"]
-radius = 8.2
+radius = 8.9
 height = 33.6
 
 [node name="FireObstacle" type="StaticBody2D"]

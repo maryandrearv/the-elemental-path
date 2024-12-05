@@ -196,7 +196,7 @@ func generate_obs():
 				var obs_height = obs.get_node("Stalagmites").texture.get_height()
 				var obs_scale = obs.get_node("Stalactites").scale
 				var obs_y : int = ground_height
-				obs.connect("game_over_triggered", Callable(self, "_fire_game_over"))
+				obs.connect("game_over_triggered", Callable(self, "instant_game_over"))
 			
 				add_obs(obs, obs_x, obs_y)
 		
@@ -206,7 +206,7 @@ func generate_obs():
 				obs.get_node("FireObstacle").play()
 				#hardcoded y-location, will have to readjust after sprite change
 				var obs_y : int = 294
-				obs.connect("game_over_triggered", Callable(self, "_fire_game_over"))
+				obs.connect("game_over_triggered", Callable(self, "instant_game_over"))
 
 			
 				add_obs(obs, obs_x, obs_y)		
@@ -249,7 +249,8 @@ func _on_gem_spawn_timer_timeout() -> void:
 	
 	print("gem spawned")
 
-func _fire_game_over() -> void:
+#Game over function for instant death obstacles like fire_obs or spikes
+func instant_game_over() -> void:
 	print("Game over by insta death")
 	get_tree().paused = true
 	$GameOver.get_node("Button").show()

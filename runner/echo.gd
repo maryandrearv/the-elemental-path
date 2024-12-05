@@ -33,6 +33,10 @@ var DOUBLE_JUMP_ON: bool = false
 var DOUBLE_JUMP_GRAVITY : int = 2500
 var DOUBLE_JUMP_SPEED : int  = -900
 
+#Glide Variables
+var GLIDE_GRAVITY: int = 1200
+var GLIDE_X_SPEED: int = 2000
+
 func _on_ready():
 	#Adding to group "player". Used to have different interaction with fire and spike
 	add_to_group("Player")
@@ -50,11 +54,20 @@ func _physics_process(delta: float) -> void:
 		air_animation.visible = true
 		air_animation.play("air")
 		DOUBLE_JUMP_ON = true
-		velocity.x = 4000
-		velocity.y = -900
+		velocity.x = 3000
+		velocity.y = -200
 		#DOUBLE_JUMP_SPEED
-		GRAVITY = DOUBLE_JUMP_GRAVITY
+		GRAVITY = GLIDE_GRAVITY
 		_hide_animation()
+	
+	#ORIGINAL AIR JUMP, NON GLIDE
+	#if Input.is_action_just_pressed("air") and not DOUBLE_JUMP_ON:
+		#DOUBLE_JUMP_ON = true
+		#velocity.x = 2500
+		#velocity.y = -300
+		#DOUBLE_JUMP_SPEED
+		#GRAVITY = DOUBLE_JUMP_GRAVITY
+	
 	else:
 		velocity.x = 0
 		if Input.is_action_just_pressed("earth"):
@@ -96,6 +109,13 @@ func _physics_process(delta: float) -> void:
 			#hide other casting animations
 			fire_animation.visible = false
 			earth_animation.visible = false
+		
+		#Double jumps used to test spikes, can implement again
+		#elif Input.is_action_just_pressed("ui_accept") and not DOUBLE_JUMP_ON:
+			#DOUBLE_JUMP_ON = true
+			#velocity.y = DOUBLE_JUMP_SPEED
+			#GRAVITY = DOUBLE_JUMP_GRAVITY
+
 
 		
 	# Add the gravity.
@@ -175,7 +195,7 @@ func _hide_animation() -> void:
 		await get_tree().create_timer(ANIMATION_DURATION).timeout
 		water_animation.visible = false
 	elif Input.is_action_just_pressed("air"):
-		await get_tree().create_timer(ANIMATION_DURATION - 0.33).timeout
+		await get_tree().create_timer(ANIMATION_DURATION).timeout
 		air_animation.visible = false
 
 
@@ -240,7 +260,8 @@ func _hide_attack_area() -> void:
 func _on_echo_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Fire_obs"):
 		print("Player burnt to a crisp")
-		#get_tree().paused == true
+	elif area.is_in_group("Spikes_obs"):
+		print("Player prickled from spikes")
 
 func die():
 	print("Echo died")
