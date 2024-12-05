@@ -281,8 +281,8 @@ func knock_over_rock():
 
 # spawns gems at random positions at a 5 second interval
 func _on_gem_spawn_timer_timeout() -> void:
-	# NOTE: the print statement only works once you restart the game after dying
-	#		but does not apply to the spawner code
+	# NOTE: code only works once you restart the game after dying once
+	#		problem with line 290
 	
 	# var gem = gemstone_scene.instantiate()
 	# var gem_location = $GemSpawnPath/GemSpawnPathFollow
