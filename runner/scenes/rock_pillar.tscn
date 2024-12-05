@@ -31,7 +31,6 @@ shape = SubResource("RectangleShape2D_l4mqb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Middle/Middle_Rock_hitbox"]
 position = Vector2(-4.26212, 37.9328)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2xvbr")
 
 [connection signal="area_entered" from="Middle/Middle_Rock_hitbox" to="." method="_on_middle_rock_hitbox_area_entered"]

@@ -19,6 +19,8 @@ var can_attack: bool = true
 
 @onready var player_area: Area2D = $Echo_hitbox
 
+signal died
+
 
 const ANIMATION_DURATION: float = 1.0 
 
@@ -238,3 +240,7 @@ func _hide_attack_area() -> void:
 func _on_echo_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Fire_obs"):
 		print("Player burnt to a crisp")
+		#get_tree().paused == true
+
+func die():
+	print("Echo died")
