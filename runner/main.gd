@@ -82,8 +82,6 @@ func new_game():
 	$Background.scroll_offset = Vector2(0,0)
 	
 	# Hide User Interface nodes and show instructions and return button
-	$HUD.get_node("StartLabel").show()
-	$HUD.get_node("Return").show()
 	$GameOver.get_node("ScoreTitle").hide()
 	$GameOver.get_node("ScoreCount").hide()
 	$GameOver.get_node("Button").hide()
@@ -124,8 +122,6 @@ func _process(delta):
 	else:
 		if Input.is_action_just_pressed("ui_accept"):
 			game_running = true
-			$HUD.get_node("StartLabel").hide()
-			$HUD.get_node("Return").hide()
 
 		
 	#knock over situation
