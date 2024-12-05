@@ -7,7 +7,7 @@
 size = Vector2(12.9526, 26.0684)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xvbr"]
-size = Vector2(61.3745, 61.5876)
+size = Vector2(61.8008, 61.5876)
 
 [node name="Rock Pillar" type="Node2D"]
 scale = Vector2(9.385, 9.385)
@@ -30,7 +30,7 @@ shape = SubResource("RectangleShape2D_l4mqb")
 [node name="Middle_Rock_hitbox" type="Area2D" parent="Middle"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Middle/Middle_Rock_hitbox"]
-position = Vector2(-9.58977, 37.9328)
+position = Vector2(-4.26212, 37.9328)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2xvbr")
 

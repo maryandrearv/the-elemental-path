@@ -6,7 +6,6 @@ extends Node2D
 @onready var game_over_sound = $GameOverSound
 
 # preload obstacle scenes
-var rock_scene = preload("res://scenes/rock.tscn")
 var platform_scene = preload("res://scenes/platform.tscn")
 @onready var vine_scene = preload("res://scenes/vine.tscn")
 @onready var slash_scene = preload("res://scenes/slash.tscn")
@@ -32,9 +31,6 @@ var screen_size : Vector2
 var ground_height : int
 var ceiling_height : int
 var game_running : bool
-
-#Fire Slash components
-const FIRESLASH_OFFSET = Vector2(100,0)
 
 #obstacle detection vars
 @onready var player_position: Node2D = $Echo
@@ -129,13 +125,7 @@ func _process(delta):
 			$HUD.get_node("StartLabel").hide()
 			$HUD.get_node("Return").hide()
 
-		
-	#knock over situation
-	if Input.is_action_just_pressed("earth"):
-		knock_over_rock()
-		# Debug: Print positions of the player and the boulder
-		print("Player Position:", player_position.global_position)
-	
+
 	game_over()
 
 # game over function that pauses game, shows scores, and allows you to restart
@@ -164,7 +154,7 @@ func generate_obs():
 	
 	# Ensure to generate rocks at appropriate intervals
 	if last_obs == null or (is_instance_valid(last_obs) and last_obs.position.x < score + randi_range(300, 500)):
-		var obstacle_type = randi_range(0, 5)
+		var obstacle_type = randi_range(0, 4)
 		
 		var obs
 		var obs_x : int = $Camera2D.position.x + screen_size.x + randi_range(200, 400)
@@ -184,21 +174,7 @@ func generate_obs():
 			last_obs = pillar
 		
 		else:
-			if obstacle_type == 1: #Rock
-				obs = rock_scene.instantiate()
-				var obs_height = obs.get_node("Sprite2D").texture.get_height()
-				var obs_scale = obs.get_node("Sprite2D").scale
-				var obs_y : int = screen_size.y - ground_height - obs_height
-			
-				#Set up rock obstacle
-				add_obs(obs, obs_x, obs_y)
-			
-				#Add top rock to array if it has one
-				var top_rock = obs.get_node("TopRock")  # Assuming your top rock is named "TopRock"
-				if top_rock:
-					top_rocks.append(top_rock)
-		
-			elif obstacle_type == 2: #Vine
+			if obstacle_type == 1: #Vine
 				obs = vine_scene.instantiate()
 				obs.add_to_group("vine")
 				add_child(obs)
@@ -207,7 +183,7 @@ func generate_obs():
 			
 				add_obs(obs, obs_x, obs_y)
 			
-			elif obstacle_type == 3: #Platform
+			elif obstacle_type == 2: #Platform
 				obs = platform_scene.instantiate()
 				var obs_height = obs.get_node("Sprite2D").texture.get_height()
 				var obs_scale = obs.get_node("Sprite2D").scale
@@ -215,7 +191,7 @@ func generate_obs():
 			
 				add_obs(obs, obs_x, obs_y)
 		
-			elif obstacle_type == 4: #Spikes
+			elif obstacle_type == 3: #Spikes
 				obs = spike_scene.instantiate()
 				var obs_height = obs.get_node("Stalagmites").texture.get_height()
 				var obs_scale = obs.get_node("Stalactites").scale
@@ -223,7 +199,7 @@ func generate_obs():
 			
 				add_obs(obs, obs_x, obs_y)
 		
-			elif obstacle_type == 5: #flames/fire obstacle
+			elif obstacle_type == 4: #flames/fire obstacle
 				obs = fire_scene.instantiate()
 				obs.get_node("FireObstacle").play()
 				#hardcoded y-location, will have to readjust after sprite change
@@ -255,43 +231,6 @@ func check_high_score():
 		high_score = score
 		$HUD.get_node("HighScoreLabel").text = "HIGH SCORE: " + str(high_score/SCORE_MODIFIER) 
 
-# Need to ask tutorial leader how to seperate different skills into different files to eliminate confusing long code
-func knock_over_rock():
-	#remove invalid object
-	obstacles = obstacles.filter(is_instance_valid)
-	
-	var is_rock_hit: bool = false
-	
-	var nearest_rock: RigidBody2D = null
-	var closest_distance: float = push_distance  # Start with the maximum push distance
-
-	for rock in obstacles:
-		if rock is RigidBody2D and is_near_rock(rock):
-			var distance_to_rock = player_position.global_position.distance_to(rock.global_position)
-			# Ensure the rock is in front of the player
-			if distance_to_rock < closest_distance and rock.global_position.x > player_position.global_position.x:
-				closest_distance = distance_to_rock
-				#is_rock_hit = true
-				nearest_rock = rock  # Store the closest rock
-			#else:
-				#is_rock_hit = false
-
-	if nearest_rock: #and not is_rock_hit
-		# Move the nearest rock slightly (adjust the values as needed)
-		var offset = Vector2(200, 0)  # Move the rock slightly to the right
-		nearest_rock.position += offset  # Change position directly
-		
-		# Move the top rock sprite (assuming it's a direct child of the same RigidBody2D)
-		var top_rock_sprite = nearest_rock.get_node("TopRock")  # Change "Sprite2D" to your top rock sprite's name
-		if top_rock_sprite:
-			top_rock_sprite.position += offset  # Move the top rock sprite
-
-		# Move the collision shape (make sure it exists)
-		var collision_shape = nearest_rock.get_node("CollisionShape2D")  # Assuming your collision shape is named "CollisionShape2D"
-		if collision_shape:
-			collision_shape.position += offset  # Move the collision shape along with the top rock
-	else:
-		print("No nearby rock to knock over.")
 
 # spawns gems at random positions at a 5 second interval
 func _on_gem_spawn_timer_timeout() -> void:

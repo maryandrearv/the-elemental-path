@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://echo.gd" id="1_yj31d"]
 [ext_resource type="Texture2D" uid="uid://btv67fxt3gvf3" path="res://assets/Echo Beta Spritesheet.png" id="2_j7mbw"]
-[ext_resource type="Texture2D" uid="uid://bfo7ei8oyqt7k" path="res://sprites/Earth.png" id="3_jq6u1"]
+[ext_resource type="Texture2D" uid="uid://clg5el3htqy44" path="res://sprites/Earth (1).png" id="3_k3qc7"]
 [ext_resource type="Texture2D" uid="uid://bb1xdvnxgej31" path="res://sprites/Water Effect and Bullet 16x16.png" id="3_v8dir"]
 [ext_resource type="Texture2D" uid="uid://cdr430oh8005q" path="res://sprites/Fire slash sprite.png" id="3_x35eh"]
 [ext_resource type="AudioStream" uid="uid://c5v63qm6mv3m7" path="res://audio/FireSlash.mp3" id="4_g3xbk"]
@@ -126,50 +126,50 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nvop"]
 size = Vector2(16.25, 17.6667)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1x1r0"]
-atlas = ExtResource("3_jq6u1")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_sr054"]
+atlas = ExtResource("3_k3qc7")
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1pji0"]
-atlas = ExtResource("3_jq6u1")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_q44ma"]
+atlas = ExtResource("3_k3qc7")
+region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bnynq"]
-atlas = ExtResource("3_jq6u1")
-region = Rect2(0, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsfkr"]
+atlas = ExtResource("3_k3qc7")
+region = Rect2(0, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lbk7r"]
-atlas = ExtResource("3_jq6u1")
-region = Rect2(32, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_br155"]
+atlas = ExtResource("3_k3qc7")
+region = Rect2(16, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gdyms"]
-atlas = ExtResource("3_jq6u1")
-region = Rect2(0, 64, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_740dd"]
+atlas = ExtResource("3_k3qc7")
+region = Rect2(0, 32, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_onxra"]
-atlas = ExtResource("3_jq6u1")
-region = Rect2(32, 64, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mjr6"]
+atlas = ExtResource("3_k3qc7")
+region = Rect2(16, 32, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a8h5c"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1x1r0")
+"texture": SubResource("AtlasTexture_sr054")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1pji0")
+"texture": SubResource("AtlasTexture_q44ma")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bnynq")
+"texture": SubResource("AtlasTexture_tsfkr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lbk7r")
+"texture": SubResource("AtlasTexture_br155")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gdyms")
+"texture": SubResource("AtlasTexture_740dd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_onxra")
+"texture": SubResource("AtlasTexture_6mjr6")
 }],
 "loop": true,
 "name": &"earth",
@@ -354,8 +354,8 @@ shape = SubResource("RectangleShape2D_2nvop")
 [node name="Earth" type="AnimatedSprite2D" parent="."]
 visible = false
 texture_filter = 1
-position = Vector2(64, 26)
-scale = Vector2(2.8125, 6.875)
+position = Vector2(65, 36.5)
+scale = Vector2(4.625, 9.5625)
 sprite_frames = SubResource("SpriteFrames_a8h5c")
 animation = &"earth"
 frame = 5
