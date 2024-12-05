@@ -62,6 +62,7 @@ func new_game():
 	
 	
 	#Start Game in paused state and allows user to press space to start
+	# get rid of game pausing stuff later
 	get_tree().paused = false
 	score = 0
 	show_score()
@@ -82,6 +83,8 @@ func new_game():
 	$Background.scroll_offset = Vector2(0,0)
 	
 	# Hide User Interface nodes and show instructions and return button
+	# get rid of start label later
+	$HUD.get_node("StartLabel").show()
 	$GameOver.get_node("ScoreTitle").hide()
 	$GameOver.get_node("ScoreCount").hide()
 	$GameOver.get_node("Button").hide()
@@ -92,6 +95,7 @@ func new_game():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 
+# get rid of if statment later so the game does not pause
 # If game is running, calculate speed based on where you are at with the score.
 	if game_running:
 		speed = START_SPEED + score / SPEED_MODIFIER
@@ -122,6 +126,8 @@ func _process(delta):
 	else:
 		if Input.is_action_just_pressed("ui_accept"):
 			game_running = true
+			# get rid of this later
+			$HUD.get_node("StartLabel").hide()
 
 		
 	#knock over situation
