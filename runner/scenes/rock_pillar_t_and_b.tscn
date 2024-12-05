@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bg4eg42c08lnp"]
 
-[ext_resource type="Texture2D" uid="uid://byl5yb0v0a188" path="res://sprites/Rock Wall bottom.png" id="2_xohkq"]
+[ext_resource type="Texture2D" uid="uid://b4ocpvdlmg7fo" path="res://sprites/Rock Wall bottom 2.png" id="1_51kvy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xx8bf"]
 size = Vector2(295, 208.875)
@@ -11,7 +11,7 @@ size = Vector2(295, 208.875)
 texture_filter = 1
 position = Vector2(127.5, 290)
 scale = Vector2(15.0938, 15.4375)
-texture = ExtResource("2_xohkq")
+texture = ExtResource("1_51kvy")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(127.5, 437.438)
