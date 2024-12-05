@@ -8,7 +8,6 @@ extends Node2D
 # preload obstacle scenes
 var platform_scene = preload("res://scenes/platform.tscn")
 @onready var vine_scene = preload("res://scenes/vine.tscn")
-@onready var slash_scene = preload("res://scenes/slash.tscn")
 @onready var spike_scene = preload("res://scenes/spike_obs.tscn")
 @onready var fire_scene = preload("res://scenes/fire_obstacle.tscn")
 @onready var gemstone_scene = preload("res://scenes/gem_stone_item.tscn")
@@ -201,6 +200,7 @@ func generate_obs():
 		
 			elif obstacle_type == 4: #flames/fire obstacle
 				obs = fire_scene.instantiate()
+				obs.add_to_group("Fire_obs")
 				obs.get_node("FireObstacle").play()
 				#hardcoded y-location, will have to readjust after sprite change
 				var obs_y : int = 294

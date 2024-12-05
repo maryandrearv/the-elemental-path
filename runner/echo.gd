@@ -17,6 +17,8 @@ var can_attack: bool = true
 @onready var attack_area: Area2D = $Ability_hitbox
 @onready var attack_collision: CollisionShape2D = $Ability_hitbox/CollisionShape2D
 
+@onready var player_area: Area2D = $Echo_hitbox
+
 
 const ANIMATION_DURATION: float = 1.0 
 
@@ -32,6 +34,7 @@ var DOUBLE_JUMP_SPEED : int  = -900
 func _on_ready():
 	#Adding to group "player". Used to have different interaction with fire and spike
 	add_to_group("Player")
+	print("Echo added to Player Group")
 	
 	earth_animation.visible = false
 	fire_animation.visible = false
@@ -230,3 +233,8 @@ func _hide_attack_area() -> void:
 	attack_area.remove_from_group("Water_Attack")
 	attack_area.remove_from_group("Earth_push")
 	can_attack = true
+
+
+func _on_echo_hitbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Fire_obs"):
+		print("Player burnt to a crisp")
