@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var earth_animation: AnimatedSprite2D = $Earth
 @onready var fire_animation: AnimatedSprite2D = $Fire
 @onready var water_animation: AnimatedSprite2D = $Water
+@onready var air_animation: AnimatedSprite2D = $air
 @onready var fire_sound = $fireslash
 @onready var rock_sound = $rocksound
 @onready var jump_sound = $jumpsound
@@ -40,11 +41,15 @@ func _on_ready():
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("air") and not DOUBLE_JUMP_ON:
+		air_sound.play()
+		air_animation.visible = true
+		air_animation.play("air")
 		DOUBLE_JUMP_ON = true
-		velocity.x = 2500
-		velocity.y = -300
+		velocity.x = 4000
+		velocity.y = -900
 		#DOUBLE_JUMP_SPEED
 		GRAVITY = DOUBLE_JUMP_GRAVITY
+		_hide_air_animation()
 	else:
 		velocity.x = 0
 		if Input.is_action_just_pressed("earth"):
@@ -53,11 +58,12 @@ func _physics_process(delta: float) -> void:
 			echo_sprite.play("cast")
 			earth_animation.play("earth")
 			knock_over_rocks()
-
 			rock_sound.play()
-			
 			# Start a coroutine to hide the earth animation after a delay
 			_hide_earth_animation()
+			#hide other casting animations
+			water_animation.visible = false
+			fire_animation.visible = false
 		
 		#Fire Slash button
 		elif Input.is_action_just_pressed("fire"):
@@ -67,6 +73,9 @@ func _physics_process(delta: float) -> void:
 			fire_animation.play("fire")
 			fire_sound.play()
 			_hide_fire_animation()
+			#hide other casting animations
+			water_animation.visible = false
+			earth_animation.visible = false
 			
 		#Water Wall button
 		elif Input.is_action_just_pressed("water"):
@@ -76,11 +85,11 @@ func _physics_process(delta: float) -> void:
 			water_animation.play("waterwall")
 			water_sound.play()
 			_hide_water_animation()
-			
-		elif Input.is_action_just_pressed("ui_accept") and not DOUBLE_JUMP_ON:
-			DOUBLE_JUMP_ON = true
-			velocity.y = DOUBLE_JUMP_SPEED
-			GRAVITY = DOUBLE_JUMP_GRAVITY
+			#hide other casting animations
+			fire_animation.visible = false
+			earth_animation.visible = false
+
+		
 
 
 		
@@ -143,6 +152,11 @@ func _hide_water_animation() -> void:
 	# Wait for the duration of the animation
 	await get_tree().create_timer(ANIMATION_DURATION).timeout
 	water_animation.visible = false
+
+func _hide_air_animation() -> void:
+	# Wait for the duration of the animation
+	await get_tree().create_timer(ANIMATION_DURATION - 0.33).timeout
+	air_animation.visible = false
 	
 	
 func perform_fire_attack():

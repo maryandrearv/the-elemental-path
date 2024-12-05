@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bg4eg42c08lnp"]
+[gd_scene load_steps=3 format=3 uid="uid://bcplk8em6aflp"]
 
-[ext_resource type="Texture2D" uid="uid://b4ocpvdlmg7fo" path="res://sprites/Rock Wall bottom 2.png" id="1_51kvy"]
+[ext_resource type="Texture2D" uid="uid://eio5vr51v4yv" path="res://sprites/Rock Wall bottom 2.png" id="1_51kvy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xx8bf"]
 size = Vector2(295, 208.875)

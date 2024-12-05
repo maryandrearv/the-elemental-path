@@ -2,13 +2,17 @@ extends Node2D
 @onready var fire_animation: AnimatedSprite2D = $Fire
 @onready var vine_area: StaticBody2D = $Vine
 
+@onready var bg_music = $"/root/BackgroundMusic"
+@onready var game_over_sound = $GameOverSound
+
 # preload obstacle scenes
 var rock_scene = preload("res://scenes/rock.tscn")
 var platform_scene = preload("res://scenes/platform.tscn")
 @onready var vine_scene = preload("res://scenes/vine.tscn")
 @onready var slash_scene = preload("res://scenes/slash.tscn")
-@onready var spike_scene = preload("res://scenes/spikes.tscn")
+@onready var spike_scene = preload("res://scenes/spike_obs.tscn")
 @onready var fire_scene = preload("res://scenes/fire_obstacle.tscn")
+@onready var gemstone_scene = preload("res://scenes/gem_stone_item.tscn")
 @onready var rock_pillar_scene = preload("res://scenes/rock_pillar.tscn")
 @onready var rock_pillar_tandb_scene = preload("res://scenes/rock_pillar_t_and_b.tscn")
 
@@ -57,7 +61,8 @@ func _ready() -> void:
 	$GameOver.get_node("Button").pressed.connect(new_game)
 	new_game()
 func new_game():
-
+	
+	
 	#Start Game in paused state and allows user to press space to start
 	get_tree().paused = false
 	score = 0
@@ -78,9 +83,9 @@ func new_game():
 	$Ceiling.position = Vector2(129,-1237)
 	$Background.scroll_offset = Vector2(0,0)
 	
-	# Hide User Interface nodes
+	# Hide User Interface nodes and show instructions and return button
 	$HUD.get_node("StartLabel").show()
-
+	$HUD.get_node("Return").show()
 	$GameOver.get_node("ScoreTitle").hide()
 	$GameOver.get_node("ScoreCount").hide()
 	$GameOver.get_node("Button").hide()
@@ -103,7 +108,9 @@ func _process(delta):
 		$Echo.position.x += speed
 		$Camera2D.position.x += speed
 
-			
+		# starts gem spawner
+		$GemSpawnTimer.start()
+		
 		# update score
 		score += speed
 		show_score()
@@ -113,7 +120,9 @@ func _process(delta):
 		if $Camera2D.position.x - $Ceiling.position.x > screen_size.x * 1.5:
 			$Ceiling.position.x += screen_size.x 
 		if $Camera2D.position.x - $Background.scroll_offset.x > screen_size.x * 1.5:
-			$Background.scroll_offset.x += screen_size.x 
+			$Background.scroll_offset.x += screen_size.x
+		
+		 
 	else:
 		if Input.is_action_just_pressed("ui_accept"):
 			game_running = true
@@ -137,7 +146,7 @@ func game_over():
 	# Calculate the visible area based on the camera position
 	var camera_left_boundary = $Camera2D.position.x - screen_size.x / 2
 	var camera_right_boundary = $Camera2D.position.x + screen_size.x / 2
-	
+
 	# Check if the Echo is out of the visible area
 	if $Echo.position.x < camera_left_boundary or $Echo.position.x > camera_right_boundary:
 		get_tree().paused = true  # Pause the game
@@ -146,6 +155,7 @@ func game_over():
 			$GameOver.get_node("ScoreTitle").show()
 			$GameOver.get_node("ScoreCount").show()
 			$GameOver.get_node("ScoreCount").text = str(score / SCORE_MODIFIER)
+			game_over_sound.play()
 			print("game over")
 	
 func generate_obs():
@@ -154,11 +164,10 @@ func generate_obs():
 	
 	# Ensure to generate rocks at appropriate intervals
 	if last_obs == null or (is_instance_valid(last_obs) and last_obs.position.x < score + randi_range(300, 500)):
+		var obstacle_type = randi_range(0, 5)
 		
 		var obs
 		var obs_x : int = $Camera2D.position.x + screen_size.x + randi_range(200, 400)
-		
-		var obstacle_type = randi_range(0, 5)
 		
 		if obstacle_type == 0:
 			var pillar = rock_pillar_scene.instantiate()
@@ -173,8 +182,8 @@ func generate_obs():
 			obstacles.append(spikes)
 			
 			last_obs = pillar
-			
-		else: 
+		
+		else:
 			if obstacle_type == 1: #Rock
 				obs = rock_scene.instantiate()
 				var obs_height = obs.get_node("Sprite2D").texture.get_height()
@@ -223,6 +232,7 @@ func generate_obs():
 				add_obs(obs, obs_x, obs_y)		
 
 			last_obs = obs
+		
 
 func add_obs(obs, x, y):
 		obs.position = Vector2(x, y)
@@ -282,3 +292,16 @@ func knock_over_rock():
 			collision_shape.position += offset  # Move the collision shape along with the top rock
 	else:
 		print("No nearby rock to knock over.")
+
+# spawns gems at random positions at a 5 second interval
+func _on_gem_spawn_timer_timeout() -> void:
+	# NOTE: code only works once you restart the game after dying once
+	#		problem with line 290
+	
+	# var gem = gemstone_scene.instantiate()
+	# var gem_location = $GemSpawnPath/GemSpawnPathFollow
+	# gem_location.progress_ratio = randf()
+	# gem.position = gem_location
+	# add_child(gem)
+	
+	print("gem spawned")

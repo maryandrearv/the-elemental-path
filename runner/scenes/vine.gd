@@ -27,4 +27,4 @@ func _on_vine_hitbox_area_entered(area: Area2D) -> void:
 		print("Vine Destroyed!")
 	else:
 		print("Cannot use this power")
-		
+	
