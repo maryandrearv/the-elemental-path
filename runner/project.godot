@@ -21,7 +21,7 @@ buses/default_bus_layout=""
 
 [autoload]
 
-Global="*res://scenes/Global.gd"
+Global="*res://scripts/Global.gd"
 BackgroundMusic="*res://scenes/background_music.tscn"
 
 [display]

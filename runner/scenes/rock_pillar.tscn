@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://l46l2m2msnwb"]
 
-[ext_resource type="Script" path="res://scenes/rock_pillar.gd" id="1_ir4kf"]
-[ext_resource type="Texture2D" uid="uid://b1mpgduann0bc" path="res://sprites/Rock Wall 2.png" id="2_e6n0q"]
+[ext_resource type="Script" path="res://scripts/rock_pillar.gd" id="1_ir4kf"]
+[ext_resource type="Texture2D" uid="uid://b1mpgduann0bc" path="res://assets/sprites/obstacles/Rock Wall 2.png" id="2_e6n0q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l4mqb"]
 size = Vector2(12.9526, 26.0684)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://b4p11np75v5y1"]
 
-[ext_resource type="Texture2D" uid="uid://ku5lg5ht7tly" path="res://sprites/GrassetPack/GrassetPack.png" id="1_bc51w"]
-[ext_resource type="Texture2D" uid="uid://ujihrkrvi4kn" path="res://sprites/ground_proper.png" id="1_ek06d"]
+[ext_resource type="Texture2D" uid="uid://ku5lg5ht7tly" path="res://assets/sprites/obstacles/GrassetPack/GrassetPack.png" id="1_bc51w"]
+[ext_resource type="Texture2D" uid="uid://ujihrkrvi4kn" path="res://assets/sprites/environment/ground_proper.png" id="1_ek06d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwsa4"]
 size = Vector2(2764, 58)

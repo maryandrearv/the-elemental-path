@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c2ioou35gy6qr"]
 
-[ext_resource type="Script" path="res://scenes/vine.gd" id="1_occcl"]
-[ext_resource type="Texture2D" uid="uid://cwemxnbkt72yr" path="res://assets/vine_proto_2.png" id="2_vlg1n"]
+[ext_resource type="Script" path="res://scripts/vine.gd" id="1_occcl"]
+[ext_resource type="Texture2D" uid="uid://cwemxnbkt72yr" path="res://assets/sprites/obstacles/vine_proto_2.png" id="2_vlg1n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1wu3w"]
 size = Vector2(154, 523.5)

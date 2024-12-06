@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://ddowbj0wagoso"]
 
-[ext_resource type="Script" path="res://scenes/fire_obstacle.gd" id="1_xu5aa"]
-[ext_resource type="Texture2D" uid="uid://droumu7qcwown" path="res://assets/sprites/FireObstacle.png" id="2_h1apb"]
+[ext_resource type="Script" path="res://scripts/fire_obstacle.gd" id="1_xu5aa"]
+[ext_resource type="Texture2D" uid="uid://droumu7qcwown" path="res://assets/sprites/obstacles/FireObstacle.png" id="2_h1apb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1as4v"]
 atlas = ExtResource("2_h1apb")

@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://cf8jkc04634or"]
 
-[ext_resource type="Script" path="res://scenes/spike_obs.gd" id="1_r0ohr"]
-[ext_resource type="Texture2D" uid="uid://b06ica25bxb6t" path="res://assets/spikes.png" id="2_cpk6m"]
-[ext_resource type="Texture2D" uid="uid://duxty8wucpg27" path="res://assets/spikes2.png" id="3_pmodb"]
+[ext_resource type="Script" path="res://scripts/spike_obs.gd" id="1_r0ohr"]
+[ext_resource type="Texture2D" uid="uid://b06ica25bxb6t" path="res://assets/sprites/obstacles/spikes.png" id="2_cpk6m"]
+[ext_resource type="Texture2D" uid="uid://duxty8wucpg27" path="res://assets/sprites/obstacles/spikes2.png" id="3_pmodb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ib4e7"]
 size = Vector2(37.5714, 23.7253)
