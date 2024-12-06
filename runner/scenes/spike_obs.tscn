@@ -5,31 +5,31 @@
 [ext_resource type="Texture2D" uid="uid://duxty8wucpg27" path="res://assets/sprites/obstacles/spikes2.png" id="3_pmodb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ib4e7"]
-size = Vector2(35.4285, 23.7253)
+size = Vector2(88.7143, 23.7253)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3eep"]
-size = Vector2(43.2857, 21.3531)
+size = Vector2(43.2857, 6.46384)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjym5"]
-size = Vector2(249, 108)
+size = Vector2(609, 108)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nxjnu"]
-size = Vector2(306, 109.5)
+size = Vector2(306, 34.5)
 
 [node name="Spikes" type="StaticBody2D"]
 script = ExtResource("1_r0ohr")
 
 [node name="Stalagmites" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(201.75, 521.241)
-scale = Vector2(14.4531, 12.9525)
+position = Vector2(445.5, 521.241)
+scale = Vector2(27.6563, 12.9525)
 texture = ExtResource("2_cpk6m")
 
 [node name="Stalactites" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(158.65, -1.01345)
+position = Vector2(158.65, 2.35774)
 rotation = 3.14159
-scale = Vector2(12.1503, 10.9957)
+scale = Vector2(12.1503, 8.81843)
 texture = ExtResource("3_pmodb")
 
 [node name="SpikeHitbox2" type="Area2D" parent="."]
@@ -38,7 +38,7 @@ rotation = -3.14159
 scale = Vector2(7, 5.374)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeHitbox2"]
-position = Vector2(-4.28573, -3.86115)
+position = Vector2(-43.7857, -3.86111)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ib4e7")
 
@@ -47,16 +47,16 @@ position = Vector2(113, 87)
 scale = Vector2(7, 5.373)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeHitbox"]
-position = Vector2(6.92857, -6.02365)
+position = Vector2(6.92857, -13.4683)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_h3eep")
 
 [node name="StalagmiteCollision" type="CollisionShape2D" parent="."]
-position = Vector2(142.5, 475)
+position = Vector2(419.5, 475)
 shape = SubResource("RectangleShape2D_qjym5")
 
 [node name="StalactiteCollision" type="CollisionShape2D" parent="."]
-position = Vector2(157, 47.25)
+position = Vector2(157, 9.75)
 shape = SubResource("RectangleShape2D_nxjnu")
 
 [connection signal="body_entered" from="SpikeHitbox2" to="." method="_on_spike_hitbox_2_body_entered"]

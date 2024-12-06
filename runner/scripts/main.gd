@@ -55,9 +55,8 @@ func _ready() -> void:
 	ceiling_height = $Ceiling.get_node("Sprite2D").texture.get_height()
 	$GameOver.get_node("Button").pressed.connect(new_game)
 	new_game()
+	
 func new_game():
-	
-	
 	#Start Game in paused state and allows user to press space to start
 	# get rid of all game pausing stuff later
 	get_tree().paused = false
@@ -90,6 +89,7 @@ func new_game():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	screen_size = get_window().size
 
 # get rid of if statment later so the game does not pause
 # If game is running, calculate speed based on where you are at with the score.

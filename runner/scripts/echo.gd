@@ -46,16 +46,21 @@ func _on_ready():
 
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept") and not DOUBLE_JUMP_ON:
-		air_sound.play()
-		air_animation.visible = true
-		air_animation.play("air")
-		DOUBLE_JUMP_ON = true
-		velocity.x = 700
-		velocity.y = -800
-		DOUBLE_JUMP_SPEED
-		GRAVITY = DOUBLE_JUMP_GRAVITY
-		_hide_animation()
+	if Input.is_action_just_pressed("ui_accept"):
+		if is_on_floor(): #Normal Jump
+			jump_sound.play()
+			velocity.y = JUMP_SPEED
+			echo_sprite.play("jump")
+		elif not DOUBLE_JUMP_ON: #Double Jump
+			air_sound.play()
+			air_animation.visible = true
+			air_animation.play("air")
+			DOUBLE_JUMP_ON = true
+			velocity.x = 400
+			velocity.y = -800
+			DOUBLE_JUMP_SPEED
+			GRAVITY = DOUBLE_JUMP_GRAVITY
+			_hide_animation()
 	
 	else:
 		velocity.x = 0
@@ -156,7 +161,7 @@ func _hide_animation() -> void:
 	elif Input.is_action_just_pressed("water"):
 		await get_tree().create_timer(ANIMATION_DURATION).timeout
 		water_animation.visible = false
-	elif Input.is_action_just_pressed("ui_accept") and DOUBLE_JUMP_ON == true:
+	elif Input.is_action_just_pressed("ui_accept"):
 		await get_tree().create_timer(ANIMATION_DURATION).timeout
 		air_animation.visible = false
 
