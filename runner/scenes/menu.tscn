@@ -1,6 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://cgi6f0enoto3q"]
 
 [ext_resource type="Script" path="res://scenes/menu.gd" id="1_1xpv3"]
+[ext_resource type="Texture2D" uid="uid://dyafw7o63k8vd" path="res://assets/interfaces/MenuBG.png" id="2_57cbt"]
 [ext_resource type="Texture2D" uid="uid://d06s36qnpq608" path="res://assets/interfaces/echo-1.png" id="3_0kuak"]
 [ext_resource type="Texture2D" uid="uid://c61qi7kwb1g28" path="res://assets/interfaces/Buttons/Quit1.png" id="3_3spmm"]
 [ext_resource type="FontFile" uid="uid://q0ryafcer5ri" path="res://assets/fonts/Pixeled.ttf" id="3_n7hup"]
@@ -10,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://4x5eo5babkuj" path="res://assets/interfaces/Buttons/Instruct1.png" id="5_ys73m"]
 [ext_resource type="Texture2D" uid="uid://d122o4uj2onfv" path="res://assets/interfaces/echo-4.png" id="6_20bhj"]
 [ext_resource type="Texture2D" uid="uid://0wynxp2ou724" path="res://assets/interfaces/Buttons/Instruct2.png" id="6_xv4gi"]
-[ext_resource type="Texture2D" uid="uid://bkb20l0e286k" path="res://assets/interfaces/MenuBG1.png" id="7_8kbk5"]
 [ext_resource type="Texture2D" uid="uid://cbtex7eaolk27" path="res://assets/interfaces/Buttons/Play3.png" id="7_bj0oi"]
 [ext_resource type="Texture2D" uid="uid://cfanyn744t23s" path="res://assets/interfaces/Buttons/Play2.png" id="8_44dnl"]
 
@@ -50,7 +50,7 @@ follow_viewport_enabled = true
 [node name="TheElementalPath" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(576, 324)
 scale = Vector2(0.84041, 0.835938)
-texture = ExtResource("7_8kbk5")
+texture = ExtResource("2_57cbt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
 texture_filter = 3
@@ -58,7 +58,7 @@ position = Vector2(860, 410)
 scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_8gbic")
 autoplay = "default"
-frame_progress = 0.466896
+frame_progress = 0.818536
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 texture_filter = 1
