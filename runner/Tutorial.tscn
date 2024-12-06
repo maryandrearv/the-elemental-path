@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=5 format=3 uid="uid://cm0i18qy0ffwv"]
-=======
 [gd_scene load_steps=5 format=3 uid="uid://coalcw42gp1vj"]
->>>>>>> lyin
 
 [ext_resource type="PackedScene" uid="uid://dxl3r78agmayq" path="res://scenes/background_music.tscn" id="1_im0xc"]
 [ext_resource type="PackedScene" uid="uid://dho4c5ai7sf5c" path="res://scenes/background.tscn" id="2_5ohd4"]

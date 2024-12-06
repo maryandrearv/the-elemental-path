@@ -49,24 +49,28 @@ func _on_ready():
 
 
 func _physics_process(delta: float) -> void:
+	#if Input.is_action_just_pressed("air") and not DOUBLE_JUMP_ON:
+		#air_sound.play()
+		#air_animation.visible = true
+		#air_animation.play("air")
+		#DOUBLE_JUMP_ON = true
+		#velocity.x = 2000
+		#velocity.y = -200
+		#DOUBLE_JUMP_SPEED
+		#GRAVITY = GLIDE_GRAVITY
+		#_hide_animation()
+	
+	#ORIGINAL AIR JUMP, NON GLIDE
 	if Input.is_action_just_pressed("air") and not DOUBLE_JUMP_ON:
 		air_sound.play()
 		air_animation.visible = true
 		air_animation.play("air")
 		DOUBLE_JUMP_ON = true
-		velocity.x = 2000
-		velocity.y = -200
-		#DOUBLE_JUMP_SPEED
-		GRAVITY = GLIDE_GRAVITY
+		velocity.x = 4000
+		velocity.y = -500
+		DOUBLE_JUMP_SPEED
+		GRAVITY = DOUBLE_JUMP_GRAVITY
 		_hide_animation()
-	
-	#ORIGINAL AIR JUMP, NON GLIDE
-	#if Input.is_action_just_pressed("air") and not DOUBLE_JUMP_ON:
-		#DOUBLE_JUMP_ON = true
-		#velocity.x = 2500
-		#velocity.y = -300
-		#DOUBLE_JUMP_SPEED
-		#GRAVITY = DOUBLE_JUMP_GRAVITY
 	
 	else:
 		velocity.x = 0
