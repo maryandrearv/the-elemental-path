@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://cgi6f0enoto3q"]
+[gd_scene load_steps=14 format=3 uid="uid://cgi6f0enoto3q"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_1xpv3"]
 [ext_resource type="Texture2D" uid="uid://dyafw7o63k8vd" path="res://assets/interfaces/MenuBG.png" id="2_57cbt"]
 [ext_resource type="Texture2D" uid="uid://d06s36qnpq608" path="res://assets/interfaces/Echo/echo-1.png" id="3_0kuak"]
 [ext_resource type="Texture2D" uid="uid://c61qi7kwb1g28" path="res://assets/interfaces/Buttons/Quit1.png" id="3_3spmm"]
-[ext_resource type="FontFile" uid="uid://q0ryafcer5ri" path="res://assets/fonts/Pixeled.ttf" id="3_n7hup"]
 [ext_resource type="Texture2D" uid="uid://dw8iludxxqaeg" path="res://assets/interfaces/Buttons/Quit2.png" id="4_hels7"]
 [ext_resource type="Texture2D" uid="uid://p2cmod0h51yd" path="res://assets/interfaces/Echo/echo-2.png" id="4_rdwng"]
 [ext_resource type="Texture2D" uid="uid://dli7re7y3fgma" path="res://assets/interfaces/Echo/echo-3.png" id="5_cg5mp"]
@@ -117,16 +116,6 @@ texture_pressed = ExtResource("8_44dnl")
 texture_hover = ExtResource("8_44dnl")
 ignore_texture_size = true
 stretch_mode = 4
-
-[node name="Label" type="Label" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 119.0
-offset_top = 551.0
-offset_right = 411.0
-offset_bottom = 597.0
-theme_override_fonts/font = ExtResource("3_n7hup")
-text = "KEEP GOING GAMES ^_^ !"
 
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Instructions" to="." method="_on_instructions_pressed"]
