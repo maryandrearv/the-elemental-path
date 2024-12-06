@@ -81,6 +81,7 @@ func new_game():
 	
 	# Hide User Interface nodes and show instructions and return button
 	$HUD.get_node("StartLabel").show()
+	$HUD.get_node("Return").show()
 	$GameOver.get_node("ScoreTitle").hide()
 	$GameOver.get_node("ScoreCount").hide()
 	$GameOver.get_node("Button").hide()
