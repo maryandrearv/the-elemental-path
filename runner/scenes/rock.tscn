@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b84jnnqoxig3m"]
 
-[ext_resource type="Script" path="res://scenes/rock.gd" id="1_4el3e"]
-[ext_resource type="Texture2D" uid="uid://ku5lg5ht7tly" path="res://sprites/GrassetPack/GrassetPack.png" id="1_r4dao"]
+[ext_resource type="Script" path="res://scripts/rock.gd" id="1_4el3e"]
+[ext_resource type="Texture2D" uid="uid://ku5lg5ht7tly" path="res://assets/sprites/obstacles/GrassetPack/GrassetPack.png" id="1_r4dao"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqx6"]
 size = Vector2(102, 83)

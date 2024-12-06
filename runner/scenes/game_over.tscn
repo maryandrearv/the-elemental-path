@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dt73sqj2tpqkv"]
 
-[ext_resource type="FontFile" uid="uid://be02sx43qwbhr" path="res://Main_ Story_Font_majorL retro by Catman Industries.ttf" id="1_m3n6w"]
+[ext_resource type="FontFile" uid="uid://be02sx43qwbhr" path="res://assets/fonts/Main_ Story_Font_majorL retro by Catman Industries.ttf" id="1_m3n6w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_432gt"]
 bg_color = Color(0.905234, 0.840649, 0, 1)

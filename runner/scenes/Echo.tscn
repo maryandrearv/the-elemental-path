@@ -1,17 +1,17 @@
 [gd_scene load_steps=57 format=3 uid="uid://l5lkp5yy3b20"]
 
-[ext_resource type="Script" path="res://echo.gd" id="1_yj31d"]
-[ext_resource type="Texture2D" uid="uid://btv67fxt3gvf3" path="res://assets/Echo Beta Spritesheet.png" id="2_j7mbw"]
-[ext_resource type="Texture2D" uid="uid://clg5el3htqy44" path="res://sprites/Earth (1).png" id="3_k3qc7"]
-[ext_resource type="Texture2D" uid="uid://bb1xdvnxgej31" path="res://sprites/Water Effect and Bullet 16x16.png" id="3_v8dir"]
-[ext_resource type="Texture2D" uid="uid://cdr430oh8005q" path="res://sprites/Fire slash sprite.png" id="3_x35eh"]
-[ext_resource type="AudioStream" uid="uid://c5v63qm6mv3m7" path="res://audio/FireSlash.mp3" id="4_g3xbk"]
-[ext_resource type="Texture2D" uid="uid://mc7hwc0rdwcn" path="res://sprites/WaterWall.png" id="4_rxo5s"]
-[ext_resource type="AudioStream" uid="uid://bvlvd0ypchk0c" path="res://audio/rocksound.mp3" id="5_adel0"]
-[ext_resource type="AudioStream" uid="uid://yyc4mkjnw0th" path="res://audio/RetroJump.mp3" id="6_dl45f"]
-[ext_resource type="Texture2D" uid="uid://chve3og63y4oj" path="res://sprites/Cloud.png" id="7_qbw2w"]
-[ext_resource type="AudioStream" uid="uid://du64re8djojgd" path="res://audio/AirJumpWhoosh.mp3" id="8_me835"]
-[ext_resource type="AudioStream" uid="uid://5loceel540sj" path="res://audio/water-splash-type-4-265467.mp3" id="9_86l8x"]
+[ext_resource type="Script" path="res://scripts/echo.gd" id="1_yj31d"]
+[ext_resource type="Texture2D" uid="uid://btv67fxt3gvf3" path="res://assets/sprites/character/EchoSpritesheetBeta.png" id="2_j7mbw"]
+[ext_resource type="Texture2D" uid="uid://clg5el3htqy44" path="res://assets/sprites/casting/Earth.png" id="3_k3qc7"]
+[ext_resource type="Texture2D" uid="uid://bb1xdvnxgej31" path="res://assets/sprites/casting/Water Effect and Bullet 16x16.png" id="3_v8dir"]
+[ext_resource type="Texture2D" uid="uid://cdr430oh8005q" path="res://assets/sprites/casting/Fire slash sprite.png" id="3_x35eh"]
+[ext_resource type="AudioStream" uid="uid://c5v63qm6mv3m7" path="res://assets/audio/FireSlash.mp3" id="4_g3xbk"]
+[ext_resource type="Texture2D" uid="uid://mc7hwc0rdwcn" path="res://assets/sprites/casting/WaterWall.png" id="4_rxo5s"]
+[ext_resource type="AudioStream" uid="uid://bvlvd0ypchk0c" path="res://assets/audio/rocksound.mp3" id="5_adel0"]
+[ext_resource type="AudioStream" uid="uid://yyc4mkjnw0th" path="res://assets/audio/RetroJump.mp3" id="6_dl45f"]
+[ext_resource type="Texture2D" uid="uid://chve3og63y4oj" path="res://assets/sprites/casting/Cloud.png" id="7_qbw2w"]
+[ext_resource type="AudioStream" uid="uid://du64re8djojgd" path="res://assets/audio/AirJumpWhoosh.mp3" id="8_me835"]
+[ext_resource type="AudioStream" uid="uid://5loceel540sj" path="res://assets/audio/water-splash-type-4-265467.mp3" id="9_86l8x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qrdax"]
 atlas = ExtResource("2_j7mbw")
@@ -357,7 +357,7 @@ shape = SubResource("RectangleShape2D_2nvop")
 [node name="Earth" type="AnimatedSprite2D" parent="."]
 visible = false
 texture_filter = 1
-position = Vector2(65, 36.5)
+position = Vector2(76, 35)
 scale = Vector2(4.625, 9.5625)
 sprite_frames = SubResource("SpriteFrames_a8h5c")
 animation = &"earth"
@@ -365,23 +365,22 @@ frame = 5
 frame_progress = 0.527241
 
 [node name="Water" type="AnimatedSprite2D" parent="."]
-visible = false
 texture_filter = 1
-position = Vector2(99, 21)
+position = Vector2(118, 20)
 scale = Vector2(4.625, 10.25)
 sprite_frames = SubResource("SpriteFrames_cvafy")
 animation = &"waterwall"
-frame_progress = 0.0685222
+frame_progress = 0.584831
 
 [node name="Fire" type="AnimatedSprite2D" parent="."]
 visible = false
 texture_filter = 1
-position = Vector2(59, 45)
+position = Vector2(76, 44)
 scale = Vector2(5.25, 5.59375)
 sprite_frames = SubResource("SpriteFrames_f6y3w")
 animation = &"fire"
-frame = 3
-frame_progress = 0.969144
+frame = 1
+frame_progress = 0.858872
 speed_scale = 2.0
 
 [node name="air" type="AnimatedSprite2D" parent="."]
@@ -420,7 +419,7 @@ shape = SubResource("RectangleShape2D_14pb7")
 position = Vector2(46, 29)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ability_hitbox"]
-position = Vector2(23.25, 5)
+position = Vector2(35, 3)
 shape = SubResource("RectangleShape2D_bayfr")
 
 [connection signal="area_entered" from="Echo_hitbox" to="." method="_on_echo_hitbox_area_entered"]
