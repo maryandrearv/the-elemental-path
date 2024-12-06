@@ -39,7 +39,6 @@ scale = Vector2(7, 5.374)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeHitbox2"]
 position = Vector2(-5.35716, -3.86115)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ib4e7")
 
 [node name="SpikeHitbox" type="Area2D" parent="."]
@@ -48,7 +47,6 @@ scale = Vector2(7, 5.373)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeHitbox"]
 position = Vector2(6.92857, -4.90695)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_h3eep")
 
 [node name="StalagmiteCollision" type="CollisionShape2D" parent="."]

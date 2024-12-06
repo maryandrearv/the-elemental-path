@@ -4,15 +4,19 @@ extends Node2D
 
 @onready var bg_music = $"/root/BackgroundMusic"
 @onready var game_over_sound = $GameOverSound
+@onready var gem_pickup_sound = $GemPickupSound
+
+
+
 
 # preload obstacle scenes
 var platform_scene = preload("res://scenes/platform.tscn")
 @onready var vine_scene = preload("res://scenes/vine.tscn")
 @onready var spike_scene = preload("res://scenes/spike_obs.tscn")
 @onready var fire_scene = preload("res://scenes/fire_obstacle.tscn")
-@onready var gemstone_scene = preload("res://scenes/gem_stone_item.tscn")
 @onready var rock_pillar_scene = preload("res://scenes/rock_pillar.tscn")
 @onready var rock_pillar_tandb_scene = preload("res://scenes/rock_pillar_t_and_b.tscn")
+@onready var gem = preload("res://scenes/gem.tscn")
 
 
 #var obstacle_types := [rock_scene,rock_scene,rock_scene]
@@ -50,14 +54,15 @@ var push_distance: float = 800.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	randomize()
 	screen_size = get_window().size
 	ground_height = $Ground.get_node("Sprite2D").texture.get_height()
 	ceiling_height = $Ceiling.get_node("Sprite2D").texture.get_height()
+
 	$GameOver.get_node("Button").pressed.connect(new_game)
 	new_game()
+	
 func new_game():
-	
-	
 	#Start Game in paused state and allows user to press space to start
 	# get rid of all game pausing stuff later
 	get_tree().paused = false
@@ -100,6 +105,9 @@ func _process(delta):
 			speed = MAX_SPEED
 		#Generate obstacles when game is proccessing
 		generate_obs()
+		
+		#Spawn gems
+		spawn_gem()
 		
 		# Calculates the camera and player position to match the speed
 		$Echo.position.x += speed
@@ -261,3 +269,70 @@ func instant_game_over() -> void:
 	$GameOver.get_node("ScoreCount").show()
 	$GameOver.get_node("ScoreCount").text = str(score / SCORE_MODIFIER)
 	game_over_sound.play()
+	
+#func spawn_gems():
+	#for i in range(5):
+		#var g = gem.instantiate()
+		#$GemContainer.add_child(g)
+		#g.screensize = screen_size
+		#g.position =Vector2(randf_range(0, screen_size.x), (randf_range(0, screen_size.y)))
+
+#func spawn_gems():
+	#for i in range(5):
+		#var g = gem.instantiate()
+		#$GemContainer.add_child(g)
+		##g.screensize = screen_size
+		#g.position = Vector2(randf_range(0, screen_size.x), randf_range(0, screen_size.y))
+
+#func spawn_gem():
+	#var camera_x = $Camera2D.position.x
+	#var ground_line = screen_size.y - ground_height
+	#var gem_y_position = ground_line - 50
+	#var spawn_x = camera_x + screen_size.x + 200
+#
+	#var g = gem.instantiate()
+	#$GemContainer.add_child(g) # or add_child(g) if you're adding directly to the main scene
+	#g.position = Vector2(spawn_x, gem_y_position)
+#
+	## Connect the gem's pickup signal to the _on_gem_picked_up function in this main script
+	##g.gem_picked_up.connect(Callable(self, "_on_gem_picked_up"))
+
+var gem_scene = preload("res://scenes/gem.tscn")
+var next_gem_x = 0
+var min_spacing = 200
+var max_spacing = 500
+
+func spawn_gem():
+	# Assume camera_x is the current camera position
+	var camera_x = $Camera2D.position.x
+
+	# Move the next_gem_x ahead of the camera view, plus random spacing
+	# Ensure next_gem_x always stays ahead of the camera
+	if next_gem_x < camera_x + get_window().size.x:
+		next_gem_x = camera_x + get_window().size.x + 100
+
+	# Add random spacing to the next gem position
+	next_gem_x += randi_range(min_spacing, max_spacing)
+
+	# Determine vertical position near ground.
+	var ground_line = screen_size.y - ground_height
+	# If you want them all at ground_line - 50:
+	var base_y = ground_line - 100
+
+	# If you want a slight random vertical offset (optional):
+	var gem_y = base_y + randi_range(-40, -400) # vary position by ±30 pixels
+
+	# Instantiate the gem
+	var g = gem_scene.instantiate()
+	add_child(g)
+	g.position = Vector2(next_gem_x, gem_y)
+
+	# Connect the pickup signal 
+	
+func _on_gem_picked_up():
+	print("Gem picked up!") # For debugging
+	score += SCORE_MODIFIER
+	show_score()
+	gem_pickup_sound.play()
+
+			
