@@ -19,9 +19,6 @@ var can_attack: bool = true
 
 @onready var player_area: Area2D = $Echo_hitbox
 
-signal died
-
-
 const ANIMATION_DURATION: float = 1.0 
 
 #Jump variables
@@ -49,24 +46,21 @@ func _on_ready():
 
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("air") and not DOUBLE_JUMP_ON:
-		air_sound.play()
-		air_animation.visible = true
-		air_animation.play("air")
-		DOUBLE_JUMP_ON = true
-		velocity.x = 2000
-		velocity.y = -200
-		#DOUBLE_JUMP_SPEED
-		GRAVITY = GLIDE_GRAVITY
-		_hide_animation()
-	
-	#ORIGINAL AIR JUMP, NON GLIDE
-	#if Input.is_action_just_pressed("air") and not DOUBLE_JUMP_ON:
-		#DOUBLE_JUMP_ON = true
-		#velocity.x = 2500
-		#velocity.y = -300
-		#DOUBLE_JUMP_SPEED
-		#GRAVITY = DOUBLE_JUMP_GRAVITY
+	if Input.is_action_just_pressed("ui_accept"):
+		if is_on_floor(): #Normal Jump
+			jump_sound.play()
+			velocity.y = JUMP_SPEED
+			echo_sprite.play("jump")
+		elif not DOUBLE_JUMP_ON: #Double Jump
+			air_sound.play()
+			air_animation.visible = true
+			air_animation.play("air")
+			DOUBLE_JUMP_ON = true
+			velocity.x = 1500
+			velocity.y = -800
+			DOUBLE_JUMP_SPEED
+			GRAVITY = DOUBLE_JUMP_GRAVITY
+			_hide_animation()
 	
 	else:
 		velocity.x = 0
@@ -109,12 +103,6 @@ func _physics_process(delta: float) -> void:
 			#hide other casting animations
 			fire_animation.visible = false
 			earth_animation.visible = false
-		
-		#Double jumps used to test spikes, can implement again
-		#elif Input.is_action_just_pressed("ui_accept") and not DOUBLE_JUMP_ON:
-			#DOUBLE_JUMP_ON = true
-			#velocity.y = DOUBLE_JUMP_SPEED
-			#GRAVITY = DOUBLE_JUMP_GRAVITY
 
 
 		
@@ -162,27 +150,6 @@ func knock_over_rocks():
 			# Apply a force to each rock to knock it over
 			var force = Vector2(randf_range(-300, 300), -500) # Random direction with upward push
 			rock.apply_impulse(Vector2.ZERO, force)
-
-
-#func _hide_earth_animation() -> void:
-#	# Wait for the duration of the animation
-#	await get_tree().create_timer(ANIMATION_DURATION).timeout
-#	earth_animation.visible = false
-#	
-#func _hide_fire_animation() -> void:
-#	# Wait for the duration of the animation
-#	await get_tree().create_timer(ANIMATION_DURATION).timeout
-#	fire_animation.visible = false
-#	
-#func _hide_water_animation() -> void:
-#	# Wait for the duration of the animation
-#	await get_tree().create_timer(ANIMATION_DURATION).timeout
-#	water_animation.visible = false
-#
-#func _hide_air_animation() -> void:
-#	# Wait for the duration of the animation
-#	await get_tree().create_timer(ANIMATION_DURATION - 0.33).timeout
-#	air_animation.visible = false
 	
 func _hide_animation() -> void:
 	if Input.is_action_just_pressed("earth"):
@@ -194,10 +161,9 @@ func _hide_animation() -> void:
 	elif Input.is_action_just_pressed("water"):
 		await get_tree().create_timer(ANIMATION_DURATION).timeout
 		water_animation.visible = false
-	elif Input.is_action_just_pressed("air"):
+	elif Input.is_action_just_pressed("ui_accept"):
 		await get_tree().create_timer(ANIMATION_DURATION).timeout
 		air_animation.visible = false
-
 
 func perform_attack():
 	if can_attack:
@@ -211,39 +177,7 @@ func perform_attack():
 			attack_area.add_to_group("Fire_Attack")
 		elif Input.is_action_just_pressed("water"):
 			attack_area.add_to_group("Water_Attack")
-		
 		_hide_attack_area()
-
-
-#Function for fire slash 
-#func perform_fire_attack():
-#	if can_attack:
-#		can_attack = false
-#		attack_area.monitoring = true
-#		attack_collision.disabled = false
-#		attack_area.visible = true
-#		attack_area.add_to_group("Fire_Attack")
-#		_hide_attack_area()
-
-#Function for water wall
-#func water_attack_perform():
-#	if can_attack:
-#		can_attack = false
-#		attack_area.monitoring = true
-#		attack_collision.disabled = false
-#		attack_area.visible = true
-#		attack_area.add_to_group("Water_Attack")
-#		_hide_attack_area()
-
-#Function for earth push
-#func earth_push_perform():
-#	if can_attack:
-#		can_attack = false
-#		attack_area.monitoring = true
-#		attack_collision.disabled = false
-#		attack_area.visible = true
-#		attack_area.add_to_group("Earth_push")
-#		_hide_attack_area()
 
 #Hides the activated hitboxes after use
 func _hide_attack_area() -> void:
@@ -262,6 +196,3 @@ func _on_echo_hitbox_area_entered(area: Area2D) -> void:
 		print("Player burnt to a crisp")
 	elif area.is_in_group("Spikes_obs"):
 		print("Player prickled from spikes")
-
-func die():
-	print("Echo died")
