@@ -335,7 +335,7 @@ animations = [{
 size = Vector2(65, 106)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bayfr"]
-size = Vector2(109, 126)
+size = Vector2(139, 126)
 
 [node name="Echo" type="CharacterBody2D"]
 script = ExtResource("1_yj31d")
@@ -371,7 +371,7 @@ position = Vector2(140, 19)
 scale = Vector2(4.625, 10.25)
 sprite_frames = SubResource("SpriteFrames_cvafy")
 animation = &"waterwall"
-frame_progress = 0.0143546
+frame_progress = 0.475761
 
 [node name="Fire" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -420,7 +420,7 @@ shape = SubResource("RectangleShape2D_14pb7")
 position = Vector2(46, 29)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ability_hitbox"]
-position = Vector2(34.5, 6)
+position = Vector2(19.5, 6)
 shape = SubResource("RectangleShape2D_bayfr")
 
 [connection signal="area_entered" from="Echo_hitbox" to="." method="_on_echo_hitbox_area_entered"]
