@@ -7,7 +7,7 @@
 size = Vector2(146, 523.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tf4uo"]
-size = Vector2(228, 542)
+size = Vector2(213, 542)
 
 [node name="Vine" type="StaticBody2D" groups=["vine"]]
 script = ExtResource("1_occcl")
@@ -23,9 +23,10 @@ position = Vector2(0, 257.25)
 shape = SubResource("RectangleShape2D_1wu3w")
 
 [node name="Vine_hitbox" type="Area2D" parent="."]
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vine_hitbox"]
-position = Vector2(-35, 256)
+position = Vector2(-27.5, 256)
 shape = SubResource("RectangleShape2D_tf4uo")
 
 [connection signal="area_entered" from="Vine_hitbox" to="." method="_on_vine_hitbox_area_entered"]

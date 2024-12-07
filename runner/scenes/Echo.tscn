@@ -371,7 +371,7 @@ position = Vector2(140, 19)
 scale = Vector2(4.625, 10.25)
 sprite_frames = SubResource("SpriteFrames_cvafy")
 animation = &"waterwall"
-frame_progress = 0.475761
+frame_progress = 0.612776
 
 [node name="Fire" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -418,6 +418,7 @@ shape = SubResource("RectangleShape2D_14pb7")
 
 [node name="Ability_hitbox" type="Area2D" parent="."]
 position = Vector2(46, 29)
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ability_hitbox"]
 position = Vector2(19.5, 6)

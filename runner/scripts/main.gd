@@ -42,7 +42,7 @@ var high_score: int
 
 # Physics variables
 var speed : float
-const START_SPEED : float = 8.0
+const START_SPEED : float = 3000.0
 const MAX_SPEED : int = 15
 const SPEED_MODIFIER : int = 12000
 var push_distance: float = 800.0 
@@ -50,6 +50,7 @@ var push_distance: float = 800.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Engine.max_fps = 60
 	screen_size = get_window().size
 	ground_height = $Ground.get_node("Sprite2D").texture.get_height()
 	ceiling_height = $Ceiling.get_node("Sprite2D").texture.get_height()
