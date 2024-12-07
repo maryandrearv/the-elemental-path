@@ -15,10 +15,9 @@ func _ready():
 	
 	hitbox.connect("body_entered", Callable(self, "_on_spikeobs_hitbox_area_entered"))
 	hitbox2.connect("body_entered", Callable(self, "_on_spike_hitbox_2_body_entered"))
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-	#pass
+func _process(delta: float) -> void:
+	pass
 
 func _on_spikeobs_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Player"):

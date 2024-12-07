@@ -13,8 +13,8 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-	#pass
+func _process(delta: float) -> void:
+	pass
 
 
 func _on_middle_rock_hitbox_area_entered(area: Area2D) -> void:
@@ -25,9 +25,9 @@ func _on_middle_rock_hitbox_area_entered(area: Area2D) -> void:
 		print("Cannot use this power")
 
 
-#func _on_top_pillar_area_entered(area: Area2D) -> void:
-	#pass # Replace with function body.
+func _on_top_pillar_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.
 
 
-#func _on_bottom_pillar_area_entered(area: Area2D) -> void:
-	#pass # Replace with function body.
+func _on_bottom_pillar_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.
