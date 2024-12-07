@@ -164,7 +164,7 @@ func generate_obs():
 	
 	# Ensure to generate rocks at appropriate intervals
 	if last_obs == null or (is_instance_valid(last_obs) and last_obs.position.x < score + randi_range(300, 500)):
-		var obstacle_type = randi_range(0, 4)
+		var obstacle_type = randi_range(0, 3)
 		
 		var obs
 		var obs_x : int = $Camera2D.position.x + screen_size.x + randi_range(200, 400)
@@ -193,15 +193,15 @@ func generate_obs():
 			
 				add_obs(obs, obs_x, obs_y)
 			
-			elif obstacle_type == 2: #Platform
-				obs = platform_scene.instantiate()
-				var obs_height = obs.get_node("Sprite2D").texture.get_height()
-				var obs_scale = obs.get_node("Sprite2D").scale
-				var obs_y : int = (screen_size.y - ground_height - ceiling_height) / 1.83 - obs_height / 3
+			#elif obstacle_type == 2: #Platform
+				#obs = platform_scene.instantiate()
+				#var obs_height = obs.get_node("Sprite2D").texture.get_height()
+				#var obs_scale = obs.get_node("Sprite2D").scale
+				#var obs_y : int = (screen_size.y - ground_height - ceiling_height) / 1.83 - obs_height / 3
 			
-				add_obs(obs, obs_x, obs_y)
+				#add_obs(obs, obs_x, obs_y)
 		
-			elif obstacle_type == 3: #Spikes
+			elif obstacle_type == 2: #Spikes
 				obs = spike_scene.instantiate()
 				obs.add_to_group("Spikes_obs")
 				var obs_height = obs.get_node("Stalagmites").texture.get_height()
@@ -211,7 +211,7 @@ func generate_obs():
 			
 				add_obs(obs, obs_x, obs_y)
 		
-			elif obstacle_type == 4: #flames/fire obstacle
+			elif obstacle_type == 3: #flames/fire obstacle
 				obs = fire_scene.instantiate()
 				obs.add_to_group("Fire_obs")
 				obs.get_node("FireObstacle").play()
