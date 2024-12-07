@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cf8jkc04634or"]
+[gd_scene load_steps=8 format=3 uid="uid://cqikuy6nwd7nq"]
 
 [ext_resource type="Script" path="res://scripts/spike_obs.gd" id="1_r0ohr"]
 [ext_resource type="Texture2D" uid="uid://b06ica25bxb6t" path="res://assets/sprites/obstacles/spikes.png" id="2_cpk6m"]
@@ -20,12 +20,14 @@ size = Vector2(306, 133.5)
 script = ExtResource("1_r0ohr")
 
 [node name="Stalagmites" type="Sprite2D" parent="."]
+modulate = Color(0.796293, 1, 0.80485, 1)
 texture_filter = 1
 position = Vector2(139.75, 521.241)
 scale = Vector2(10.5781, 12.9525)
 texture = ExtResource("2_cpk6m")
 
 [node name="Stalactites" type="Sprite2D" parent="."]
+modulate = Color(0.87155, 1, 0.875496, 1)
 texture_filter = 1
 position = Vector2(158.65, 11.0001)
 rotation = 3.14159
@@ -38,6 +40,7 @@ rotation = -3.14159
 scale = Vector2(7, 5.374)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeHitbox2"]
+visible = false
 position = Vector2(-5.35716, -3.86115)
 shape = SubResource("RectangleShape2D_ib4e7")
 
@@ -46,14 +49,17 @@ position = Vector2(113, 87)
 scale = Vector2(7, 5.373)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeHitbox"]
+visible = false
 position = Vector2(6.92857, -4.90695)
 shape = SubResource("RectangleShape2D_h3eep")
 
 [node name="StalagmiteCollision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(141.5, 475)
 shape = SubResource("RectangleShape2D_qjym5")
 
 [node name="StalactiteCollision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(157, 59.25)
 shape = SubResource("RectangleShape2D_nxjnu")
 

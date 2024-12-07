@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://l5lkp5yy3b20" path="res://scenes/Echo.tscn" id="4_n4rl8"]
 [ext_resource type="PackedScene" uid="uid://bspmx6iy24yee" path="res://scenes/hud.tscn" id="5_0j2pw"]
 [ext_resource type="PackedScene" uid="uid://dt73sqj2tpqkv" path="res://scenes/game_over.tscn" id="6_ku17w"]
-[ext_resource type="PackedScene" uid="uid://cydxp5fep4nu3" path="res://scenes/gem.tscn" id="8_pf4yw"]
+[ext_resource type="PackedScene" path="res://scenes/gem_stone_item.tscn" id="8_pf4yw"]
 [ext_resource type="AudioStream" uid="uid://cjymv14n11bg" path="res://assets/audio/CollectGemDing.wav" id="9_qui5c"]
 [ext_resource type="AudioStream" uid="uid://c4u7qw8wlx6uj" path="res://assets/audio/videogame-death-sound-43894.mp3" id="9_rvuo5"]
 
