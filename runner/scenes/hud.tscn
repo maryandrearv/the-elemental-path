@@ -82,10 +82,10 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.0
-offset_left = -91.0
-offset_top = 46.0
-offset_right = 768.0
-offset_bottom = 330.0
+offset_left = -81.0
+offset_top = 47.0
+offset_right = 778.0
+offset_bottom = 331.0
 grow_vertical = 1
 scale = Vector2(0.2, 0.2)
 
