@@ -330,9 +330,11 @@ func spawn_gem():
 	# Connect the pickup signal 
 	
 func _on_gem_picked_up():
-	print("Gem picked up!") # For debugging
+	gem_pickup_sound.play()
+	#print("Gem picked up!") # For debugging
 	score += SCORE_MODIFIER
 	show_score()
-	gem_pickup_sound.play()
+	
+
 
 			
