@@ -42,11 +42,10 @@ var high_score: int
 
 # Physics variables
 var speed : float
-const START_SPEED : float = 3000.0
+var START_SPEED : float = 5000.0
 const MAX_SPEED : int = 15
 const SPEED_MODIFIER : int = 12000
 var push_distance: float = 800.0 
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

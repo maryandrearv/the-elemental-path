@@ -11,7 +11,7 @@ size = Vector2(23.1429, 47.916)
 size = Vector2(43.2857, 6.46384)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjym5"]
-size = Vector2(220, 236)
+size = Vector2(203, 125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nxjnu"]
 size = Vector2(306, 540.5)
@@ -60,8 +60,7 @@ shape = SubResource("RectangleShape2D_h3eep")
 disabled = true
 
 [node name="StalagmiteCollision" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(557, 411)
+position = Vector2(524.5, 490.5)
 shape = SubResource("RectangleShape2D_qjym5")
 
 [node name="StalactiteCollision" type="CollisionShape2D" parent="."]
